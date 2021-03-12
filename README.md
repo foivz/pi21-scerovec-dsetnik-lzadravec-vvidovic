@@ -11,15 +11,25 @@ Dorian Setnik |    dsetnik@foi.hr   | 0016137639 | doriansetnik
 Vedran Vidović|   vvidovic@foi.hr   | 0016132151 | veky-dev
 
 ## Opis domene
-Umjesto ovih uputa opišite domenu ili problem koji pokrivate vašim  projektom. Domena može biti proizvoljna, ali obratite pozornost da sukladno ishodima učenja, domena omogući primjenu zahtijevanih koncepata kako je to navedeno u sljedećem poglavlju. Priložite odgovarajuće skice gdje je to prikladno.
+Knjižnicama uvelike bi pomogla aplikacija koja daje informacije o knjigama online. Ovom aplikacijom korisniku bi bilo omogućeno da vidi što knjižnica nudi i da obavi rezervaciju online. Cilj naše aplikacije je da članovima knjižnice olakša traženje, biranje i posuđivanje knjiga, a zaposlenicima poslovanje unutar knjižnice.
 
 ## Specifikacija projekta
-Umjesto ovih uputa opišite zahtjeve za funkcionalnošću programskog proizvoda. Pobrojite osnovne funkcionalnosti i za svaku naznačite ime odgovornog člana tima. Opišite buduću arhitekturu programskog proizvoda. Obratite pozornost da bi arhitektura trebala biti višeslojna s odvojenom (dislociranom) bazom podatka. Također uzmite u obzir da bi svaki član tima treba biti odgovorana za otprilike 3 funkcionalnosti, te da bi opterećenje članova tima trebalo biti ujednačeno. Priložite odgovarajuće dijagrame i skice gdje je to prikladno. Funkcionalnosti sustava bobrojite u tablici ispod koristeći predložak koji slijedi:
 
 Oznaka | Naziv | Kratki opis | Odgovorni član tima
 ------ | ----- | ----------- | -------------------
-F01 | Login | Za pristup dnevniku potrebnba je autentikacija korisnika pomoću login funkcionalnosti. Korisnik se logira s podacima koji su mu dodijeljeni prilikom ... | Zlatko Stapić
-F02 | Pregled dnevnika | .... | ...
+F01 | Prijava korisnika i zaposlenika knjižnice | Kako bi koristili sve funkcionalnosti aplikacije korisnici i zaposlenici trebaju se prijaviti | Sven Cerovec
+F02 | Registracija korisnika | Registracija novih korisnika i članova knjižnice | Lino Zadravec
+F03 | Pregled knjiga | Mogućnost pregleda dostupnih, ali i posuđenih knjiga ovisno o tipu korisnika | Sven Cerovec
+F10 | Posudba knjiga | Posudba knjiga putem aplikacije | Vedran Vidović
+F03 | Rezervacija knjiga | Mogućnost rezervacije knjige ukoliko ona nije dostupna | Sven Cerovec
+F04 | Dostava knjiga | Mogućnost odabira dostave knjige poštom | Lino Zadravec
+F05 | Live chat sa zaposlenikom | Oblačić za razgovor korisnika sa zaposlenikom | Lino Zadravec
+F07 | Pregled članova | Zaposlenik ima mogućnost pregleda informacija o trenutnim članovima knjižnice | Dorian Setnik
+F08 | Novosti knjižnice | Stranica koja prikazuje novosti o radu knjižnice i najnovijim izdanjima knjiga | Dorian Setnik
+F09 | Recenzije | Član knjižnice ima mogućnost ocjenjivanja usluge | Dorian Setnik
+F11 | Početna stranica | Početna stranica aplikacije s izbornikom za ostale funkcionalnosti i raznim informacijama | Vedran Vidović
+F12 | Obavijesti članovima i zaposlenicima | Članovi dobivaju obavijest tjedan dana prije roka vraćanja knjige. Zaposlenici dobivaju obavijesti ukoliko neki član nije vratio knjigu u danom roku. | Vedran Vidović
+
 
 ## Tehnologije i oprema
-Umjesto ovih uputa jasno popišite sve tehnologije, alate i opremu koju ćete koristiti pri implementaciji vašeg rješenja. Ne zaboravite planirati korištenje tehnologija u aktivnostima kao što su projektni menadžment ili priprema dokumentacije. Tehnologije koje ćete koristiti bi trebale biti javno dostupne, a ako ih ne budemo obrađivali na vježbama u vašoj dokumentaciji ćete morati navesti način preuzimanja, instaliranja i korištenja onih tehnologija koje su neopbodne kako bi se vaš programski proizvod preveo i pokrenuo. Pazite da svi alati koje ćete koristiti moraju imati odgovarajuću licencu.
+.NET (Visual Studio), GitHub, GitHub Classroom, MySQL, Draw.io, Visual Paradigm, Microsoft Word
