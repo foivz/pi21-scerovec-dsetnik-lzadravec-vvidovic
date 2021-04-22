@@ -32,4 +32,4 @@ F12 | Obavijesti članovima i zaposlenicima | Članovi dobivaju obavijest tjedan
 
 
 ## Tehnologije i oprema
-.NET (Visual Studio), GitHub, GitHub Classroom, MySQL, Draw.io, Visual Paradigm, Microsoft Word
+.NET (Visual Studio), GitHub, GitHub Classroom, MSSQL, Draw.io, Visual Paradigm, Microsoft Word
