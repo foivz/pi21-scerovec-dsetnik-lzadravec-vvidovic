@@ -56,6 +56,13 @@ namespace bitBooks_Project
         private void PrikaziSveKorisnikeKnjiznice()
         {
             dgvKorisnici.DataSource = Korisnik.DohvatiKorisnikeKnjižnice(knjiznicaID);
+            dgvKorisnici.Columns["TipID"].Visible = false;
+            dgvKorisnici.Columns["KnjiznicaID"].Visible = false;
+        }
+
+        private void btnZatvori_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

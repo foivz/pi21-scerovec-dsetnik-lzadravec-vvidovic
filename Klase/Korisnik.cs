@@ -11,7 +11,9 @@ namespace bitBooks_Project.Klase
     {
         public int KorisnikID { get; set; }
         public int TipID { get; set; }
+        public string ImeTipa { get; set; }
         public int? KnjiznicaID { get; set; }
+        public string ImeKnjiznice { get; set; }
         public string Email { get; set; }
         public string  Adresa { get; set; }
         public string KorisnickoIme { get; set; }
@@ -61,7 +63,9 @@ namespace bitBooks_Project.Klase
                             {
                                 KorisnikID = l.UserID,
                                 TipID = l.TypeID,
+                                ImeTipa =l.UserType.Name,
                                 KnjiznicaID = l.LibraryID,
+                                ImeKnjiznice = l.Library.Name,
                                 Email = l.Email,
                                 Adresa = l.Adress,
                                 KorisnickoIme = l.Username,
@@ -77,7 +81,7 @@ namespace bitBooks_Project.Klase
             return korisniciKnjiznice;
         }
 
-        public Korisnik DohvatiKorisnikaPoID(int korisnikID)
+        public static Korisnik DohvatiKorisnikaPoID(int korisnikID)
         {
             Korisnik korisnik;
 
@@ -89,7 +93,9 @@ namespace bitBooks_Project.Klase
                             {
                                 KorisnikID = l.UserID,
                                 TipID = l.TypeID,
+                                ImeTipa = l.UserType.Name,
                                 KnjiznicaID = l.LibraryID,
+                                ImeKnjiznice = l.Library.Name,
                                 Email = l.Email,
                                 Adresa = l.Adress,
                                 KorisnickoIme = l.Username,
@@ -131,7 +137,9 @@ namespace bitBooks_Project.Klase
                             {
                                 KorisnikID = l.UserID,
                                 TipID = l.TypeID,
+                                ImeTipa = l.UserType.Name,
                                 KnjiznicaID = l.LibraryID,
+                                ImeKnjiznice = l.Library.Name,
                                 Email = l.Email,
                                 Adresa = l.Adress,
                                 KorisnickoIme = l.Username,
@@ -158,7 +166,9 @@ namespace bitBooks_Project.Klase
                             {
                                 KorisnikID = l.UserID,
                                 TipID = l.TypeID,
+                                ImeTipa = l.UserType.Name,
                                 KnjiznicaID = l.LibraryID,
+                                ImeKnjiznice = l.Library.Name,
                                 Email = l.Email,
                                 Adresa = l.Adress,
                                 KorisnickoIme = l.Username,
@@ -185,7 +195,9 @@ namespace bitBooks_Project.Klase
                             {
                                 KorisnikID = l.UserID,
                                 TipID = l.TypeID,
+                                ImeTipa = l.UserType.Name,
                                 KnjiznicaID = l.LibraryID,
+                                ImeKnjiznice = l.Library.Name,
                                 Email = l.Email,
                                 Adresa = l.Adress,
                                 KorisnickoIme = l.Username,

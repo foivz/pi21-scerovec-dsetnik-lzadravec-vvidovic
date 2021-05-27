@@ -10,8 +10,10 @@ namespace bitBooks_Project.Klase
     {
         public int RecenzijaID { get; set; }
         public int KorisnikID { get; set; }
+        public string KorisnickoIme { get; set; }
         public string TekstRecenzije { get; set; }
         public int Ocjena { get; set; }
+        public DateTime DatumUnosa { get; set; }
 
     }
 }

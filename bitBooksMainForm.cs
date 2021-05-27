@@ -14,6 +14,8 @@ namespace bitBooks_Project
     public partial class bitBooksMainForm : Form
     {
         PregledClanovaForm pregledClanovaForm;
+        PregledRecenzijaForm pregledRecenzijaForm;
+        Korisnik _korisnik;
         public bitBooksMainForm()
         {
             InitializeComponent();
@@ -26,15 +28,31 @@ namespace bitBooks_Project
 
         private void btnPregledClanova_Click(object sender, EventArgs e)
         {
-            foreach (Korisnik item in Korisnik.DohvatiSveKorisnike()) 
-            {
-                if(item.KorisnickoIme == txtUser.Text && item.Lozinka == txtPw.Text && item.DohvatiTipKorisnika(item) == "Zaposlenik") 
+                if(_korisnik.DohvatiTipKorisnika(_korisnik) == "Zaposlenik") 
                 {
-                    pregledClanovaForm = new PregledClanovaForm(item.KnjiznicaID);
+                    pregledClanovaForm = new PregledClanovaForm(_korisnik.KnjiznicaID);
                     pregledClanovaForm.ShowDialog();
+                }    
+        }
+
+        private void btnRecenzije_Click(object sender, EventArgs e)
+        {
+            pregledRecenzijaForm = new PregledRecenzijaForm(_korisnik);
+            pregledRecenzijaForm.ShowDialog();
+        }
+
+        private void btnProvjera_Click(object sender, EventArgs e)
+        {
+            foreach (Korisnik item in Korisnik.DohvatiSveKorisnike())
+            {
+                if (item.KorisnickoIme == txtUser.Text && item.Lozinka == txtPw.Text)
+                {
+                    _korisnik = item;
+                    break;
                 }
             }
-            
+
+            txtStatus.Text = _korisnik.DohvatiTipKorisnika(_korisnik);
         }
     }
 }
