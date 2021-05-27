@@ -1,0 +1,16 @@
+C:\Users\Dorian\source\repos\bitBooks_Project\bin\Debug\bitBooks_Project.exe.config
+C:\Users\Dorian\source\repos\bitBooks_Project\bin\Debug\bitBooks_Project.exe
+C:\Users\Dorian\source\repos\bitBooks_Project\bin\Debug\bitBooks_Project.pdb
+C:\Users\Dorian\source\repos\bitBooks_Project\obj\Debug\bitBooks_Project.csprojAssemblyReference.cache
+C:\Users\Dorian\source\repos\bitBooks_Project\obj\Debug\bitBooks_Project.Properties.Resources.resources
+C:\Users\Dorian\source\repos\bitBooks_Project\obj\Debug\bitBooks_Project.csproj.GenerateResource.cache
+C:\Users\Dorian\source\repos\bitBooks_Project\obj\Debug\bitBooks_Project.csproj.CoreCompileInputs.cache
+C:\Users\Dorian\source\repos\bitBooks_Project\obj\Debug\bitBooks_Project.exe
+C:\Users\Dorian\source\repos\bitBooks_Project\obj\Debug\bitBooks_Project.pdb
+C:\Users\Dorian\source\repos\bitBooks_Project\bin\Debug\EntityFramework.dll
+C:\Users\Dorian\source\repos\bitBooks_Project\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Dorian\source\repos\bitBooks_Project\bin\Debug\EntityFramework.xml
+C:\Users\Dorian\source\repos\bitBooks_Project\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Dorian\source\repos\bitBooks_Project\obj\Debug\bitBooks_Project.bitBooksMainForm.resources
+C:\Users\Dorian\source\repos\bitBooks_Project\obj\Debug\bitBooks_Project.csproj.CopyComplete
+C:\Users\Dorian\source\repos\bitBooks_Project\obj\Debug\bitBooks_Project.PregledClanovaForm.resources
