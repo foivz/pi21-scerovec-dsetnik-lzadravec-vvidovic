@@ -15,7 +15,7 @@ namespace bitBooks_Project.Klase
         {
             List<Grad> sviGradovi = new List<Grad>();
 
-            using (var context = new Entities()) 
+            using (var context = new Entities_db()) 
             {
                 var query = from c in context.Cities
                             select new Grad
@@ -33,7 +33,7 @@ namespace bitBooks_Project.Klase
         {
             Grad dohvaceniGrad;
 
-            using (var context = new Entities())
+            using (var context = new Entities_db())
             {
                 var query = from c in context.Cities
                             where c.PostalCode == postanskiBroj

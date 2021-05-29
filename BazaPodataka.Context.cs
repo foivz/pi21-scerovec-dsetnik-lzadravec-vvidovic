@@ -13,10 +13,10 @@ namespace bitBooks_Project
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class Entities_db : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public Entities_db()
+            : base("name=Entities_db")
         {
         }
     

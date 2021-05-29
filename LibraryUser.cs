@@ -27,7 +27,7 @@ namespace bitBooks_Project
     
         public int UserID { get; set; }
         public int TypeID { get; set; }
-        public int LibraryID { get; set; }
+        public Nullable<int> LibraryID { get; set; }
         public string Email { get; set; }
         public string Adress { get; set; }
         public string Username { get; set; }

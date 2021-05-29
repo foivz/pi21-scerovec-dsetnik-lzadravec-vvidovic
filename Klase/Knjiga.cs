@@ -17,7 +17,7 @@ namespace bitBooks_Project.Klase
         {
             List<Knjiga> knjigeZanra = new List<Knjiga>();
 
-            using (var context = new Entities()) 
+            using (var context = new Entities_db()) 
             {
                 var query = from b in context.Books
                             where b.GenreID == zanrID
@@ -38,7 +38,7 @@ namespace bitBooks_Project.Klase
         {
             List<Knjiga> knjigeImena = new List<Knjiga>();
 
-            using (var context = new Entities())
+            using (var context = new Entities_db())
             {
                 var query = from b in context.Books
                             where b.Name == ime

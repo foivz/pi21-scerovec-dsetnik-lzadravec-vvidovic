@@ -62,7 +62,7 @@
           </Key>
           <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TypeID" Type="int" Nullable="false" />
-          <Property Name="LibraryID" Type="int" Nullable="false" />
+          <Property Name="LibraryID" Type="int" />
           <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Adress" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
@@ -96,7 +96,7 @@
             <PropertyRef Name="PublishingID" />
           </Key>
           <Property Name="PublishingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DepartmentID" Type="int" Nullable="false" />
+          <Property Name="DepartmentID" Type="int" />
           <Property Name="ISBN" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="NumLoaned" Type="int" Nullable="false" />
           <Property Name="NumAvailable" Type="int" Nullable="false" />
@@ -120,8 +120,9 @@
           <Property Name="ReviewEmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EmployeeID" Type="int" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
-          <Property Name="ReviewText" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="ReviewText" Type="varchar" MaxLength="200" />
           <Property Name="Stars" Type="int" Nullable="false" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="ReviewLibrary">
           <Key>
@@ -131,6 +132,7 @@
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="ReviewText" Type="varchar" MaxLength="200" />
           <Property Name="Stars" Type="int" Nullable="false" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="UserType">
           <Key>
@@ -196,7 +198,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Publishing_Department">
-          <End Role="Department" Type="Self.Department" Multiplicity="1" />
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
           <End Role="Publishing" Type="Self.Publishing" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Department">
@@ -268,7 +270,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="LibraryUser_LibraryID_FK">
-          <End Role="Library" Type="Self.Library" Multiplicity="1" />
+          <End Role="Library" Type="Self.Library" Multiplicity="0..1" />
           <End Role="LibraryUser" Type="Self.LibraryUser" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Library">
@@ -542,7 +544,7 @@
           </Key>
           <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TypeID" Type="Int32" Nullable="false" />
-          <Property Name="LibraryID" Type="Int32" Nullable="false" />
+          <Property Name="LibraryID" Type="Int32" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
@@ -587,7 +589,7 @@
             <PropertyRef Name="PublishingID" />
           </Key>
           <Property Name="PublishingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DepartmentID" Type="Int32" Nullable="false" />
+          <Property Name="DepartmentID" Type="Int32" />
           <Property Name="ISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NumLoaned" Type="Int32" Nullable="false" />
           <Property Name="NumAvailable" Type="Int32" Nullable="false" />
@@ -618,8 +620,9 @@
           <Property Name="ReviewEmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EmployeeID" Type="Int32" Nullable="false" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
-          <Property Name="ReviewText" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ReviewText" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Stars" Type="Int32" Nullable="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="LibraryUser" Relationship="Self.ReviewEmployee_EmployeeID_FK" FromRole="ReviewEmployee" ToRole="LibraryUser" />
           <NavigationProperty Name="LibraryUser1" Relationship="Self.ReviewEmployee_UserID_FK" FromRole="ReviewEmployee" ToRole="LibraryUser" />
         </EntityType>
@@ -631,6 +634,7 @@
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="ReviewText" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Stars" Type="Int32" Nullable="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="LibraryUser" Relationship="Self.ReviewLibrary_UserID_FK" FromRole="ReviewLibrary" ToRole="LibraryUser" />
           <NavigationProperty Name="ReviewLibrary1" Relationship="Self.FK_ReviewLibrary_ReviewLibrary" FromRole="ReviewLibrary" ToRole="ReviewLibrary1" />
           <NavigationProperty Name="ReviewLibrary2" Relationship="Self.FK_ReviewLibrary_ReviewLibrary" FromRole="ReviewLibrary1" ToRole="ReviewLibrary" />
@@ -692,7 +696,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Publishing_Department">
-          <End Role="Department" Type="Self.Department" Multiplicity="1" />
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
           <End Role="Publishing" Type="Self.Publishing" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Department">
@@ -716,7 +720,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="LibraryUser_LibraryID_FK">
-          <End Role="Library" Type="Self.Library" Multiplicity="1" />
+          <End Role="Library" Type="Self.Library" Multiplicity="0..1" />
           <End Role="LibraryUser" Type="Self.LibraryUser" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Library">
@@ -851,7 +855,7 @@
           <End Role="Author" Type="Self.Author" Multiplicity="*" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities_db" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Authors" EntityType="Self.Author" />
           <EntitySet Name="Books" EntityType="Self.Book" />
           <EntitySet Name="Cities" EntityType="Self.City" />
@@ -944,7 +948,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities_db">
           <EntitySetMapping Name="Authors">
             <EntityTypeMapping TypeName="Model.Author">
               <MappingFragment StoreEntitySet="Author">
@@ -1072,6 +1076,7 @@
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="ReviewText" ColumnName="ReviewText" />
                 <ScalarProperty Name="Stars" ColumnName="Stars" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1082,6 +1087,7 @@
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="ReviewText" ColumnName="ReviewText" />
                 <ScalarProperty Name="Stars" ColumnName="Stars" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

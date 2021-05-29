@@ -69,7 +69,7 @@
     </Key>
     <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TypeID" Type="Int32" Nullable="false" />
-    <Property Name="LibraryID" Type="Int32" Nullable="false" />
+    <Property Name="LibraryID" Type="Int32" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
@@ -114,7 +114,7 @@
       <PropertyRef Name="PublishingID" />
     </Key>
     <Property Name="PublishingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="DepartmentID" Type="Int32" Nullable="false" />
+    <Property Name="DepartmentID" Type="Int32" />
     <Property Name="ISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="NumLoaned" Type="Int32" Nullable="false" />
     <Property Name="NumAvailable" Type="Int32" Nullable="false" />
@@ -145,8 +145,9 @@
     <Property Name="ReviewEmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="EmployeeID" Type="Int32" Nullable="false" />
     <Property Name="UserID" Type="Int32" Nullable="false" />
-    <Property Name="ReviewText" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ReviewText" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="Stars" Type="Int32" Nullable="false" />
+    <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="LibraryUser" Relationship="Self.ReviewEmployee_EmployeeID_FK" FromRole="ReviewEmployee" ToRole="LibraryUser" />
     <NavigationProperty Name="LibraryUser1" Relationship="Self.ReviewEmployee_UserID_FK" FromRole="ReviewEmployee" ToRole="LibraryUser" />
   </EntityType>
@@ -158,6 +159,7 @@
     <Property Name="UserID" Type="Int32" Nullable="false" />
     <Property Name="ReviewText" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="Stars" Type="Int32" Nullable="false" />
+    <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="LibraryUser" Relationship="Self.ReviewLibrary_UserID_FK" FromRole="ReviewLibrary" ToRole="LibraryUser" />
     <NavigationProperty Name="ReviewLibrary1" Relationship="Self.FK_ReviewLibrary_ReviewLibrary" FromRole="ReviewLibrary" ToRole="ReviewLibrary1" />
     <NavigationProperty Name="ReviewLibrary2" Relationship="Self.FK_ReviewLibrary_ReviewLibrary" FromRole="ReviewLibrary1" ToRole="ReviewLibrary" />
@@ -219,7 +221,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Publishing_Department">
-    <End Role="Department" Type="Self.Department" Multiplicity="1" />
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
     <End Role="Publishing" Type="Self.Publishing" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Department">
@@ -243,7 +245,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="LibraryUser_LibraryID_FK">
-    <End Role="Library" Type="Self.Library" Multiplicity="1" />
+    <End Role="Library" Type="Self.Library" Multiplicity="0..1" />
     <End Role="LibraryUser" Type="Self.LibraryUser" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Library">
@@ -378,7 +380,7 @@
     <End Role="Author" Type="Self.Author" Multiplicity="*" />
     <End Role="Book" Type="Self.Book" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="Entities_db" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Authors" EntityType="Self.Author" />
     <EntitySet Name="Books" EntityType="Self.Book" />
     <EntitySet Name="Cities" EntityType="Self.City" />

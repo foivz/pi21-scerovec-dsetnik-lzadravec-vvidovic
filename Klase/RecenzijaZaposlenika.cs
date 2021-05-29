@@ -21,7 +21,7 @@ namespace bitBooks_Project.Klase
         {
             List<RecenzijaZaposlenika> korisnikoveRecenzije = new List<RecenzijaZaposlenika>();
 
-            using (var context = new Entities())
+            using (var context = new Entities_db())
             {
                 var query = from r in context.ReviewEmployees
                             where r.UserID == korisnikID
@@ -35,19 +35,20 @@ namespace bitBooks_Project.Klase
                                 TekstRecenzije = r.ReviewText,
                                 Ocjena = r.Stars,
                                 ZaposlenikID = r.EmployeeID,
-                                //DatumUnosa = r.EntryDate
+                                DatumUnosa = r.EntryDate
 
                             };
                 korisnikoveRecenzije = query.ToList();
             }
-            return korisnikoveRecenzije;
+            List<RecenzijaZaposlenika> recenzijeSorted = korisnikoveRecenzije.OrderBy(k => k.DatumUnosa).ToList();
+            return recenzijeSorted;
         }
 
         public static List<RecenzijaZaposlenika> DohvatiSveRecenzijeZaposlenikaKnjiznice(int? knjiznicaID)
         {
             List<RecenzijaZaposlenika> sveRecenzije = new List<RecenzijaZaposlenika>();
 
-            using (var context = new Entities())
+            using (var context = new Entities_db())
             {
                 var query = from r in context.ReviewEmployees
                             where r.LibraryUser1.LibraryID == knjiznicaID
@@ -61,18 +62,19 @@ namespace bitBooks_Project.Klase
                                 TekstRecenzije = r.ReviewText,
                                 Ocjena = r.Stars,
                                 ZaposlenikID = r.EmployeeID,
-                                //DatumUnosa = r.EntryDate
+                                DatumUnosa = r.EntryDate
                             };
                 sveRecenzije = query.ToList();
-            }
-            return sveRecenzije;
+            }  
+            List<RecenzijaZaposlenika> recenzijeSorted = sveRecenzije.OrderBy(k => k.DatumUnosa).ToList();
+            return recenzijeSorted;
         }
 
         public static List<RecenzijaZaposlenika> DohvatiRecenzijeOdredenogZaposlenika(int? knjiznicaID, int zapolsenikID)
         {
             List<RecenzijaZaposlenika> recenzijeZaposlenika = new List<RecenzijaZaposlenika>();
 
-            using (var context = new Entities())
+            using (var context = new Entities_db())
             {
                 var query = from r in context.ReviewEmployees
                             where r.LibraryUser1.LibraryID == knjiznicaID && r.EmployeeID == zapolsenikID
@@ -86,11 +88,12 @@ namespace bitBooks_Project.Klase
                                 TekstRecenzije = r.ReviewText,
                                 Ocjena = r.Stars,
                                 ZaposlenikID = r.EmployeeID,
-                                //DatumUnosa = r.EntryDate
+                                DatumUnosa = r.EntryDate
                             };
                 recenzijeZaposlenika = query.ToList();
             }
-            return recenzijeZaposlenika;
+            List<RecenzijaZaposlenika> recenzijeSorted = recenzijeZaposlenika.OrderBy(k => k.DatumUnosa).ToList();
+            return recenzijeSorted;
         }
     }
 }

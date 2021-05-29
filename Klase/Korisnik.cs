@@ -27,14 +27,16 @@ namespace bitBooks_Project.Klase
         {
             List<Korisnik> sviKorisnici = new List<Korisnik>();
 
-            using (var context = new Entities())
+            using (var context = new Entities_db())
             {
                 var query = from l in context.LibraryUsers
                             select new Korisnik
                             {
                                 KorisnikID = l.UserID,
                                 TipID = l.TypeID,
+                                ImeTipa =l.UserType.Name,
                                 KnjiznicaID = l.LibraryID,
+                                ImeKnjiznice = l.Library.Name,
                                 Email = l.Email,
                                 Adresa = l.Adress,
                                 KorisnickoIme = l.Username,
@@ -55,7 +57,7 @@ namespace bitBooks_Project.Klase
         {
             List<Korisnik> korisniciKnjiznice = new List<Korisnik>();
 
-            using (var context = new Entities()) 
+            using (var context = new Entities_db()) 
             {
                 var query = from l in context.LibraryUsers
                             where l.LibraryID == knjiznicaID
@@ -85,7 +87,7 @@ namespace bitBooks_Project.Klase
         {
             Korisnik korisnik;
 
-            using (var context = new Entities())
+            using (var context = new Entities_db())
             {
                 var query = from l in context.LibraryUsers
                             where l.UserID == korisnikID
@@ -114,7 +116,7 @@ namespace bitBooks_Project.Klase
         public string DohvatiTipKorisnika(Korisnik korisnik)
         {
             string tipKorisnika;
-            using (var context = new Entities())
+            using (var context = new Entities_db())
             {
                 var query = from u in context.UserTypes
                             where u.TypeID == korisnik.TipID
@@ -129,7 +131,7 @@ namespace bitBooks_Project.Klase
         public static List<Korisnik> DohvatiKorisnikaPoImenu(string ime, int? knjiznicaID) 
         {
             List<Korisnik> korisniciImena = new List<Korisnik>();
-            using (var context = new Entities())
+            using (var context = new Entities_db())
             {
                 var query = from l in context.LibraryUsers
                             where l.Name.Contains(ime) && l.LibraryID == knjiznicaID
@@ -158,7 +160,7 @@ namespace bitBooks_Project.Klase
         public static List<Korisnik> DohvatiKorisnikaPoPrezimenu(string prezime, int? knjiznicaID)
         {
             List<Korisnik> korisniciPrezimena = new List<Korisnik>();
-            using (var context = new Entities())
+            using (var context = new Entities_db())
             {
                 var query = from l in context.LibraryUsers
                             where l.Surname.Contains(prezime) && l.LibraryID == knjiznicaID
@@ -187,7 +189,7 @@ namespace bitBooks_Project.Klase
         public static List<Korisnik> DohvatiPoImenuIPrezimenu(string ime, string prezime, int? knjiznicaID)
         {
             List<Korisnik> korisniciImePrezime = new List<Korisnik>();
-            using (var context = new Entities())
+            using (var context = new Entities_db())
             {
                 var query = from l in context.LibraryUsers
                             where l.Name.Contains(ime) && l.Surname.Contains(prezime) && l.LibraryID == knjiznicaID

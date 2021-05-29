@@ -18,7 +18,7 @@ namespace bitBooks_Project.Klase
         {
             List<Posudba> posudbeKorisnika = new List<Posudba>();
 
-            using (var context = new Entities()) 
+            using (var context = new Entities_db()) 
             {
                 var query = from l in context.Loans
                             where l.UserID == korisnikID
@@ -40,7 +40,7 @@ namespace bitBooks_Project.Klase
         {
             List<Posudba> posudbeIzdanja = new List<Posudba>();
 
-            using (var context = new Entities())
+            using (var context = new Entities_db())
             {
                 var query = from l in context.Loans
                             where l.PublishingID == izdanjeID

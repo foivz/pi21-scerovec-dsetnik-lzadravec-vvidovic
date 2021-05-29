@@ -19,6 +19,7 @@ namespace bitBooks_Project
         public int UserID { get; set; }
         public string ReviewText { get; set; }
         public int Stars { get; set; }
+        public System.DateTime EntryDate { get; set; }
     
         public virtual LibraryUser LibraryUser { get; set; }
         public virtual LibraryUser LibraryUser1 { get; set; }

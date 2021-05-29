@@ -22,7 +22,7 @@ namespace bitBooks_Project
         }
     
         public int PublishingID { get; set; }
-        public int DepartmentID { get; set; }
+        public Nullable<int> DepartmentID { get; set; }
         public string ISBN { get; set; }
         public int NumLoaned { get; set; }
         public int NumAvailable { get; set; }

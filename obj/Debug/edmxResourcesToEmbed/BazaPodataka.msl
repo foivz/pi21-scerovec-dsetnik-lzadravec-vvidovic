@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities_db">
     <EntitySetMapping Name="Authors">
       <EntityTypeMapping TypeName="Model.Author">
         <MappingFragment StoreEntitySet="Author">
@@ -128,6 +128,7 @@
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="ReviewText" ColumnName="ReviewText" />
           <ScalarProperty Name="Stars" ColumnName="Stars" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -138,6 +139,7 @@
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="ReviewText" ColumnName="ReviewText" />
           <ScalarProperty Name="Stars" ColumnName="Stars" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

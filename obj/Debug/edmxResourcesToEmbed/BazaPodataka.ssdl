@@ -57,7 +57,7 @@
     </Key>
     <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TypeID" Type="int" Nullable="false" />
-    <Property Name="LibraryID" Type="int" Nullable="false" />
+    <Property Name="LibraryID" Type="int" />
     <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Adress" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
@@ -91,7 +91,7 @@
       <PropertyRef Name="PublishingID" />
     </Key>
     <Property Name="PublishingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="DepartmentID" Type="int" Nullable="false" />
+    <Property Name="DepartmentID" Type="int" />
     <Property Name="ISBN" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="NumLoaned" Type="int" Nullable="false" />
     <Property Name="NumAvailable" Type="int" Nullable="false" />
@@ -115,8 +115,9 @@
     <Property Name="ReviewEmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="EmployeeID" Type="int" Nullable="false" />
     <Property Name="UserID" Type="int" Nullable="false" />
-    <Property Name="ReviewText" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="ReviewText" Type="varchar" MaxLength="200" />
     <Property Name="Stars" Type="int" Nullable="false" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="ReviewLibrary">
     <Key>
@@ -126,6 +127,7 @@
     <Property Name="UserID" Type="int" Nullable="false" />
     <Property Name="ReviewText" Type="varchar" MaxLength="200" />
     <Property Name="Stars" Type="int" Nullable="false" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="UserType">
     <Key>
@@ -191,7 +193,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Publishing_Department">
-    <End Role="Department" Type="Self.Department" Multiplicity="1" />
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
     <End Role="Publishing" Type="Self.Publishing" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Department">
@@ -263,7 +265,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="LibraryUser_LibraryID_FK">
-    <End Role="Library" Type="Self.Library" Multiplicity="1" />
+    <End Role="Library" Type="Self.Library" Multiplicity="0..1" />
     <End Role="LibraryUser" Type="Self.LibraryUser" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Library">

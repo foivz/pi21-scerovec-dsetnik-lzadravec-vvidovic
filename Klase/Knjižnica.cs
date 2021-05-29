@@ -16,7 +16,7 @@ namespace bitBooks_Project.Klase
         {
             List<Knjižnica> sveKnjiznice = new List<Knjižnica>();
 
-            using (var context = new Entities()) 
+            using (var context = new Entities_db()) 
             {
                 var query = from l in context.Libraries
                             select new Knjižnica 

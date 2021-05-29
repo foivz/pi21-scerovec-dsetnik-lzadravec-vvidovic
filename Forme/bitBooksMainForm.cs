@@ -51,8 +51,10 @@ namespace bitBooks_Project
                     break;
                 }
             }
-
-            txtStatus.Text = _korisnik.DohvatiTipKorisnika(_korisnik);
+            if (_korisnik != null) 
+            {
+                txtStatus.Text = _korisnik.DohvatiTipKorisnika(_korisnik);
+            }          
         }
     }
 }

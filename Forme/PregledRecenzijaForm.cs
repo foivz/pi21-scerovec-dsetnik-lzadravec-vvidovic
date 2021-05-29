@@ -1,4 +1,5 @@
-﻿using bitBooks_Project.Klase;
+﻿using bitBooks_Project.Forme;
+using bitBooks_Project.Klase;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace bitBooks_Project
     public partial class PregledRecenzijaForm : Form
     {
         Korisnik _korisnik;
+        UnosRecenzijeKnjižniceForm unosRecenzijeKnjizniceForm;
         public PregledRecenzijaForm(Korisnik korisnik)
         {
             InitializeComponent();
@@ -51,6 +53,13 @@ namespace bitBooks_Project
             dgvRecenzije.DataSource = RecenzijaZaposlenika.DohvatiSveRecenzijeZaposlenikaKnjiznice(_korisnik.KnjiznicaID);
             dgvRecenzije.Columns["ZaposlenikID"].Visible = false;
             dgvRecenzije.Columns["KorisnikID"].Visible = false;
+        }
+
+        private void btnUnosRecenzijeZaKnjiznicu_Click(object sender, EventArgs e)
+        {
+            unosRecenzijeKnjizniceForm = new UnosRecenzijeKnjižniceForm(_korisnik);
+            unosRecenzijeKnjizniceForm.ShowDialog();
+            PrikaziRecenzijeKnjiznice();
         }
     }
 }

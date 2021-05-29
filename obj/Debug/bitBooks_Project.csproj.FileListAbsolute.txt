@@ -21,7 +21,6 @@ C:\Users\Dorian\source\repos\bitBooks_git\bin\Debug\EntityFramework.dll
 C:\Users\Dorian\source\repos\bitBooks_git\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Dorian\source\repos\bitBooks_git\bin\Debug\EntityFramework.xml
 C:\Users\Dorian\source\repos\bitBooks_git\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Dorian\source\repos\bitBooks_git\obj\Debug\bitBooks_Project.csprojAssemblyReference.cache
 C:\Users\Dorian\source\repos\bitBooks_git\obj\Debug\bitBooks_Project.bitBooksMainForm.resources
 C:\Users\Dorian\source\repos\bitBooks_git\obj\Debug\bitBooks_Project.PregledClanovaForm.resources
 C:\Users\Dorian\source\repos\bitBooks_git\obj\Debug\bitBooks_Project.Properties.Resources.resources
@@ -31,3 +30,5 @@ C:\Users\Dorian\source\repos\bitBooks_git\obj\Debug\bitBooks_Project.csproj.Copy
 C:\Users\Dorian\source\repos\bitBooks_git\obj\Debug\bitBooks_Project.exe
 C:\Users\Dorian\source\repos\bitBooks_git\obj\Debug\bitBooks_Project.pdb
 C:\Users\Dorian\source\repos\bitBooks_git\obj\Debug\bitBooks_Project.PregledRecenzijaForm.resources
+C:\Users\Dorian\source\repos\bitBooks_git\obj\Debug\bitBooks_Project.csproj.AssemblyReference.cache
+C:\Users\Dorian\source\repos\bitBooks_git\obj\Debug\bitBooks_Project.Forme.UnosRecenzijeKnjižniceForm.resources

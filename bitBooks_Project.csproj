@@ -74,10 +74,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BazaPodataka.edmx</DependentUpon>
     </Compile>
-    <Compile Include="bitBooksMainForm.cs">
+    <Compile Include="Forme\bitBooksMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="bitBooksMainForm.Designer.cs">
+    <Compile Include="Forme\bitBooksMainForm.Designer.cs">
       <DependentUpon>bitBooksMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Book.cs">
@@ -88,6 +88,12 @@
     </Compile>
     <Compile Include="Department.cs">
       <DependentUpon>BazaPodataka.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\UnosRecenzijeKnjižniceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\UnosRecenzijeKnjižniceForm.Designer.cs">
+      <DependentUpon>UnosRecenzijeKnjižniceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Genre.cs">
       <DependentUpon>BazaPodataka.tt</DependentUpon>
@@ -117,16 +123,16 @@
     <Compile Include="Loan.cs">
       <DependentUpon>BazaPodataka.tt</DependentUpon>
     </Compile>
-    <Compile Include="PregledClanovaForm.cs">
+    <Compile Include="Forme\PregledClanovaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PregledClanovaForm.Designer.cs">
+    <Compile Include="Forme\PregledClanovaForm.Designer.cs">
       <DependentUpon>PregledClanovaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PregledRecenzijaForm.cs">
+    <Compile Include="Forme\PregledRecenzijaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PregledRecenzijaForm.Designer.cs">
+    <Compile Include="Forme\PregledRecenzijaForm.Designer.cs">
       <DependentUpon>PregledRecenzijaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -149,14 +155,17 @@
     <Compile Include="UserType.cs">
       <DependentUpon>BazaPodataka.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="bitBooksMainForm.resx">
+    <EmbeddedResource Include="Forme\bitBooksMainForm.resx">
       <DependentUpon>bitBooksMainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PregledClanovaForm.resx">
+    <EmbeddedResource Include="Forme\PregledClanovaForm.resx">
       <DependentUpon>PregledClanovaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PregledRecenzijaForm.resx">
+    <EmbeddedResource Include="Forme\PregledRecenzijaForm.resx">
       <DependentUpon>PregledRecenzijaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\UnosRecenzijeKnjižniceForm.resx">
+      <DependentUpon>UnosRecenzijeKnjižniceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -189,19 +198,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="BazaPodataka.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>BazaPodataka.Context.cs</LastGenOutput>
       <DependentUpon>BazaPodataka.edmx</DependentUpon>
+      <LastGenOutput>BazaPodataka.Context.cs</LastGenOutput>
     </Content>
     <Content Include="BazaPodataka.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BazaPodataka.edmx</DependentUpon>
       <LastGenOutput>BazaPodataka.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
