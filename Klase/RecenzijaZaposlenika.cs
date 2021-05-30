@@ -11,13 +11,14 @@ namespace bitBooks_Project.Klase
         public int ZaposlenikID { get; set; }
         public string ImeZaposlenika { get; set; }
         public string PrezimeZaposlenika { get; set; }
+        public static int[] listaOcjena = new int[5] { 1, 2, 3, 4, 5 };
         public RecenzijaZaposlenika()
             : base()
         {
 
         }
 
-        public List<RecenzijaZaposlenika> DohvatiKorisnikoveRecenzijeKnjiznice(int korisnikID)
+        public static List<RecenzijaZaposlenika> DohvatiKorisnikoveRecenzijeZaposlenika(int korisnikID)
         {
             List<RecenzijaZaposlenika> korisnikoveRecenzije = new List<RecenzijaZaposlenika>();
 
@@ -66,7 +67,7 @@ namespace bitBooks_Project.Klase
                             };
                 sveRecenzije = query.ToList();
             }  
-            List<RecenzijaZaposlenika> recenzijeSorted = sveRecenzije.OrderBy(k => k.DatumUnosa).ToList();
+            List<RecenzijaZaposlenika> recenzijeSorted = sveRecenzije.OrderByDescending(k => k.DatumUnosa).ToList();
             return recenzijeSorted;
         }
 
@@ -92,8 +93,62 @@ namespace bitBooks_Project.Klase
                             };
                 recenzijeZaposlenika = query.ToList();
             }
-            List<RecenzijaZaposlenika> recenzijeSorted = recenzijeZaposlenika.OrderBy(k => k.DatumUnosa).ToList();
+            List<RecenzijaZaposlenika> recenzijeSorted = recenzijeZaposlenika.OrderByDescending(k => k.DatumUnosa).ToList();
             return recenzijeSorted;
+        }
+
+        public static RecenzijaZaposlenika DohvatiSpecificnuRecenziju(int korisnikID, int zapolsenikID)
+        {
+            RecenzijaZaposlenika recenzijaZaposlenika;
+
+            using (var context = new Entities_db())
+            {
+                var query = from r in context.ReviewEmployees
+                            where r.UserID == korisnikID && r.EmployeeID == zapolsenikID
+                            select new RecenzijaZaposlenika
+                            {
+                                RecenzijaID = r.ReviewEmployeeID,
+                                ImeZaposlenika = r.LibraryUser.Name,
+                                PrezimeZaposlenika = r.LibraryUser.Surname,
+                                KorisnikID = r.UserID,
+                                KorisnickoIme = r.LibraryUser1.Username,
+                                TekstRecenzije = r.ReviewText,
+                                Ocjena = r.Stars,
+                                ZaposlenikID = r.EmployeeID,
+                                DatumUnosa = r.EntryDate
+                            };
+                recenzijaZaposlenika = query.SingleOrDefault();
+            }
+            return recenzijaZaposlenika;
+        }
+        public void NovaRecenzija(string komentar, int ocjena, Korisnik korisnik, Korisnik zaposlenik)
+        {
+
+            using (var context = new Entities_db())
+            {
+
+                ReviewEmployee recenzija = new ReviewEmployee();
+
+                recenzija.UserID = korisnik.KorisnikID;
+                recenzija.EmployeeID = zaposlenik.KorisnikID;
+                recenzija.ReviewText = komentar;
+                recenzija.Stars = ocjena;
+                recenzija.EntryDate = DateTime.Now;
+                context.ReviewEmployees.Add(recenzija);
+                context.SaveChanges();
+            }
+        }
+
+        public void AžurirajRecenziju(string komentar, int ocjena, int korisnikID, int zaposlenikID)
+        {
+            using (var context = new Entities_db())
+            {
+                var recenzija = context.ReviewEmployees.First(r => r.LibraryUser1.UserID == korisnikID && r.LibraryUser.UserID == zaposlenikID);
+                recenzija.ReviewText = komentar;
+                recenzija.Stars = ocjena;
+                recenzija.EntryDate = DateTime.Now;
+                context.SaveChanges();
+            }
         }
     }
 }

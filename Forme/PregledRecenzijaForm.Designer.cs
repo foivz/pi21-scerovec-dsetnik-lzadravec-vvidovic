@@ -35,8 +35,11 @@ namespace bitBooks_Project
             this.btnRecenzijeKnjiznice = new System.Windows.Forms.Button();
             this.btnRecenzijeZaposlenika = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnUnosRecenzijeZaKnjiznicu = new System.Windows.Forms.Button();
             this.btnUnosRecenzijeZaZaposlenika = new System.Windows.Forms.Button();
+            this.btnUnosRecenzijeZaKnjiznicu = new System.Windows.Forms.Button();
+            this.cmbZaposlenik = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnOdredeniZaposlenik = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecenzije)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -99,6 +102,16 @@ namespace bitBooks_Project
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Moje recenzije";
             // 
+            // btnUnosRecenzijeZaZaposlenika
+            // 
+            this.btnUnosRecenzijeZaZaposlenika.Location = new System.Drawing.Point(154, 19);
+            this.btnUnosRecenzijeZaZaposlenika.Name = "btnUnosRecenzijeZaZaposlenika";
+            this.btnUnosRecenzijeZaZaposlenika.Size = new System.Drawing.Size(130, 67);
+            this.btnUnosRecenzijeZaZaposlenika.TabIndex = 8;
+            this.btnUnosRecenzijeZaZaposlenika.Text = "Unesi recenziju za zaposlenika";
+            this.btnUnosRecenzijeZaZaposlenika.UseVisualStyleBackColor = true;
+            this.btnUnosRecenzijeZaZaposlenika.Click += new System.EventHandler(this.btnUnosRecenzijeZaZaposlenika_Click);
+            // 
             // btnUnosRecenzijeZaKnjiznicu
             // 
             this.btnUnosRecenzijeZaKnjiznicu.Location = new System.Drawing.Point(18, 19);
@@ -109,20 +122,41 @@ namespace bitBooks_Project
             this.btnUnosRecenzijeZaKnjiznicu.UseVisualStyleBackColor = true;
             this.btnUnosRecenzijeZaKnjiznicu.Click += new System.EventHandler(this.btnUnosRecenzijeZaKnjiznicu_Click);
             // 
-            // btnUnosRecenzijeZaZaposlenika
+            // cmbZaposlenik
             // 
-            this.btnUnosRecenzijeZaZaposlenika.Location = new System.Drawing.Point(154, 19);
-            this.btnUnosRecenzijeZaZaposlenika.Name = "btnUnosRecenzijeZaZaposlenika";
-            this.btnUnosRecenzijeZaZaposlenika.Size = new System.Drawing.Size(130, 67);
-            this.btnUnosRecenzijeZaZaposlenika.TabIndex = 8;
-            this.btnUnosRecenzijeZaZaposlenika.Text = "Unesi recenziju za zaposlenika";
-            this.btnUnosRecenzijeZaZaposlenika.UseVisualStyleBackColor = true;
+            this.cmbZaposlenik.FormattingEnabled = true;
+            this.cmbZaposlenik.Location = new System.Drawing.Point(457, 32);
+            this.cmbZaposlenik.Name = "cmbZaposlenik";
+            this.cmbZaposlenik.Size = new System.Drawing.Size(121, 21);
+            this.cmbZaposlenik.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(389, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Zaposlenik:";
+            // 
+            // btnOdredeniZaposlenik
+            // 
+            this.btnOdredeniZaposlenik.Location = new System.Drawing.Point(594, 23);
+            this.btnOdredeniZaposlenik.Name = "btnOdredeniZaposlenik";
+            this.btnOdredeniZaposlenik.Size = new System.Drawing.Size(130, 36);
+            this.btnOdredeniZaposlenik.TabIndex = 9;
+            this.btnOdredeniZaposlenik.Text = "Prikaži recenzije određenog zaposlenika";
+            this.btnOdredeniZaposlenik.UseVisualStyleBackColor = true;
+            this.btnOdredeniZaposlenik.Click += new System.EventHandler(this.btnOdredeniZaposlenik_Click);
             // 
             // PregledRecenzijaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(774, 468);
+            this.Controls.Add(this.btnOdredeniZaposlenik);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cmbZaposlenik);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnRecenzijeZaposlenika);
             this.Controls.Add(this.btnRecenzijeKnjiznice);
@@ -149,5 +183,8 @@ namespace bitBooks_Project
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnUnosRecenzijeZaZaposlenika;
         private System.Windows.Forms.Button btnUnosRecenzijeZaKnjiznicu;
+        private System.Windows.Forms.ComboBox cmbZaposlenik;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnOdredeniZaposlenik;
     }
 }

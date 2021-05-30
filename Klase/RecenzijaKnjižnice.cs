@@ -71,7 +71,7 @@ namespace bitBooks_Project.Klase
                             };
                 sveRecenzije = query.ToList();
             }
-            List<RecenzijaKnjižnice> recenzijeSorted = sveRecenzije.OrderBy(k => k.DatumUnosa).ToList();
+            List<RecenzijaKnjižnice> recenzijeSorted = sveRecenzije.OrderByDescending(k => k.DatumUnosa).ToList();
             return recenzijeSorted;
         }
 

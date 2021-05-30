@@ -15,7 +15,9 @@ namespace bitBooks_Project
     public partial class PregledRecenzijaForm : Form
     {
         Korisnik _korisnik;
+        Korisnik odabraniZaposlenik;
         UnosRecenzijeKnjižniceForm unosRecenzijeKnjizniceForm;
+        UnosRecenzijeZaposlenikaForm unosRecenzijeZaposlenikaForm;
         public PregledRecenzijaForm(Korisnik korisnik)
         {
             InitializeComponent();
@@ -25,6 +27,12 @@ namespace bitBooks_Project
         private void PregledRecenzijaForm_Load(object sender, EventArgs e)
         {
             PrikaziRecenzijeKnjiznice();
+            PopuniComboBox();
+        }
+
+        private void PopuniComboBox()
+        {
+            cmbZaposlenik.DataSource = Korisnik.DohvatiZaposlenikeKnjižnice(_korisnik.KnjiznicaID);
         }
 
         private void btnRecenzijeKnjiznice_Click(object sender, EventArgs e)
@@ -60,6 +68,29 @@ namespace bitBooks_Project
             unosRecenzijeKnjizniceForm = new UnosRecenzijeKnjižniceForm(_korisnik);
             unosRecenzijeKnjizniceForm.ShowDialog();
             PrikaziRecenzijeKnjiznice();
+        }
+
+        private void btnUnosRecenzijeZaZaposlenika_Click(object sender, EventArgs e)
+        {
+            unosRecenzijeZaposlenikaForm = new UnosRecenzijeZaposlenikaForm(_korisnik);
+            unosRecenzijeZaposlenikaForm.ShowDialog();
+            PrikaziRecenzijeSvihZaposlenika();
+        }
+
+        private void btnOdredeniZaposlenik_Click(object sender, EventArgs e)
+        {
+            DohvatiZaposlenika();
+            PrikaziRecenzijeOdredenogZaposlenika();
+        }
+
+        private void DohvatiZaposlenika() 
+        {
+            odabraniZaposlenik = Korisnik.DohvatiKorisnikaPoID((cmbZaposlenik.SelectedItem as Korisnik).KorisnikID);
+        }
+
+        private void PrikaziRecenzijeOdredenogZaposlenika() 
+        {
+            dgvRecenzije.DataSource = RecenzijaZaposlenika.DohvatiRecenzijeOdredenogZaposlenika(odabraniZaposlenik.KnjiznicaID, odabraniZaposlenik.KorisnikID);
         }
     }
 }

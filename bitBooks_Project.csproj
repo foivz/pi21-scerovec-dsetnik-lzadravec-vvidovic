@@ -95,6 +95,12 @@
     <Compile Include="Forme\UnosRecenzijeKnjižniceForm.Designer.cs">
       <DependentUpon>UnosRecenzijeKnjižniceForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\UnosRecenzijeZaposlenikaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\UnosRecenzijeZaposlenikaForm.Designer.cs">
+      <DependentUpon>UnosRecenzijeZaposlenikaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Genre.cs">
       <DependentUpon>BazaPodataka.tt</DependentUpon>
     </Compile>
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\UnosRecenzijeKnjižniceForm.resx">
       <DependentUpon>UnosRecenzijeKnjižniceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\UnosRecenzijeZaposlenikaForm.resx">
+      <DependentUpon>UnosRecenzijeZaposlenikaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

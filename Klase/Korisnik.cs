@@ -83,6 +83,36 @@ namespace bitBooks_Project.Klase
             return korisniciKnjiznice;
         }
 
+        public static List<Korisnik> DohvatiZaposlenikeKnjižnice(int? knjiznicaID) 
+        {
+            List<Korisnik> zaposleniciKnjiznice = new List<Korisnik>();
+
+            using (var context = new Entities_db()) 
+            {
+                var query = from l in context.LibraryUsers
+                            where l.LibraryID == knjiznicaID && l.UserType.Name == "Zaposlenik"
+                            select new Korisnik 
+                            {
+                                KorisnikID = l.UserID,
+                                TipID = l.TypeID,
+                                ImeTipa =l.UserType.Name,
+                                KnjiznicaID = l.LibraryID,
+                                ImeKnjiznice = l.Library.Name,
+                                Email = l.Email,
+                                Adresa = l.Adress,
+                                KorisnickoIme = l.Username,
+                                Lozinka = l.Password,
+                                Ime = l.Name,
+                                Prezime = l.Surname,
+                                AktivacijskiKod = l.ActivationCode,
+                                DatumRegistracije = l.DateTimeRegistration
+                            };
+                zaposleniciKnjiznice = query.ToList();
+            }
+
+            return zaposleniciKnjiznice;
+        }
+
         public static Korisnik DohvatiKorisnikaPoID(int korisnikID)
         {
             Korisnik korisnik;
@@ -213,6 +243,10 @@ namespace bitBooks_Project.Klase
             }
 
             return korisniciImePrezime;
+        }
+        public override string ToString()
+        {
+            return Ime + " " + Prezime;
         }
     }
 }

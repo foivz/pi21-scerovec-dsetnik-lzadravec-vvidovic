@@ -44,9 +44,9 @@ namespace bitBooks_Project.Forme
             // 
             // txtKnjiznica
             // 
-            this.txtKnjiznica.Location = new System.Drawing.Point(70, 20);
+            this.txtKnjiznica.Location = new System.Drawing.Point(106, 20);
             this.txtKnjiznica.Name = "txtKnjiznica";
-            this.txtKnjiznica.Size = new System.Drawing.Size(234, 20);
+            this.txtKnjiznica.Size = new System.Drawing.Size(198, 20);
             this.txtKnjiznica.TabIndex = 0;
             // 
             // label1
@@ -70,10 +70,10 @@ namespace bitBooks_Project.Forme
             // 
             // txtKomentar
             // 
-            this.txtKomentar.Location = new System.Drawing.Point(70, 55);
+            this.txtKomentar.Location = new System.Drawing.Point(106, 55);
             this.txtKomentar.Multiline = true;
             this.txtKomentar.Name = "txtKomentar";
-            this.txtKomentar.Size = new System.Drawing.Size(234, 130);
+            this.txtKomentar.Size = new System.Drawing.Size(198, 130);
             this.txtKomentar.TabIndex = 3;
             // 
             // btnSpremi
@@ -119,7 +119,7 @@ namespace bitBooks_Project.Forme
             this.cmbOcjena.FormattingEnabled = true;
             this.cmbOcjena.Location = new System.Drawing.Point(106, 199);
             this.cmbOcjena.Name = "cmbOcjena";
-            this.cmbOcjena.Size = new System.Drawing.Size(118, 21);
+            this.cmbOcjena.Size = new System.Drawing.Size(198, 21);
             this.cmbOcjena.TabIndex = 8;
             // 
             // label4
@@ -133,9 +133,9 @@ namespace bitBooks_Project.Forme
             // 
             // txtDatum
             // 
-            this.txtDatum.Location = new System.Drawing.Point(92, 243);
+            this.txtDatum.Location = new System.Drawing.Point(106, 240);
             this.txtDatum.Name = "txtDatum";
-            this.txtDatum.Size = new System.Drawing.Size(132, 20);
+            this.txtDatum.Size = new System.Drawing.Size(199, 20);
             this.txtDatum.TabIndex = 10;
             // 
             // UnosRecenzijeKnjižniceForm
@@ -155,7 +155,7 @@ namespace bitBooks_Project.Forme
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtKnjiznica);
             this.Name = "UnosRecenzijeKnjižniceForm";
-            this.Text = "UnosRecenzijeKnjižnice";
+            this.Text = "Moje recenzije knjižnice";
             this.Load += new System.EventHandler(this.UnosRecenzijeKnjižniceForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
