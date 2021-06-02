@@ -248,5 +248,67 @@ namespace bitBooks_Project.Klase
         {
             return Ime + " " + Prezime;
         }
+
+        public static Korisnik DohvatiKorisnikaPoKorisnickomImenu(string korime)
+        {
+            Korisnik korisnik = new Korisnik();
+            using (var context = new Entities_db())
+            {
+                var query = from l in context.LibraryUsers
+                            where l.Username == korime
+                            select new Korisnik
+                            {
+                                KorisnikID = l.UserID,
+                                TipID = l.TypeID,
+                                ImeTipa = l.UserType.Name,
+                                KnjiznicaID = l.LibraryID,
+                                ImeKnjiznice = l.Library.Name,
+                                Email = l.Email,
+                                Adresa = l.Adress,
+                                KorisnickoIme = l.Username,
+                                Lozinka = l.Password,
+                                Ime = l.Name,
+                                Prezime = l.Surname,
+                                AktivacijskiKod = l.ActivationCode,
+                                DatumRegistracije = l.DateTimeRegistration
+                            };
+                korisnik = query.ToList()[0];
+            }
+
+            return korisnik;
+        }
+
+        public static bool ProvjeriLozinku(string korime, string lozinka)
+        {
+            using (var context = new Entities_db())
+            {
+                var query = from l in context.LibraryUsers
+                            where l.Username == korime
+                            select new Korisnik
+                            {
+                                KorisnikID = l.UserID,
+                                TipID = l.TypeID,
+                                ImeTipa = l.UserType.Name,
+                                KnjiznicaID = l.LibraryID,
+                                ImeKnjiznice = l.Library.Name,
+                                Email = l.Email,
+                                Adresa = l.Adress,
+                                KorisnickoIme = l.Username,
+                                Lozinka = l.Password,
+                                Ime = l.Name,
+                                Prezime = l.Surname,
+                                AktivacijskiKod = l.ActivationCode,
+                                DatumRegistracije = l.DateTimeRegistration
+                            };
+                if (query.ToList()[0] != null)
+                {
+                    if (query.ToList()[0].Lozinka == lozinka)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
     }
 }

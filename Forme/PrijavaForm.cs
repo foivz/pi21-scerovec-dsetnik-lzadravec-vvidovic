@@ -1,4 +1,5 @@
-﻿using System;
+﻿using bitBooks_Project.Klase;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +17,16 @@ namespace bitBooks_Project.Forme
         {
             InitializeComponent();
         }
+
+        private void btnPrijava_Click(object sender, EventArgs e)
+        {
+            if(Korisnik.ProvjeriLozinku(txtUsername.Text, txtPassword.Text))
+            {
+                Korisnik _korisnik = new Korisnik();
+                _korisnik = Korisnik.DohvatiKorisnikaPoKorisnickomImenu(txtUsername.Text);
+                txtUsername.Text = "tocno";
+            };
+        }
+
     }
 }

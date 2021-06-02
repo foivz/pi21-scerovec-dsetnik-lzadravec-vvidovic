@@ -47,7 +47,6 @@ namespace bitBooks_Project
 
         private void btnProvjera_Click(object sender, EventArgs e)
         {
-            
             foreach (Korisnik item in Korisnik.DohvatiSveKorisnike())
             {
                 if (item.KorisnickoIme == txtUser.Text && item.Lozinka == txtPw.Text)

@@ -54,3 +54,24 @@ C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\obj\Debug
 C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\obj\Debug\bitBooks_Project.pdb
 C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\obj\Debug\bitBooks_Project.Forme.PosudbaKnjiga.resources
 C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\obj\Debug\bitBooks_Project.Forme.PrijavaForm.resources
+C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\bin\Debug\bitBooks_Project.exe.config
+C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\bin\Debug\bitBooks_Project.exe
+C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\bin\Debug\bitBooks_Project.pdb
+C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\bin\Debug\EntityFramework.dll
+C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\bin\Debug\EntityFramework.xml
+C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\obj\Debug\bitBooks_Project.csprojAssemblyReference.cache
+C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\obj\Debug\bitBooks_Project.bitBooksMainForm.resources
+C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\obj\Debug\bitBooks_Project.Forme.PosudbaKnjiga.resources
+C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\obj\Debug\bitBooks_Project.PregledClanovaForm.resources
+C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\obj\Debug\bitBooks_Project.PregledRecenzijaForm.resources
+C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\obj\Debug\bitBooks_Project.Forme.PrijavaForm.resources
+C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\obj\Debug\bitBooks_Project.Forme.UnosRecenzijeKnjižniceForm.resources
+C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\obj\Debug\bitBooks_Project.Forme.UnosRecenzijeZaposlenikaForm.resources
+C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\obj\Debug\bitBooks_Project.Properties.Resources.resources
+C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\obj\Debug\bitBooks_Project.csproj.GenerateResource.cache
+C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\obj\Debug\bitBooks_Project.csproj.CoreCompileInputs.cache
+C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\obj\Debug\bitBooks_Project.csproj.CopyComplete
+C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\obj\Debug\bitBooks_Project.exe
+C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\obj\Debug\bitBooks_Project.pdb
