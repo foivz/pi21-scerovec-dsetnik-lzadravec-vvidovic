@@ -31,12 +31,12 @@ namespace bitBooks_Project
         {
             this.btnPregledClanova = new System.Windows.Forms.Button();
             this.groups = new System.Windows.Forms.GroupBox();
-            this.btnRecenzije = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvUseri = new System.Windows.Forms.DataGridView();
             this.txtPw = new System.Windows.Forms.TextBox();
             this.txtUser = new System.Windows.Forms.TextBox();
+            this.btnRecenzije = new System.Windows.Forms.Button();
             this.btnProvjera = new System.Windows.Forms.Button();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,8 +50,8 @@ namespace bitBooks_Project
             this.button6 = new System.Windows.Forms.Button();
             this.prijava_button = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.groups.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUseri)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -83,16 +83,6 @@ namespace bitBooks_Project
             this.groups.TabIndex = 1;
             this.groups.TabStop = false;
             this.groups.Text = "kingDorienTesting";
-            // 
-            // btnRecenzije
-            // 
-            this.btnRecenzije.Location = new System.Drawing.Point(226, 42);
-            this.btnRecenzije.Name = "btnRecenzije";
-            this.btnRecenzije.Size = new System.Drawing.Size(105, 23);
-            this.btnRecenzije.TabIndex = 6;
-            this.btnRecenzije.Text = "Moje recenzije";
-            this.btnRecenzije.UseVisualStyleBackColor = true;
-            this.btnRecenzije.Click += new System.EventHandler(this.btnRecenzije_Click);
             // 
             // label2
             // 
@@ -133,6 +123,16 @@ namespace bitBooks_Project
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(100, 20);
             this.txtUser.TabIndex = 1;
+            // 
+            // btnRecenzije
+            // 
+            this.btnRecenzije.Location = new System.Drawing.Point(226, 42);
+            this.btnRecenzije.Name = "btnRecenzije";
+            this.btnRecenzije.Size = new System.Drawing.Size(105, 23);
+            this.btnRecenzije.TabIndex = 6;
+            this.btnRecenzije.Text = "Moje recenzije";
+            this.btnRecenzije.UseVisualStyleBackColor = true;
+            this.btnRecenzije.Click += new System.EventHandler(this.btnRecenzije_Click);
             // 
             // btnProvjera
             // 
@@ -239,6 +239,7 @@ namespace bitBooks_Project
             this.button6.TabIndex = 1;
             this.button6.Text = "Registracija";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.registracija_button_Click);
             // 
             // prijava_button
             // 
@@ -262,15 +263,6 @@ namespace bitBooks_Project
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Korisničke aktivnosti";
             // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(129, 42);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(91, 23);
-            this.button7.TabIndex = 0;
-            this.button7.Text = "Moje posudbe";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
             // button8
             // 
             this.button8.Location = new System.Drawing.Point(27, 42);
@@ -279,6 +271,15 @@ namespace bitBooks_Project
             this.button8.TabIndex = 1;
             this.button8.Text = "Moje rezervacije";
             this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(129, 42);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(91, 23);
+            this.button7.TabIndex = 0;
+            this.button7.Text = "Moje posudbe";
+            this.button7.UseVisualStyleBackColor = true;
             // 
             // bitBooksMainForm
             // 

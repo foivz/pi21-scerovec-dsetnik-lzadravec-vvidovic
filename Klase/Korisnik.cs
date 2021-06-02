@@ -310,5 +310,43 @@ namespace bitBooks_Project.Klase
             }
             return false;
         }
+
+        public static Korisnik DohvatiKorisnikaPoEmailu(string email)
+        {
+            Korisnik korisnik;
+
+            using (var context = new Entities_db())
+            {
+                var query = from l in context.LibraryUsers
+                            where l.Email == email
+                            select new Korisnik
+                            {
+                                KorisnikID = l.UserID,
+                                TipID = l.TypeID,
+                                ImeTipa = l.UserType.Name,
+                                KnjiznicaID = l.LibraryID,
+                                ImeKnjiznice = l.Library.Name,
+                                Email = l.Email,
+                                Adresa = l.Adress,
+                                KorisnickoIme = l.Username,
+                                Lozinka = l.Password,
+                                Ime = l.Name,
+                                Prezime = l.Surname,
+                                AktivacijskiKod = l.ActivationCode,
+                                DatumRegistracije = l.DateTimeRegistration
+                            };
+                try
+                {
+                    korisnik = query.First();
+                }
+                catch
+                {
+                    korisnik = null;
+                }
+                
+            }
+
+            return korisnik;
+        }
     }
 }

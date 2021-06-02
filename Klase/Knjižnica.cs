@@ -12,7 +12,7 @@ namespace bitBooks_Project.Klase
         public int? Admin { get; set; }
         public string Ime { get; set; }
 
-        public List<Knjižnica> DohvatiSveKnjiznice() 
+        public static List<Knjižnica> DohvatiSveKnjiznice() 
         {
             List<Knjižnica> sveKnjiznice = new List<Knjižnica>();
 
@@ -29,6 +29,11 @@ namespace bitBooks_Project.Klase
             }
 
             return sveKnjiznice;
+        }
+
+        public override string ToString()
+        {
+            return Ime;
         }
     }
 }

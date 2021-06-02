@@ -74,6 +74,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BazaPodataka.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Forme\AktivacijskiKodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\AktivacijskiKodForm.Designer.cs">
+      <DependentUpon>AktivacijskiKodForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\bitBooksMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,12 @@
     </Compile>
     <Compile Include="Forme\PrijavaForm.Designer.cs">
       <DependentUpon>PrijavaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\RegistracijaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\RegistracijaForm.Designer.cs">
+      <DependentUpon>RegistracijaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forme\UnosRecenzijeKnjižniceForm.cs">
       <SubType>Form</SubType>
@@ -173,6 +185,9 @@
     <Compile Include="UserType.cs">
       <DependentUpon>BazaPodataka.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forme\AktivacijskiKodForm.resx">
+      <DependentUpon>AktivacijskiKodForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\bitBooksMainForm.resx">
       <DependentUpon>bitBooksMainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\PrijavaForm.resx">
       <DependentUpon>PrijavaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\RegistracijaForm.resx">
+      <DependentUpon>RegistracijaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\UnosRecenzijeKnjižniceForm.resx">
       <DependentUpon>UnosRecenzijeKnjižniceForm.cs</DependentUpon>

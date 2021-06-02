@@ -75,3 +75,25 @@ C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\obj\Debug\bitBooks_P
 C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\obj\Debug\bitBooks_Project.csproj.CopyComplete
 C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\obj\Debug\bitBooks_Project.exe
 C:\Users\korisnik\Desktop\stuff\foi\6sem\PI\projekt\Projekt\obj\Debug\bitBooks_Project.pdb
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\obj\Debug\bitBooks_Project.csprojAssemblyReference.cache
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\obj\Debug\bitBooks_Project.bitBooksMainForm.resources
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\obj\Debug\bitBooks_Project.Forme.PosudbaKnjiga.resources
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\obj\Debug\bitBooks_Project.PregledClanovaForm.resources
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\obj\Debug\bitBooks_Project.PregledRecenzijaForm.resources
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\obj\Debug\bitBooks_Project.Forme.PrijavaForm.resources
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\obj\Debug\bitBooks_Project.Forme.UnosRecenzijeKnjižniceForm.resources
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\obj\Debug\bitBooks_Project.Forme.UnosRecenzijeZaposlenikaForm.resources
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\obj\Debug\bitBooks_Project.Properties.Resources.resources
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\obj\Debug\bitBooks_Project.csproj.GenerateResource.cache
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\obj\Debug\bitBooks_Project.exe
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\obj\Debug\bitBooks_Project.pdb
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\bin\Debug\bitBooks_Project.exe.config
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\bin\Debug\bitBooks_Project.exe
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\bin\Debug\bitBooks_Project.pdb
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\bin\Debug\EntityFramework.dll
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\bin\Debug\EntityFramework.xml
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\obj\Debug\bitBooks_Project.Forme.RegistracijaForm.resources
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\obj\Debug\bitBooks_Project.csproj.CopyComplete
+C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\obj\Debug\bitBooks_Project.Forme.AktivacijskiKodForm.resources

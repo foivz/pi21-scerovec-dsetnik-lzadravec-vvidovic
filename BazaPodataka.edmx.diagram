@@ -16,7 +16,7 @@
         <EntityTypeShape EntityType="Model.Publisher" Width="1.5" PointX="7.5" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Publishing" Width="1.5" PointX="9.75" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Reservation" Width="1.5" PointX="15" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.ReviewEmployee" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ReviewEmployee" Width="1.5" PointX="5.25" PointY="19.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.ReviewLibrary" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.UserType" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
         <AssociationConnector Association="Model.Book_GenreID_FK" ManuallyRouted="false" />

@@ -15,6 +15,7 @@ namespace bitBooks_Project
     public partial class bitBooksMainForm : Form
     {
         PrijavaForm prijava;
+        RegistracijaForm registracija;
         PregledClanovaForm pregledClanovaForm;
         PregledRecenzijaForm pregledRecenzijaForm;
         Korisnik _korisnik;
@@ -72,6 +73,12 @@ namespace bitBooks_Project
         {
             prijava = new PrijavaForm();
             prijava.ShowDialog();
+        }
+
+        private void registracija_button_Click(object sender, EventArgs e)
+        {
+            registracija = new RegistracijaForm();
+            registracija.ShowDialog();
         }
     }
 }
