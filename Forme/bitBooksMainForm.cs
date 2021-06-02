@@ -1,4 +1,5 @@
-﻿using bitBooks_Project.Klase;
+﻿using bitBooks_Project.Forme;
+using bitBooks_Project.Klase;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace bitBooks_Project
 {
     public partial class bitBooksMainForm : Form
     {
+        PrijavaForm prijava;
         PregledClanovaForm pregledClanovaForm;
         PregledRecenzijaForm pregledRecenzijaForm;
         Korisnik _korisnik;
@@ -24,6 +26,8 @@ namespace bitBooks_Project
         private void bitBooksMainForm_Load(object sender, EventArgs e)
         {
             dgvUseri.DataSource = Korisnik.DohvatiSveKorisnike();
+            groupBox3.Visible = false;
+            
         }
 
         private void btnPregledClanova_Click(object sender, EventArgs e)
@@ -43,6 +47,7 @@ namespace bitBooks_Project
 
         private void btnProvjera_Click(object sender, EventArgs e)
         {
+            
             foreach (Korisnik item in Korisnik.DohvatiSveKorisnike())
             {
                 if (item.KorisnickoIme == txtUser.Text && item.Lozinka == txtPw.Text)
@@ -54,7 +59,20 @@ namespace bitBooks_Project
             if (_korisnik != null) 
             {
                 txtStatus.Text = _korisnik.DohvatiTipKorisnika(_korisnik);
-            }          
+                groupBox3.Visible = true;
+            }  
+           
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void prijava_button_Click(object sender, EventArgs e)
+        {
+            prijava = new PrijavaForm();
+            prijava.ShowDialog();
         }
     }
 }

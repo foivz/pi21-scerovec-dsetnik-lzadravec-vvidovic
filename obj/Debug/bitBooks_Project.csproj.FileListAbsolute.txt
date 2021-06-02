@@ -33,3 +33,24 @@ C:\Users\Dorian\source\repos\bitBooks_git\obj\Debug\bitBooks_Project.PregledRece
 C:\Users\Dorian\source\repos\bitBooks_git\obj\Debug\bitBooks_Project.csproj.AssemblyReference.cache
 C:\Users\Dorian\source\repos\bitBooks_git\obj\Debug\bitBooks_Project.Forme.UnosRecenzijeKnjižniceForm.resources
 C:\Users\Dorian\source\repos\bitBooks_git\obj\Debug\bitBooks_Project.Forme.UnosRecenzijeZaposlenikaForm.resources
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\bin\Debug\bitBooks_Project.exe.config
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\bin\Debug\bitBooks_Project.exe
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\bin\Debug\bitBooks_Project.pdb
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\bin\Debug\EntityFramework.dll
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\bin\Debug\EntityFramework.xml
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\obj\Debug\bitBooks_Project.csprojAssemblyReference.cache
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\obj\Debug\bitBooks_Project.bitBooksMainForm.resources
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\obj\Debug\bitBooks_Project.PregledClanovaForm.resources
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\obj\Debug\bitBooks_Project.PregledRecenzijaForm.resources
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\obj\Debug\bitBooks_Project.Forme.UnosRecenzijeKnjižniceForm.resources
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\obj\Debug\bitBooks_Project.Forme.UnosRecenzijeZaposlenikaForm.resources
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\obj\Debug\bitBooks_Project.Properties.Resources.resources
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\obj\Debug\bitBooks_Project.csproj.GenerateResource.cache
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\obj\Debug\bitBooks_Project.csproj.CoreCompileInputs.cache
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\obj\Debug\bitBooks_Project.csproj.CopyComplete
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\obj\Debug\bitBooks_Project.exe
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\obj\Debug\bitBooks_Project.pdb
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\obj\Debug\bitBooks_Project.Forme.PosudbaKnjiga.resources
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\obj\Debug\bitBooks_Project.Forme.PrijavaForm.resources

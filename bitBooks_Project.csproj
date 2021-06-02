@@ -89,6 +89,18 @@
     <Compile Include="Department.cs">
       <DependentUpon>BazaPodataka.tt</DependentUpon>
     </Compile>
+    <Compile Include="Forme\PosudbaKnjiga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\PosudbaKnjiga.Designer.cs">
+      <DependentUpon>PosudbaKnjiga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\PrijavaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\PrijavaForm.Designer.cs">
+      <DependentUpon>PrijavaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\UnosRecenzijeKnjižniceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,11 +176,17 @@
     <EmbeddedResource Include="Forme\bitBooksMainForm.resx">
       <DependentUpon>bitBooksMainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forme\PosudbaKnjiga.resx">
+      <DependentUpon>PosudbaKnjiga.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\PregledClanovaForm.resx">
       <DependentUpon>PregledClanovaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\PregledRecenzijaForm.resx">
       <DependentUpon>PregledRecenzijaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\PrijavaForm.resx">
+      <DependentUpon>PrijavaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\UnosRecenzijeKnjižniceForm.resx">
       <DependentUpon>UnosRecenzijeKnjižniceForm.cs</DependentUpon>
