@@ -97,3 +97,6 @@ C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\bin\Debug\EntityFramework.SqlSe
 C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\obj\Debug\bitBooks_Project.Forme.RegistracijaForm.resources
 C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\obj\Debug\bitBooks_Project.csproj.CopyComplete
 C:\Users\Lino\Desktop\PI Projekt\ProjektniFolder\obj\Debug\bitBooks_Project.Forme.AktivacijskiKodForm.resources
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\obj\Debug\bitBooks_Project.Forme.AktivacijskiKodForm.resources
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\obj\Debug\bitBooks_Project.Forme.ObavijestiForm.resources
+C:\Users\vedra\OneDrive\Radna površina\V semestar\PI\Projekt\BitBooks\obj\Debug\bitBooks_Project.Forme.RegistracijaForm.resources

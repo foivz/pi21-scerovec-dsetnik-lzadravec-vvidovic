@@ -52,6 +52,7 @@ namespace bitBooks_Project
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.obavijesti_button = new System.Windows.Forms.Button();
             this.groups.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUseri)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -126,7 +127,7 @@ namespace bitBooks_Project
             // 
             // btnRecenzije
             // 
-            this.btnRecenzije.Location = new System.Drawing.Point(226, 42);
+            this.btnRecenzije.Location = new System.Drawing.Point(205, 42);
             this.btnRecenzije.Name = "btnRecenzije";
             this.btnRecenzije.Size = new System.Drawing.Size(105, 23);
             this.btnRecenzije.TabIndex = 6;
@@ -169,7 +170,7 @@ namespace bitBooks_Project
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Location = new System.Drawing.Point(29, 54);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(400, 56);
+            this.groupBox1.Size = new System.Drawing.Size(407, 56);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Main Menu";
@@ -224,16 +225,16 @@ namespace bitBooks_Project
             // 
             this.groupBox2.Controls.Add(this.button6);
             this.groupBox2.Controls.Add(this.prijava_button);
-            this.groupBox2.Location = new System.Drawing.Point(39, 139);
+            this.groupBox2.Location = new System.Drawing.Point(29, 139);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(378, 63);
+            this.groupBox2.Size = new System.Drawing.Size(407, 63);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Prijava/registracija";
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(189, 19);
+            this.button6.Location = new System.Drawing.Point(235, 19);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 1;
@@ -243,7 +244,7 @@ namespace bitBooks_Project
             // 
             // prijava_button
             // 
-            this.prijava_button.Location = new System.Drawing.Point(63, 19);
+            this.prijava_button.Location = new System.Drawing.Point(79, 19);
             this.prijava_button.Name = "prijava_button";
             this.prijava_button.Size = new System.Drawing.Size(75, 23);
             this.prijava_button.TabIndex = 0;
@@ -253,19 +254,20 @@ namespace bitBooks_Project
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.obavijesti_button);
             this.groupBox3.Controls.Add(this.btnRecenzije);
             this.groupBox3.Controls.Add(this.button8);
             this.groupBox3.Controls.Add(this.button7);
-            this.groupBox3.Location = new System.Drawing.Point(39, 224);
+            this.groupBox3.Location = new System.Drawing.Point(29, 224);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(377, 91);
+            this.groupBox3.Size = new System.Drawing.Size(407, 91);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Korisničke aktivnosti";
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(27, 42);
+            this.button8.Location = new System.Drawing.Point(6, 42);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(96, 23);
             this.button8.TabIndex = 1;
@@ -274,12 +276,22 @@ namespace bitBooks_Project
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(129, 42);
+            this.button7.Location = new System.Drawing.Point(108, 42);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(91, 23);
             this.button7.TabIndex = 0;
             this.button7.Text = "Moje posudbe";
             this.button7.UseVisualStyleBackColor = true;
+            // 
+            // obavijesti_button
+            // 
+            this.obavijesti_button.Location = new System.Drawing.Point(315, 42);
+            this.obavijesti_button.Name = "obavijesti_button";
+            this.obavijesti_button.Size = new System.Drawing.Size(85, 23);
+            this.obavijesti_button.TabIndex = 7;
+            this.obavijesti_button.Text = "Moje obavijesti";
+            this.obavijesti_button.UseVisualStyleBackColor = true;
+            this.obavijesti_button.Click += new System.EventHandler(this.obavijesti_button_Click);
             // 
             // bitBooksMainForm
             // 
@@ -295,7 +307,6 @@ namespace bitBooks_Project
             this.Controls.Add(this.btnProvjera);
             this.Controls.Add(this.groups);
             this.Name = "bitBooksMainForm";
-            this.Text = "Form1";
             this.Load += new System.EventHandler(this.bitBooksMainForm_Load);
             this.groups.ResumeLayout(false);
             this.groups.PerformLayout();
@@ -333,6 +344,7 @@ namespace bitBooks_Project
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button obavijesti_button;
     }
 }
 

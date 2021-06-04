@@ -19,6 +19,7 @@ namespace bitBooks_Project
         PregledClanovaForm pregledClanovaForm;
         PregledRecenzijaForm pregledRecenzijaForm;
         Korisnik _korisnik;
+        ObavijestiForm obavijesti;
         public bitBooksMainForm()
         {
             InitializeComponent();
@@ -79,6 +80,12 @@ namespace bitBooks_Project
         {
             registracija = new RegistracijaForm();
             registracija.ShowDialog();
+        }
+
+        private void obavijesti_button_Click(object sender, EventArgs e)
+        {
+            obavijesti = new ObavijestiForm();
+            obavijesti.ShowDialog();
         }
     }
 }
