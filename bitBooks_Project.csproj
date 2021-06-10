@@ -95,6 +95,12 @@
     <Compile Include="Department.cs">
       <DependentUpon>BazaPodataka.tt</DependentUpon>
     </Compile>
+    <Compile Include="Forme\LiveChatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\LiveChatForm.Designer.cs">
+      <DependentUpon>LiveChatForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\ObavijestiForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\bitBooksMainForm.resx">
       <DependentUpon>bitBooksMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\LiveChatForm.resx">
+      <DependentUpon>LiveChatForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\ObavijestiForm.resx">
       <DependentUpon>ObavijestiForm.cs</DependentUpon>

@@ -50,9 +50,10 @@ namespace bitBooks_Project
             this.button6 = new System.Windows.Forms.Button();
             this.prijava_button = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.obavijesti_button = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.obavijesti_button = new System.Windows.Forms.Button();
+            this.btnLiveChat = new System.Windows.Forms.Button();
             this.groups.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUseri)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -265,6 +266,16 @@ namespace bitBooks_Project
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Korisničke aktivnosti";
             // 
+            // obavijesti_button
+            // 
+            this.obavijesti_button.Location = new System.Drawing.Point(315, 42);
+            this.obavijesti_button.Name = "obavijesti_button";
+            this.obavijesti_button.Size = new System.Drawing.Size(85, 23);
+            this.obavijesti_button.TabIndex = 7;
+            this.obavijesti_button.Text = "Moje obavijesti";
+            this.obavijesti_button.UseVisualStyleBackColor = true;
+            this.obavijesti_button.Click += new System.EventHandler(this.obavijesti_button_Click);
+            // 
             // button8
             // 
             this.button8.Location = new System.Drawing.Point(6, 42);
@@ -283,21 +294,22 @@ namespace bitBooks_Project
             this.button7.Text = "Moje posudbe";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // obavijesti_button
+            // btnLiveChat
             // 
-            this.obavijesti_button.Location = new System.Drawing.Point(315, 42);
-            this.obavijesti_button.Name = "obavijesti_button";
-            this.obavijesti_button.Size = new System.Drawing.Size(85, 23);
-            this.obavijesti_button.TabIndex = 7;
-            this.obavijesti_button.Text = "Moje obavijesti";
-            this.obavijesti_button.UseVisualStyleBackColor = true;
-            this.obavijesti_button.Click += new System.EventHandler(this.obavijesti_button_Click);
+            this.btnLiveChat.Location = new System.Drawing.Point(39, 466);
+            this.btnLiveChat.Name = "btnLiveChat";
+            this.btnLiveChat.Size = new System.Drawing.Size(102, 40);
+            this.btnLiveChat.TabIndex = 9;
+            this.btnLiveChat.Text = "Live chat sa knjižničarom";
+            this.btnLiveChat.UseVisualStyleBackColor = true;
+            this.btnLiveChat.Click += new System.EventHandler(this.btnLiveChat_Click);
             // 
             // bitBooksMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(942, 531);
+            this.Controls.Add(this.btnLiveChat);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label4);
@@ -345,6 +357,7 @@ namespace bitBooks_Project
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button obavijesti_button;
+        private System.Windows.Forms.Button btnLiveChat;
     }
 }
 
