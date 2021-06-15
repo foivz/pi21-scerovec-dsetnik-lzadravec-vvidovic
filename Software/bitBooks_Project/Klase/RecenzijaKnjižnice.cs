@@ -22,7 +22,7 @@ namespace bitBooks_Project.Klase
         {
             RecenzijaKnjižnice korisnikovaRecenzija;
 
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 var query = from r in context.ReviewLibraries
                             where r.UserID == korisnikID
@@ -55,7 +55,7 @@ namespace bitBooks_Project.Klase
         {
             List<RecenzijaKnjižnice> sveRecenzije = new List<RecenzijaKnjižnice>();
 
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 var query = from r in context.ReviewLibraries
                             where r.LibraryUser.LibraryID == knjiznicaID
@@ -79,7 +79,7 @@ namespace bitBooks_Project.Klase
         public void NovaRecenzija(string komentar, int ocjena, Korisnik korisnik) 
         {
             ValidirajRecenziju(komentar);   
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
                 {
 
                     ReviewLibrary recenzija = new ReviewLibrary();
@@ -96,7 +96,7 @@ namespace bitBooks_Project.Klase
         public void AžurirajRecenziju(string komentar, int ocjena, int korisnikID)
         {
             ValidirajRecenziju(komentar);
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 var recenzija = context.ReviewLibraries.First(r => r.LibraryUser.UserID == korisnikID);
                 recenzija.ReviewText = komentar;

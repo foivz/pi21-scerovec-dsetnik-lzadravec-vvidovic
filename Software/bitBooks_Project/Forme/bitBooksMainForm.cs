@@ -18,11 +18,11 @@ namespace bitBooks_Project
         RegistracijaForm registracija;
         PregledClanovaForm pregledClanovaForm;
         PregledRecenzijaForm pregledRecenzijaForm;
-        NovostiForm novostiForm;
         Korisnik _korisnik;
         ObavijestiForm obavijesti;
         LiveChatForm liveChatForm;
         PregledKnjigaForm pregledKnjigaForm;
+        NovostiForm novostiForm;
         public bitBooksMainForm()
         {
             InitializeComponent();
@@ -101,6 +101,12 @@ namespace bitBooks_Project
         {
             pregledKnjigaForm = new PregledKnjigaForm();
             pregledKnjigaForm.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            novostiForm = new NovostiForm();
+            novostiForm.ShowDialog();
         }
     }
 }

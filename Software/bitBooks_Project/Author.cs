@@ -17,6 +17,7 @@ namespace bitBooks_Project
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Author()
         {
+            this.Wrotes = new HashSet<Wrote>();
             this.Books = new HashSet<Book>();
         }
     
@@ -25,6 +26,8 @@ namespace bitBooks_Project
         public string Surname { get; set; }
         public string Country { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Wrote> Wrotes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Book> Books { get; set; }
     }

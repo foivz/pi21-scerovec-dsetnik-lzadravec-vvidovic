@@ -73,7 +73,7 @@ namespace bitBooks_Project.Forme
 
         private void GeneriranjeLibraryUsera()
         {
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
                 noviKorisnik = new LibraryUser
                 {
                     TypeID = 4,

@@ -19,7 +19,7 @@ namespace bitBooks_Project.Klase
         {
             List<Novost> novostiKnjiznice = new List<Novost>();
 
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 var query = from n in context.News
                             where n.library_id == knjiznicaID
@@ -40,7 +40,7 @@ namespace bitBooks_Project.Klase
         public static void NovaNovost(string naziv, string opis,int knjiznicaID)
         {
             ValidirajUnose(naziv, opis);
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
 
                 News novost = new News();
@@ -56,7 +56,7 @@ namespace bitBooks_Project.Klase
         public void AžurirajNovost(string naziv, string opis, int novostID)
         {
             ValidirajUnose(naziv,opis);
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 var novost = context.News.First(n => n.news_id == novostID);
                 novost.name = naziv;

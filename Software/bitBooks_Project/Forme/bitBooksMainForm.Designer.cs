@@ -84,7 +84,7 @@ namespace bitBooks_Project
             this.groups.Size = new System.Drawing.Size(345, 274);
             this.groups.TabIndex = 1;
             this.groups.TabStop = false;
-            this.groups.Text = "kingDorienTesting";
+            this.groups.Text = "Test";
             // 
             // label2
             // 
@@ -203,6 +203,7 @@ namespace bitBooks_Project
             this.button2.TabIndex = 1;
             this.button2.Text = "Novosti";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 

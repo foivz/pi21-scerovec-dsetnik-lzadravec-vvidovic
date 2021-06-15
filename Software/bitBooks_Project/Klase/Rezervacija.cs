@@ -18,7 +18,7 @@ namespace bitBooks_Project.Klase
         {
             List<Rezervacija> rezervacijeKorisnika = new List<Rezervacija>();
 
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 var query = from r in context.Reservations
                             where r.UserID == korisnikID
@@ -40,7 +40,7 @@ namespace bitBooks_Project.Klase
         {
             List<Rezervacija> rezervacijeIzdanja = new List<Rezervacija>();
 
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 var query = from r in context.Reservations
                             where r.PublishingID == izdanjeID
