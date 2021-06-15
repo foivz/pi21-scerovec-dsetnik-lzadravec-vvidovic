@@ -45,8 +45,7 @@ namespace bitBooks_Project.Forme
 
         private void RefreshGUI()
         {
-            //if(Sesija.TipKorisnika == "Korisnik")
-            if (false)
+            if(Sesija.Korisnik.DohvatiTipKorisnika(Sesija.Korisnik) == "Korisnik")
             {
                 btnUredi1.Visible = false;
                 btnUredi2.Visible = false;
@@ -61,66 +60,85 @@ namespace bitBooks_Project.Forme
             //ako ima bar 3 novosti
             if (novosti.Count > 3 || novosti.Count == 3)
             {
-                txtNovost1.Text = novosti[0].Ime;
-                txtNovost2.Text = novosti[1].Ime;
-                txtNovost3.Text = novosti[2].Ime;
-                txtOpis1.Text = novosti[0].Opis;
-                txtOpis2.Text = novosti[1].Opis;
-                txtOpis3.Text = novosti[2].Opis;
+                PrikažiGornjuNovost();
+                PrikažiSrednjuNovost();
+                PrikažiDonjuNovost();
             }
 
             //ako su samo 2 novosti
             else if (novosti.Count == 2)
             {
-                txtNovost1.Text = novosti[0].Ime;
-                txtNovost2.Text = novosti[1].Ime;
-                txtOpis1.Text = novosti[0].Opis;
-                txtOpis2.Text = novosti[1].Opis;
-                btnUredi3.Visible = false;
-                txtNovost3.Visible = false;
-                txtOpis3.Visible = false;
-                label6.Visible = false;
-                label3.Visible = false;
+                PrikažiGornjuNovost();
+                PrikažiSrednjuNovost();
+
+                SakrijDonjiDio();
             }
 
             //ako je samo jedna novost
             else if (novosti.Count == 1)
             {
-                txtNovost1.Text = novosti[0].Ime;
-                txtOpis1.Text = novosti[0].Opis;
-                btnUredi2.Visible = false;
-                txtNovost2.Visible = false;
-                txtOpis2.Visible = false;
-                btnUredi3.Visible = false;
-                txtNovost3.Visible = false;
-                txtOpis3.Visible = false;
-                label6.Visible = false;
-                label3.Visible = false;
-                label5.Visible = false;
-                label2.Visible = false;
+                PrikažiGornjuNovost();
+
+                SakrijSrednjiDio();
+                SakrijDonjiDio();
+
+
             }
 
             //ako nema novosti
             else
             {
-                btnUredi1.Visible = false;
-                txtNovost1.Visible = false;
-                txtOpis1.Visible = false;
-                btnUredi2.Visible = false;
-                txtNovost2.Visible = false;
-                txtOpis2.Visible = false;
-                btnUredi3.Visible = false;
-                txtNovost3.Visible = false;
-                txtOpis3.Visible = false;
-                label6.Visible = false;
-                label3.Visible = false;
-                label5.Visible = false;
-                label2.Visible = false;
-                label4.Visible = false;
-                label1.Visible = false;
+                SakrijGornjiDio();
+                SakrijSrednjiDio();
+                SakrijDonjiDio();
             }
-            
+
             OnemogućiPromjene();
+        }
+
+        private void PrikažiDonjuNovost()
+        {
+            txtNovost3.Text = novosti[2].Ime;
+            txtOpis3.Text = novosti[2].Opis;
+        }
+
+        private void PrikažiSrednjuNovost()
+        {
+            txtNovost2.Text = novosti[1].Ime;
+            txtOpis2.Text = novosti[1].Opis;
+        }
+
+        private void PrikažiGornjuNovost()
+        {
+            txtNovost1.Text = novosti[0].Ime;
+            txtOpis1.Text = novosti[0].Opis;
+        }
+
+        private void SakrijGornjiDio()
+        {
+            btnUredi1.Visible = false;
+            txtNovost1.Visible = false;
+            txtOpis1.Visible = false;
+            label4.Visible = false;
+            label1.Visible = false;
+        }
+
+        private void SakrijSrednjiDio()
+        {
+            btnUredi2.Visible = false;
+            txtNovost2.Visible = false;
+            txtOpis2.Visible = false;
+            label5.Visible = false;
+            label2.Visible = false;
+        }
+
+        private void SakrijDonjiDio()
+        {
+            btnUredi3.Visible = false;
+            txtNovost3.Visible = false;
+            txtOpis3.Visible = false;
+            label6.Visible = false;
+            label3.Visible = false;
         }
 
         private void OnemogućiPromjene()
@@ -157,8 +175,7 @@ namespace bitBooks_Project.Forme
 
         private static List<Novost> NapraviListuNovosti()
         {
-            //tu ocemo iz session vaditi id knjiznice
-            return Novost.DohvatiNovostiKnjiznice(1);
+            return Novost.DohvatiNovostiKnjiznice(Sesija.Korisnik.KnjiznicaID);
         }
 
         private void BtnZatvori_Click(object sender, EventArgs e)

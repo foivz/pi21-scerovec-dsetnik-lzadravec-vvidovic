@@ -14,14 +14,12 @@ namespace bitBooks_Project.Forme
 {
     public partial class UnosRecenzijeZaposlenikaForm : Form
     {
-        Korisnik _korisnik;
         Korisnik odabraniZaposlenik;
         bool recenzijaPostoji;
         RecenzijaZaposlenika novaRecenzija;
-        public UnosRecenzijeZaposlenikaForm(Korisnik korisnik)
+        public UnosRecenzijeZaposlenikaForm()
         {
             InitializeComponent();
-            _korisnik = korisnik;
         }
 
         private void UnosRecenzijeZaposlenikaForm_Load(object sender, EventArgs e)
@@ -61,7 +59,7 @@ namespace bitBooks_Project.Forme
 
         private void PopuniPodatke()
         {
-            txtKnjiznica.Text = _korisnik.ImeKnjiznice;
+            txtKnjiznica.Text = Sesija.Korisnik.ImeKnjiznice;
             PostaviPocetnePodatke();
 
             if (novaRecenzija != null)
@@ -81,13 +79,13 @@ namespace bitBooks_Project.Forme
 
         private void PopuniComboBoxeve()
         {
-            cmbZaposlenik.DataSource = Korisnik.DohvatiZaposlenikeKnjižnice(_korisnik.KnjiznicaID);
+            cmbZaposlenik.DataSource = Korisnik.DohvatiZaposlenikeKnjižnice(Sesija.Korisnik.KnjiznicaID);
             cmbOcjena.DataSource = RecenzijaZaposlenika.listaOcjena;
         }
 
         private void DohvatiRecenziju()
         {
-            novaRecenzija = RecenzijaZaposlenika.DohvatiSpecificnuRecenziju(_korisnik.KorisnikID, odabraniZaposlenik.KorisnikID);
+            novaRecenzija = RecenzijaZaposlenika.DohvatiSpecificnuRecenziju(Sesija.Korisnik.KorisnikID, odabraniZaposlenik.KorisnikID);
         }
 
         private void OnemogućiPromjene() 
@@ -122,12 +120,12 @@ namespace bitBooks_Project.Forme
             {
                 if (recenzijaPostoji)
                 {
-                    novaRecenzija.AžurirajRecenziju(txtKomentar.Text, cmbOcjena.SelectedIndex + 1, _korisnik.KorisnikID, odabraniZaposlenik.KorisnikID);
+                    novaRecenzija.AžurirajRecenziju(txtKomentar.Text, cmbOcjena.SelectedIndex + 1, Sesija.Korisnik.KorisnikID, odabraniZaposlenik.KorisnikID);
                 }
                 else
                 {
                     novaRecenzija = new RecenzijaZaposlenika();
-                    novaRecenzija.NovaRecenzija(txtKomentar.Text, cmbOcjena.SelectedIndex + 1, _korisnik, odabraniZaposlenik);
+                    novaRecenzija.NovaRecenzija(txtKomentar.Text, cmbOcjena.SelectedIndex + 1, Sesija.Korisnik, odabraniZaposlenik);
                 }
                 DohvatiRecenziju();
                 PopuniPodatke();

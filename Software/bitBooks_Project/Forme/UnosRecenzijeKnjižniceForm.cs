@@ -14,13 +14,11 @@ namespace bitBooks_Project.Forme
 {
     public partial class UnosRecenzijeKnjižniceForm : Form
     {
-        Korisnik _korisnik;
         RecenzijaKnjižnice novaRecenzija;
         bool recenzijaPostoji;
-        public UnosRecenzijeKnjižniceForm(Korisnik korisnik)
+        public UnosRecenzijeKnjižniceForm()
         {
             InitializeComponent();
-            _korisnik = korisnik;
         }
 
         private void UnosRecenzijeKnjižniceForm_Load(object sender, EventArgs e)
@@ -54,7 +52,7 @@ namespace bitBooks_Project.Forme
 
         private void DohvatiRecenziju()
         {
-            novaRecenzija = RecenzijaKnjižnice.DohvatiKorisnikoveRecenzijeKnjiznice(_korisnik.KorisnikID);          
+            novaRecenzija = RecenzijaKnjižnice.DohvatiKorisnikoveRecenzijeKnjiznice(Sesija.Korisnik.KorisnikID);          
         }
 
         private void OnemogućiPromjene() 
@@ -84,7 +82,7 @@ namespace bitBooks_Project.Forme
 
         private void PopuniPoljaAkoRecenzijaNEPostoji() 
         {
-                txtKnjiznica.Text = _korisnik.ImeKnjiznice;
+                txtKnjiznica.Text = Sesija.Korisnik.ImeKnjiznice;
         }
 
         private void btnSpremi_Click(object sender, EventArgs e)
@@ -93,12 +91,12 @@ namespace bitBooks_Project.Forme
             {
                 if (recenzijaPostoji)
                 {
-                    novaRecenzija.AžurirajRecenziju(txtKomentar.Text, cmbOcjena.SelectedIndex + 1, _korisnik.KorisnikID);
+                    novaRecenzija.AžurirajRecenziju(txtKomentar.Text, cmbOcjena.SelectedIndex + 1, Sesija.Korisnik.KorisnikID);
                 }
                 else
                 {
                     novaRecenzija = new RecenzijaKnjižnice();
-                    novaRecenzija.NovaRecenzija(txtKomentar.Text, cmbOcjena.SelectedIndex + 1, _korisnik);
+                    novaRecenzija.NovaRecenzija(txtKomentar.Text, cmbOcjena.SelectedIndex + 1, Sesija.Korisnik);
                 }
                 DohvatiRecenziju();
                 PopuniPoljaAkoRecenzijaPostoji();

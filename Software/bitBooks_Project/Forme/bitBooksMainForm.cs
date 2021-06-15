@@ -37,16 +37,16 @@ namespace bitBooks_Project
 
         private void btnPregledClanova_Click(object sender, EventArgs e)
         {
-                if(_korisnik.DohvatiTipKorisnika(_korisnik) == "Zaposlenik") 
+                if(Sesija.Korisnik.DohvatiTipKorisnika(Sesija.Korisnik) == "Zaposlenik") 
                 {
-                    pregledClanovaForm = new PregledClanovaForm(_korisnik.KnjiznicaID);
+                    pregledClanovaForm = new PregledClanovaForm();
                     pregledClanovaForm.ShowDialog();
                 }    
         }
 
         private void btnRecenzije_Click(object sender, EventArgs e)
         {
-            pregledRecenzijaForm = new PregledRecenzijaForm(_korisnik);
+            pregledRecenzijaForm = new PregledRecenzijaForm();
             pregledRecenzijaForm.ShowDialog();
         }
 

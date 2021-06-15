@@ -39,6 +39,7 @@ namespace bitBooks_Project
             this.btnZatvori = new System.Windows.Forms.Button();
             this.btnPregledaj = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnObrisi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +55,7 @@ namespace bitBooks_Project
             // 
             // btnPrikaziSve
             // 
-            this.btnPrikaziSve.Location = new System.Drawing.Point(563, 24);
+            this.btnPrikaziSve.Location = new System.Drawing.Point(578, 24);
             this.btnPrikaziSve.Name = "btnPrikaziSve";
             this.btnPrikaziSve.Size = new System.Drawing.Size(75, 78);
             this.btnPrikaziSve.TabIndex = 1;
@@ -64,7 +65,7 @@ namespace bitBooks_Project
             // 
             // btnFilter
             // 
-            this.btnFilter.Location = new System.Drawing.Point(463, 24);
+            this.btnFilter.Location = new System.Drawing.Point(474, 24);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(75, 78);
             this.btnFilter.TabIndex = 2;
@@ -106,9 +107,9 @@ namespace bitBooks_Project
             // 
             // btnZatvori
             // 
-            this.btnZatvori.Location = new System.Drawing.Point(665, 24);
+            this.btnZatvori.Location = new System.Drawing.Point(714, 497);
             this.btnZatvori.Name = "btnZatvori";
-            this.btnZatvori.Size = new System.Drawing.Size(75, 78);
+            this.btnZatvori.Size = new System.Drawing.Size(75, 29);
             this.btnZatvori.TabIndex = 8;
             this.btnZatvori.Text = "Zatvori";
             this.btnZatvori.UseVisualStyleBackColor = true;
@@ -134,12 +135,23 @@ namespace bitBooks_Project
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
+            // btnObrisi
+            // 
+            this.btnObrisi.Location = new System.Drawing.Point(684, 24);
+            this.btnObrisi.Name = "btnObrisi";
+            this.btnObrisi.Size = new System.Drawing.Size(75, 78);
+            this.btnObrisi.TabIndex = 11;
+            this.btnObrisi.Text = "Obriši člana";
+            this.btnObrisi.UseVisualStyleBackColor = true;
+            this.btnObrisi.Click += new System.EventHandler(this.BtnObrisi_Click);
+            // 
             // PregledClanovaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.ClientSize = new System.Drawing.Size(801, 505);
+            this.ClientSize = new System.Drawing.Size(801, 538);
+            this.Controls.Add(this.btnObrisi);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnPregledaj);
             this.Controls.Add(this.btnZatvori);
@@ -172,5 +184,6 @@ namespace bitBooks_Project
         private System.Windows.Forms.Button btnZatvori;
         private System.Windows.Forms.Button btnPregledaj;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnObrisi;
     }
 }

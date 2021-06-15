@@ -28,8 +28,7 @@ namespace bitBooks_Project.Forme
         {
             try
             {
-                //tu umjesto 1 ide knjiznica id
-                Novost.NovaNovost(txtNaziv.Text, txtOpis.Text, 1);
+                Novost.NovaNovost(txtNaziv.Text, txtOpis.Text, Sesija.Korisnik.KnjiznicaID.GetValueOrDefault());
             }
             catch (UnosNovostiException ex)
             {

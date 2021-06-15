@@ -1,4 +1,5 @@
-﻿using System;
+﻿using bitBooks_Project.Dorian_Iznimke;
+using System;
 using System.Collections.Generic;
 using System.Data.Linq.SqlClient;
 using System.Linq;
@@ -347,6 +348,30 @@ namespace bitBooks_Project.Klase
             }
 
             return korisnik;
+        }
+
+        public static void ObrisiKorisnika(Korisnik korisnik)
+        {
+            ValidacijaBrisanja(korisnik);
+            using (var context = new Entities_db1())
+            {
+                var query = (from l in context.LibraryUsers
+                            where l.UserID == korisnik.KorisnikID
+                            select l).FirstOrDefault();
+                context.LibraryUsers.Remove(query);
+                context.SaveChanges();
+                
+            }
+
+
+        }
+
+        private static void ValidacijaBrisanja(Korisnik korisnik)
+        {
+            if(korisnik.TipID == 1 || korisnik.TipID == 2)
+            {
+                throw new AdminException("Ne možete brisati admina iz baze!");
+            }
         }
     }
 }

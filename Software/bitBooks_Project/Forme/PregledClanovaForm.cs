@@ -1,4 +1,5 @@
-﻿using bitBooks_Project.Forme;
+﻿using bitBooks_Project.Dorian_Iznimke;
+using bitBooks_Project.Forme;
 using bitBooks_Project.Klase;
 using System;
 using System.Collections.Generic;
@@ -15,13 +16,11 @@ namespace bitBooks_Project
     public partial class PregledClanovaForm : Form
     {
         Korisnik _odabraniKorisnik;
-        int? knjiznicaID;
         PregledClanova_PosudbeIRezervacijeForm pregledClanova_PosudbeIRezervacije;
 
-        public PregledClanovaForm(int? knjiznica_ID)
+        public PregledClanovaForm()
         {
             InitializeComponent();
-            knjiznicaID = knjiznica_ID;
         }
 
         private void btnPrikaziSve_Click(object sender, EventArgs e)
@@ -52,26 +51,26 @@ namespace bitBooks_Project
 
             else if (txtIme.Text == "" && txtPrezime.Text != "")
             {
-                dgvKorisnici.DataSource = Korisnik.DohvatiKorisnikaPoPrezimenu(txtPrezime.Text, knjiznicaID);
+                dgvKorisnici.DataSource = Korisnik.DohvatiKorisnikaPoPrezimenu(txtPrezime.Text, Sesija.Korisnik.KnjiznicaID);
                 FiltrirajDGV();
             }
 
             else if (txtIme.Text != "" && txtPrezime.Text == "")
             {
-                dgvKorisnici.DataSource = Korisnik.DohvatiKorisnikaPoImenu(txtIme.Text, knjiznicaID);
+                dgvKorisnici.DataSource = Korisnik.DohvatiKorisnikaPoImenu(txtIme.Text, Sesija.Korisnik.KnjiznicaID);
                 FiltrirajDGV();
             }
 
             else
             {
-                dgvKorisnici.DataSource = Korisnik.DohvatiPoImenuIPrezimenu(txtIme.Text, txtPrezime.Text, knjiznicaID);
+                dgvKorisnici.DataSource = Korisnik.DohvatiPoImenuIPrezimenu(txtIme.Text, txtPrezime.Text, Sesija.Korisnik.KnjiznicaID);
                 FiltrirajDGV();
             }
         }
 
         private void PrikaziSveKorisnikeKnjiznice()
         {
-            dgvKorisnici.DataSource = Korisnik.DohvatiKorisnikeKnjižnice(knjiznicaID);
+            dgvKorisnici.DataSource = Korisnik.DohvatiKorisnikeKnjižnice(Sesija.Korisnik.KnjiznicaID);
             FiltrirajDGV();
         }
 
@@ -103,6 +102,27 @@ namespace bitBooks_Project
 
         private void PregledClanovaForm_Load(object sender, EventArgs e)
         {
+            PrikaziSveKorisnikeKnjiznice();
+            btnObrisi.Visible = false;
+            if (Sesija.Korisnik.DohvatiTipKorisnika(Sesija.Korisnik) == "Super admin" || Sesija.Korisnik.DohvatiTipKorisnika(Sesija.Korisnik) == "Admin")
+            {
+                btnObrisi.Visible = true;
+            }
+            
+        }
+
+        private void BtnObrisi_Click(object sender, EventArgs e)
+        {
+            DohvatiKorisnika();
+            try
+            {
+                Korisnik.ObrisiKorisnika(_odabraniKorisnik);
+            }
+            catch (AdminException ex)
+            {
+                MessageBox.Show(ex.Poruka);
+            }
+            
             PrikaziSveKorisnikeKnjiznice();
         }
     }
