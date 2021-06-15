@@ -38,7 +38,11 @@
         <AssociationConnector Association="Model.FK_ReviewLibrary_ReviewLibrary" ManuallyRouted="false" />
         <AssociationConnector Association="Model.Wrote" ManuallyRouted="false" />
         <EntityTypeShape EntityType="Model.News" Width="1.5" PointX="7.5" PointY="6.75" />
+<<<<<<< HEAD
         <AssociationConnector Association="Model.FK_News_LibraryID_fk" />
+=======
+        <AssociationConnector Association="Model.FK_News_LibrardyID_fk" />
+>>>>>>> 85a66211d9e82a026f2d6663f9bd9d715d8132d0
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

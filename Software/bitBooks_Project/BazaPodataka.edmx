@@ -82,6 +82,7 @@
           <Property Name="DueDate" Type="date" Nullable="false" />
           <Property Name="LoanStatus" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+<<<<<<< HEAD
         <EntityType Name="News">
           <Key>
             <PropertyRef Name="news_id" />
@@ -89,6 +90,20 @@
           <Property Name="news_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="description" Type="varchar" MaxLength="200" Nullable="false" />
+=======
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PI21-45_DB.dbo.News' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="news_id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="description" />
+            <PropertyRef Name="library_id" />
+          </Key>
+          <Property Name="news_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="description" Type="nchar" MaxLength="255" Nullable="false" />
+>>>>>>> 85a66211d9e82a026f2d6663f9bd9d715d8132d0
           <Property Name="library_id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Publisher">
@@ -194,7 +209,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+<<<<<<< HEAD
         <Association Name="FK_News_LibraryID_fk">
+=======
+        <Association Name="FK_News_LibrardyID_fk">
+>>>>>>> 85a66211d9e82a026f2d6663f9bd9d715d8132d0
           <End Role="Library" Type="Self.Library" Multiplicity="1" />
           <End Role="News" Type="Self.News" Multiplicity="*" />
           <ReferentialConstraint>
@@ -415,6 +434,14 @@
           <EntitySet Name="ReviewLibrary" EntityType="Self.ReviewLibrary" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wrote" EntityType="Self.Wrote" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [News].[news_id] AS [news_id], 
+    [News].[name] AS [name], 
+    [News].[description] AS [description], 
+    [News].[library_id] AS [library_id]
+    FROM [dbo].[News] AS [News]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="Book_GenreID_FK" Association="Self.Book_GenreID_FK">
             <End Role="Genre" EntitySet="Genre" />
             <End Role="Book" EntitySet="Book" />
@@ -427,7 +454,11 @@
             <End Role="Library" EntitySet="Library" />
             <End Role="Department" EntitySet="Department" />
           </AssociationSet>
+<<<<<<< HEAD
           <AssociationSet Name="FK_News_LibraryID_fk" Association="Self.FK_News_LibraryID_fk">
+=======
+          <AssociationSet Name="FK_News_LibrardyID_fk" Association="Self.FK_News_LibrardyID_fk">
+>>>>>>> 85a66211d9e82a026f2d6663f9bd9d715d8132d0
             <End Role="Library" EntitySet="Library" />
             <End Role="News" EntitySet="News" />
           </AssociationSet>
@@ -562,7 +593,11 @@
           <NavigationProperty Name="Departments" Relationship="Self.FK_Department_Library" FromRole="Library" ToRole="Department" />
           <NavigationProperty Name="LibraryUser" Relationship="Self.Library_Administrator_FK" FromRole="Library" ToRole="LibraryUser" />
           <NavigationProperty Name="LibraryUsers" Relationship="Self.LibraryUser_LibraryID_FK" FromRole="Library" ToRole="LibraryUser" />
+<<<<<<< HEAD
           <NavigationProperty Name="News" Relationship="Model.FK_News_LibraryID_fk" FromRole="Library" ToRole="News" />
+=======
+          <NavigationProperty Name="News" Relationship="Model.FK_News_LibrardyID_fk" FromRole="Library" ToRole="News" />
+>>>>>>> 85a66211d9e82a026f2d6663f9bd9d715d8132d0
         </EntityType>
         <EntityType Name="LibraryUser">
           <Key>
@@ -969,7 +1004,11 @@
             <End Role="Book" EntitySet="Books" />
           </AssociationSet>
           <EntitySet Name="News" EntityType="Model.News" />
+<<<<<<< HEAD
           <AssociationSet Name="FK_News_LibraryID_fk" Association="Model.FK_News_LibraryID_fk">
+=======
+          <AssociationSet Name="FK_News_LibrardyID_fk" Association="Model.FK_News_LibrardyID_fk">
+>>>>>>> 85a66211d9e82a026f2d6663f9bd9d715d8132d0
             <End Role="Library" EntitySet="Libraries" />
             <End Role="News" EntitySet="News" />
           </AssociationSet>
@@ -977,6 +1016,7 @@
         <EntityType Name="News">
           <Key>
             <PropertyRef Name="news_id" />
+<<<<<<< HEAD
           </Key>
           <Property Name="news_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -985,6 +1025,19 @@
           <NavigationProperty Name="Library" Relationship="Model.FK_News_LibraryID_fk" FromRole="News" ToRole="Library" />
         </EntityType>
         <Association Name="FK_News_LibraryID_fk">
+=======
+            <PropertyRef Name="name" />
+            <PropertyRef Name="description" />
+            <PropertyRef Name="library_id" />
+          </Key>
+          <Property Name="news_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="library_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Library" Relationship="Model.FK_News_LibrardyID_fk" FromRole="News" ToRole="Library" />
+        </EntityType>
+        <Association Name="FK_News_LibrardyID_fk">
+>>>>>>> 85a66211d9e82a026f2d6663f9bd9d715d8132d0
           <End Type="Model.Library" Role="Library" Multiplicity="1" />
           <End Type="Model.News" Role="News" Multiplicity="*" />
           <ReferentialConstraint>

@@ -131,11 +131,19 @@
     <Compile Include="Forme\PosudbaKnjiga.Designer.cs">
       <DependentUpon>PosudbaKnjiga.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Forme\PregledClanova_PosudbeIRezervacijeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forme\PregledClanova_PosudbeIRezervacijeForm.Designer.cs">
       <DependentUpon>PregledClanova_PosudbeIRezervacijeForm.cs</DependentUpon>
+=======
+    <Compile Include="Forme\PregledKnjigaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\PregledKnjigaForm.Designer.cs">
+      <DependentUpon>PregledKnjigaForm.cs</DependentUpon>
+>>>>>>> 85a66211d9e82a026f2d6663f9bd9d715d8132d0
     </Compile>
     <Compile Include="Forme\PrijavaForm.cs">
       <SubType>Form</SubType>
@@ -179,6 +187,7 @@
     <Compile Include="Klase\RecenzijaKnjižnice.cs" />
     <Compile Include="Klase\RecenzijaZaposlenika.cs" />
     <Compile Include="Klase\Rezervacija.cs" />
+    <Compile Include="Klase\Sesija.cs" />
     <Compile Include="Klase\TipKorisnika.cs" />
     <Compile Include="Klase\Žanr.cs" />
     <Compile Include="Forme\PregledClanovaForm.cs">
@@ -193,6 +202,7 @@
     <Compile Include="Forme\PregledRecenzijaForm.Designer.cs">
       <DependentUpon>PregledRecenzijaForm.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Library.cs">
       <DependentUpon>BazaPodataka.tt</DependentUpon>
     </Compile>
@@ -202,6 +212,8 @@
     <Compile Include="Loan.cs">
       <DependentUpon>BazaPodataka.tt</DependentUpon>
     </Compile>
+=======
+>>>>>>> 85a66211d9e82a026f2d6663f9bd9d715d8132d0
     <Compile Include="News.cs">
       <DependentUpon>BazaPodataka.tt</DependentUpon>
     </Compile>
@@ -249,8 +261,13 @@
     <EmbeddedResource Include="Forme\PregledClanovaForm.resx">
       <DependentUpon>PregledClanovaForm.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Forme\PregledClanova_PosudbeIRezervacijeForm.resx">
       <DependentUpon>PregledClanova_PosudbeIRezervacijeForm.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Forme\PregledKnjigaForm.resx">
+      <DependentUpon>PregledKnjigaForm.cs</DependentUpon>
+>>>>>>> 85a66211d9e82a026f2d6663f9bd9d715d8132d0
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\PregledRecenzijaForm.resx">
       <DependentUpon>PregledRecenzijaForm.cs</DependentUpon>

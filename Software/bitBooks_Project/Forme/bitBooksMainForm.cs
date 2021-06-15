@@ -22,6 +22,7 @@ namespace bitBooks_Project
         Korisnik _korisnik;
         ObavijestiForm obavijesti;
         LiveChatForm liveChatForm;
+        PregledKnjigaForm pregledKnjigaForm;
         public bitBooksMainForm()
         {
             InitializeComponent();
@@ -96,5 +97,13 @@ namespace bitBooks_Project
             liveChatForm.ShowDialog();
         }
 
+<<<<<<< HEAD
+=======
+        private void button3_Click(object sender, EventArgs e)
+        {
+            pregledKnjigaForm = new PregledKnjigaForm();
+            pregledKnjigaForm.ShowDialog();
+        }
+>>>>>>> 85a66211d9e82a026f2d6663f9bd9d715d8132d0
     }
 }
