@@ -1,4 +1,5 @@
-﻿using System;
+﻿using bitBooks_Project.Dorian_Iznimke;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -121,9 +122,10 @@ namespace bitBooks_Project.Klase
             }
             return recenzijaZaposlenika;
         }
+        
         public void NovaRecenzija(string komentar, int ocjena, Korisnik korisnik, Korisnik zaposlenik)
         {
-
+            ValidirajRecenziju(komentar);
             using (var context = new Entities_db())
             {
 
@@ -141,6 +143,7 @@ namespace bitBooks_Project.Klase
 
         public void AžurirajRecenziju(string komentar, int ocjena, int korisnikID, int zaposlenikID)
         {
+            ValidirajRecenziju(komentar);
             using (var context = new Entities_db())
             {
                 var recenzija = context.ReviewEmployees.First(r => r.LibraryUser1.UserID == korisnikID && r.LibraryUser.UserID == zaposlenikID);
@@ -148,6 +151,14 @@ namespace bitBooks_Project.Klase
                 recenzija.Stars = ocjena;
                 recenzija.EntryDate = DateTime.Now;
                 context.SaveChanges();
+            }
+        }
+
+        private void ValidirajRecenziju(string komentar)
+        {
+            if (komentar.Length > 199 || komentar.Length < 1)
+            {
+                throw new RecenzijaException("Komentar mora imati između 200 i nula znakova!"); 
             }
         }
     }

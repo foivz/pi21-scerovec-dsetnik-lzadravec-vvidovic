@@ -14,7 +14,7 @@ namespace bitBooks_Project.Klase
         public DateTime DatumRezervacije { get; set; }
         public DateTime DatumDostupnosti { get; set; }
 
-        public List<Rezervacija> DohvatiRezervacijeKorisnika(int korisnikID)
+        public static List<Rezervacija> DohvatiRezervacijeKorisnika(int korisnikID)
         {
             List<Rezervacija> rezervacijeKorisnika = new List<Rezervacija>();
 

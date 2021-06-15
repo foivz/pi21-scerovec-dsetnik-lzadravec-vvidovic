@@ -1,4 +1,5 @@
-﻿using bitBooks_Project.Klase;
+﻿using bitBooks_Project.Forme;
+using bitBooks_Project.Klase;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,10 @@ namespace bitBooks_Project
 {
     public partial class PregledClanovaForm : Form
     {
+        Korisnik _odabraniKorisnik;
         int? knjiznicaID;
+        PregledClanova_PosudbeIRezervacijeForm pregledClanova_PosudbeIRezervacije;
+
         public PregledClanovaForm(int? knjiznica_ID)
         {
             InitializeComponent();
@@ -30,6 +34,15 @@ namespace bitBooks_Project
             FilitrirajKorisnike();
         }
 
+        private void DohvatiKorisnika()
+        {
+            if (dgvKorisnici.CurrentRow != null)
+            {
+                _odabraniKorisnik = dgvKorisnici.CurrentRow.DataBoundItem as Korisnik;
+            }
+            
+        }
+
         private void FilitrirajKorisnike()
         {
             if (txtIme.Text == "" && txtPrezime.Text == "")
@@ -40,29 +53,57 @@ namespace bitBooks_Project
             else if (txtIme.Text == "" && txtPrezime.Text != "")
             {
                 dgvKorisnici.DataSource = Korisnik.DohvatiKorisnikaPoPrezimenu(txtPrezime.Text, knjiznicaID);
+                FiltrirajDGV();
             }
 
             else if (txtIme.Text != "" && txtPrezime.Text == "")
             {
                 dgvKorisnici.DataSource = Korisnik.DohvatiKorisnikaPoImenu(txtIme.Text, knjiznicaID);
+                FiltrirajDGV();
             }
 
             else
             {
                 dgvKorisnici.DataSource = Korisnik.DohvatiPoImenuIPrezimenu(txtIme.Text, txtPrezime.Text, knjiznicaID);
+                FiltrirajDGV();
             }
         }
 
         private void PrikaziSveKorisnikeKnjiznice()
         {
             dgvKorisnici.DataSource = Korisnik.DohvatiKorisnikeKnjižnice(knjiznicaID);
+            FiltrirajDGV();
+        }
+
+        private void FiltrirajDGV()
+        {
+            dgvKorisnici.Columns["KorisnickoIme"].HeaderText = "Korisničko ime";
+            dgvKorisnici.Columns["KorisnickoIme"].DisplayIndex = 0;
+            dgvKorisnici.Columns["ImeTipa"].HeaderText = "Tip korisnika";
+            dgvKorisnici.Columns["KorisnickoIme"].DisplayIndex = 1;
+            dgvKorisnici.Columns["KorisnikID"].Visible = false;
             dgvKorisnici.Columns["TipID"].Visible = false;
             dgvKorisnici.Columns["KnjiznicaID"].Visible = false;
+            dgvKorisnici.Columns["Lozinka"].Visible = false;
+            dgvKorisnici.Columns["ImeKnjiznice"].Visible = false;
+            dgvKorisnici.Columns["AktivacijskiKod"].Visible = false;
         }
 
         private void btnZatvori_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void BtnPregledaj_Click(object sender, EventArgs e)
+        {
+            DohvatiKorisnika();
+            pregledClanova_PosudbeIRezervacije = new PregledClanova_PosudbeIRezervacijeForm(_odabraniKorisnik);
+            pregledClanova_PosudbeIRezervacije.ShowDialog();
+        }
+
+        private void PregledClanovaForm_Load(object sender, EventArgs e)
+        {
+            PrikaziSveKorisnikeKnjiznice();
         }
     }
 }

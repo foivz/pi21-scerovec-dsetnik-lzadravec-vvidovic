@@ -74,6 +74,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BazaPodataka.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Book.cs">
+      <DependentUpon>BazaPodataka.tt</DependentUpon>
+    </Compile>
+    <Compile Include="City.cs">
+      <DependentUpon>BazaPodataka.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Department.cs">
+      <DependentUpon>BazaPodataka.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dorian_Iznimke\LibraryException.cs" />
+    <Compile Include="Dorian_Iznimke\RecenzijaException.cs" />
+    <Compile Include="Dorian_Iznimke\UnosNovostiException.cs" />
     <Compile Include="Forme\AktivacijskiKodForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,20 +98,23 @@
     <Compile Include="Forme\bitBooksMainForm.Designer.cs">
       <DependentUpon>bitBooksMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Book.cs">
-      <DependentUpon>BazaPodataka.tt</DependentUpon>
-    </Compile>
-    <Compile Include="City.cs">
-      <DependentUpon>BazaPodataka.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Department.cs">
-      <DependentUpon>BazaPodataka.tt</DependentUpon>
-    </Compile>
     <Compile Include="Forme\LiveChatForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forme\LiveChatForm.Designer.cs">
       <DependentUpon>LiveChatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\NovostiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\NovostiForm.Designer.cs">
+      <DependentUpon>NovostiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\NovostiUnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\NovostiUnos.Designer.cs">
+      <DependentUpon>NovostiUnos.cs</DependentUpon>
     </Compile>
     <Compile Include="Forme\ObavijestiForm.cs">
       <SubType>Form</SubType>
@@ -113,6 +128,23 @@
     <Compile Include="Forme\PosudbaKnjiga.Designer.cs">
       <DependentUpon>PosudbaKnjiga.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    <Compile Include="Forme\PregledClanova_PosudbeIRezervacijeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\PregledClanova_PosudbeIRezervacijeForm.Designer.cs">
+      <DependentUpon>PregledClanova_PosudbeIRezervacijeForm.cs</DependentUpon>
+=======
+    <Compile Include="Forme\PregledKnjigaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\PregledKnjigaForm.Designer.cs">
+      <DependentUpon>PregledKnjigaForm.cs</DependentUpon>
+>>>>>>> 85a66211d9e82a026f2d6663f9bd9d715d8132d0
+    </Compile>
+>>>>>>> a14b160956da18239dce240d7f822c6bbf8240b6
     <Compile Include="Forme\PrijavaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +180,7 @@
     <Compile Include="Klase\Knjiga.cs" />
     <Compile Include="Klase\Knjižnica.cs" />
     <Compile Include="Klase\Korisnik.cs" />
+    <Compile Include="Klase\Novost.cs" />
     <Compile Include="Klase\Odjel.cs" />
     <Compile Include="Klase\Posudba.cs" />
     <Compile Include="Klase\Recenzija.cs" />
@@ -156,15 +189,6 @@
     <Compile Include="Klase\Rezervacija.cs" />
     <Compile Include="Klase\TipKorisnika.cs" />
     <Compile Include="Klase\Žanr.cs" />
-    <Compile Include="Library.cs">
-      <DependentUpon>BazaPodataka.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LibraryUser.cs">
-      <DependentUpon>BazaPodataka.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Loan.cs">
-      <DependentUpon>BazaPodataka.tt</DependentUpon>
-    </Compile>
     <Compile Include="Forme\PregledClanovaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +201,24 @@
     <Compile Include="Forme\PregledRecenzijaForm.Designer.cs">
       <DependentUpon>PregledRecenzijaForm.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    <Compile Include="Library.cs">
+      <DependentUpon>BazaPodataka.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LibraryUser.cs">
+      <DependentUpon>BazaPodataka.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Loan.cs">
+      <DependentUpon>BazaPodataka.tt</DependentUpon>
+    </Compile>
+=======
+>>>>>>> 85a66211d9e82a026f2d6663f9bd9d715d8132d0
+    <Compile Include="News.cs">
+      <DependentUpon>BazaPodataka.tt</DependentUpon>
+    </Compile>
+>>>>>>> a14b160956da18239dce240d7f822c6bbf8240b6
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Publisher.cs">
@@ -206,6 +248,12 @@
     <EmbeddedResource Include="Forme\LiveChatForm.resx">
       <DependentUpon>LiveChatForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forme\NovostiForm.resx">
+      <DependentUpon>NovostiForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\NovostiUnos.resx">
+      <DependentUpon>NovostiUnos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\ObavijestiForm.resx">
       <DependentUpon>ObavijestiForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,6 +263,17 @@
     <EmbeddedResource Include="Forme\PregledClanovaForm.resx">
       <DependentUpon>PregledClanovaForm.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    <EmbeddedResource Include="Forme\PregledClanova_PosudbeIRezervacijeForm.resx">
+      <DependentUpon>PregledClanova_PosudbeIRezervacijeForm.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Forme\PregledKnjigaForm.resx">
+      <DependentUpon>PregledKnjigaForm.cs</DependentUpon>
+>>>>>>> 85a66211d9e82a026f2d6663f9bd9d715d8132d0
+    </EmbeddedResource>
+>>>>>>> a14b160956da18239dce240d7f822c6bbf8240b6
     <EmbeddedResource Include="Forme\PregledRecenzijaForm.resx">
       <DependentUpon>PregledRecenzijaForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -238,6 +297,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="BazaPodataka.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -274,6 +334,10 @@
       <DependentUpon>BazaPodataka.edmx</DependentUpon>
       <LastGenOutput>BazaPodataka.cs</LastGenOutput>
     </Content>
+    <None Include="Slike\korisnici_slika.png" />
+    <None Include="Slike\5stars_slika.png" />
+    <None Include="Slike\review_icon.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

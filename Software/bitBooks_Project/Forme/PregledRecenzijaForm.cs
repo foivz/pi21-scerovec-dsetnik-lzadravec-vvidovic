@@ -52,6 +52,11 @@ namespace bitBooks_Project
         private void PrikaziRecenzijeKnjiznice()
         {
             dgvRecenzije.DataSource = RecenzijaKnjižnice.DohvatiSveRecenzijeKnjiznice(_korisnik.KnjiznicaID);
+            dgvRecenzije.Columns["ImeKnjižnice"].HeaderText = "Ime knjižnice";
+            dgvRecenzije.Columns["KorisnickoIme"].HeaderText = "Korisničko ime";
+            dgvRecenzije.Columns["TekstRecenzije"].HeaderText = "Tekst recenzije";
+            dgvRecenzije.Columns["DatumUnosa"].HeaderText = "Datum unosa";
+            dgvRecenzije.Columns["RecenzijaID"].Visible = false;
             dgvRecenzije.Columns["KnjižnicaID"].Visible = false;
             dgvRecenzije.Columns["KorisnikID"].Visible = false;
         }
@@ -59,6 +64,19 @@ namespace bitBooks_Project
         private void PrikaziRecenzijeSvihZaposlenika()
         {
             dgvRecenzije.DataSource = RecenzijaZaposlenika.DohvatiSveRecenzijeZaposlenikaKnjiznice(_korisnik.KnjiznicaID);
+            ZaposleniciDGV();
+        }
+
+        private void ZaposleniciDGV()
+        {
+            dgvRecenzije.Columns["ImeZaposlenika"].HeaderText = "Ime zaposlenika";
+            dgvRecenzije.Columns["ImeZaposlenika"].DisplayIndex = 0;
+            dgvRecenzije.Columns["PrezimeZaposlenika"].DisplayIndex = 1;
+            dgvRecenzije.Columns["PrezimeZaposlenika"].HeaderText = "Prezime zaposlenika";
+            dgvRecenzije.Columns["KorisnickoIme"].HeaderText = "Korisničko ime";
+            dgvRecenzije.Columns["TekstRecenzije"].HeaderText = "Tekst recenzije";
+            dgvRecenzije.Columns["DatumUnosa"].HeaderText = "Datum unosa";
+            dgvRecenzije.Columns["RecenzijaID"].Visible = false;
             dgvRecenzije.Columns["ZaposlenikID"].Visible = false;
             dgvRecenzije.Columns["KorisnikID"].Visible = false;
         }
@@ -91,6 +109,7 @@ namespace bitBooks_Project
         private void PrikaziRecenzijeOdredenogZaposlenika() 
         {
             dgvRecenzije.DataSource = RecenzijaZaposlenika.DohvatiRecenzijeOdredenogZaposlenika(odabraniZaposlenik.KnjiznicaID, odabraniZaposlenik.KorisnikID);
+            ZaposleniciDGV();
         }
     }
 }

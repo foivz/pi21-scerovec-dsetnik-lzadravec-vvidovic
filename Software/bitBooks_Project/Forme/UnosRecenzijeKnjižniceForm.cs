@@ -1,4 +1,5 @@
-﻿using bitBooks_Project.Klase;
+﻿using bitBooks_Project.Dorian_Iznimke;
+using bitBooks_Project.Klase;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,6 +44,7 @@ namespace bitBooks_Project.Forme
         private void btnUredi_Click(object sender, EventArgs e)
         {
             OmogućiPromjene();
+            btnSpremi.Enabled = true;
         }
 
         private void PostaviComboBoxSource()
@@ -61,6 +63,7 @@ namespace bitBooks_Project.Forme
             txtDatum.Enabled = false;
             txtKomentar.Enabled = false;
             cmbOcjena.Enabled = false;
+            btnSpremi.Enabled = false;
         }
 
         private void OmogućiPromjene()
@@ -86,18 +89,26 @@ namespace bitBooks_Project.Forme
 
         private void btnSpremi_Click(object sender, EventArgs e)
         {
-            if (recenzijaPostoji)
+            try
             {
-                novaRecenzija.AžurirajRecenziju(txtKomentar.Text, cmbOcjena.SelectedIndex + 1, _korisnik.KorisnikID);
+                if (recenzijaPostoji)
+                {
+                    novaRecenzija.AžurirajRecenziju(txtKomentar.Text, cmbOcjena.SelectedIndex + 1, _korisnik.KorisnikID);
+                }
+                else
+                {
+                    novaRecenzija = new RecenzijaKnjižnice();
+                    novaRecenzija.NovaRecenzija(txtKomentar.Text, cmbOcjena.SelectedIndex + 1, _korisnik);
+                }
+                DohvatiRecenziju();
+                PopuniPoljaAkoRecenzijaPostoji();
+                OnemogućiPromjene();
             }
-            else 
+            catch (RecenzijaException ex)
             {
-                novaRecenzija = new RecenzijaKnjižnice();
-                novaRecenzija.NovaRecenzija(txtKomentar.Text, cmbOcjena.SelectedIndex+1, _korisnik);
+                MessageBox.Show(ex.Poruka);
             }
-            DohvatiRecenziju();
-            PopuniPoljaAkoRecenzijaPostoji();
-            OnemogućiPromjene();
+            
         }
 
         private void btnZatvori_Click(object sender, EventArgs e)

@@ -163,6 +163,7 @@ namespace bitBooks_Project.Forme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.ClientSize = new System.Drawing.Size(325, 377);
             this.Controls.Add(this.btnZatvori);
             this.Controls.Add(this.btnSpremi);
