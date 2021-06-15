@@ -86,6 +86,7 @@
     <Compile Include="Department.cs">
       <DependentUpon>Baza_Podataka.tt</DependentUpon>
     </Compile>
+    <Compile Include="Dorian_Iznimke\AdminException.cs" />
     <Compile Include="Dorian_Iznimke\LibraryException.cs" />
     <Compile Include="Dorian_Iznimke\RecenzijaException.cs" />
     <Compile Include="Dorian_Iznimke\UnosNovostiException.cs" />
