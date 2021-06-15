@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Author">
           <Key>
             <PropertyRef Name="AuthorID" />
@@ -81,6 +81,20 @@
           <Property Name="PublishingID" Type="int" Nullable="false" />
           <Property Name="DueDate" Type="date" Nullable="false" />
           <Property Name="LoanStatus" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PI21-45_DB.dbo.News' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="news_id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="description" />
+            <PropertyRef Name="library_id" />
+          </Key>
+          <Property Name="news_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="description" Type="nchar" MaxLength="255" Nullable="false" />
+          <Property Name="library_id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Publisher">
           <Key>
@@ -182,6 +196,18 @@
             </Principal>
             <Dependent Role="Department">
               <PropertyRef Name="LibraryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_News_LibrardyID_fk">
+          <End Role="Library" Type="Self.Library" Multiplicity="1" />
+          <End Role="News" Type="Self.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Library">
+              <PropertyRef Name="LibraryID" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="library_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -393,6 +419,14 @@
           <EntitySet Name="ReviewLibrary" EntityType="Self.ReviewLibrary" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wrote" EntityType="Self.Wrote" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [News].[news_id] AS [news_id], 
+    [News].[name] AS [name], 
+    [News].[description] AS [description], 
+    [News].[library_id] AS [library_id]
+    FROM [dbo].[News] AS [News]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="Book_GenreID_FK" Association="Self.Book_GenreID_FK">
             <End Role="Genre" EntitySet="Genre" />
             <End Role="Book" EntitySet="Book" />
@@ -404,6 +438,10 @@
           <AssociationSet Name="FK_Department_Library" Association="Self.FK_Department_Library">
             <End Role="Library" EntitySet="Library" />
             <End Role="Department" EntitySet="Department" />
+          </AssociationSet>
+          <AssociationSet Name="FK_News_LibrardyID_fk" Association="Self.FK_News_LibrardyID_fk">
+            <End Role="Library" EntitySet="Library" />
+            <End Role="News" EntitySet="News" />
           </AssociationSet>
           <AssociationSet Name="FK_Publishing_Book" Association="Self.FK_Publishing_Book">
             <End Role="Book" EntitySet="Book" />
@@ -470,8 +508,7 @@
             <End Role="Wrote" EntitySet="Wrote" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -537,6 +574,7 @@
           <NavigationProperty Name="Departments" Relationship="Self.FK_Department_Library" FromRole="Library" ToRole="Department" />
           <NavigationProperty Name="LibraryUser" Relationship="Self.Library_Administrator_FK" FromRole="Library" ToRole="LibraryUser" />
           <NavigationProperty Name="LibraryUsers" Relationship="Self.LibraryUser_LibraryID_FK" FromRole="Library" ToRole="LibraryUser" />
+          <NavigationProperty Name="News" Relationship="Model.FK_News_LibrardyID_fk" FromRole="Library" ToRole="News" />
         </EntityType>
         <EntityType Name="LibraryUser">
           <Key>
@@ -942,7 +980,37 @@
             <End Role="Author" EntitySet="Authors" />
             <End Role="Book" EntitySet="Books" />
           </AssociationSet>
+          <EntitySet Name="News" EntityType="Model.News" />
+          <AssociationSet Name="FK_News_LibrardyID_fk" Association="Model.FK_News_LibrardyID_fk">
+            <End Role="Library" EntitySet="Libraries" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="news_id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="description" />
+            <PropertyRef Name="library_id" />
+          </Key>
+          <Property Name="news_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="library_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Library" Relationship="Model.FK_News_LibrardyID_fk" FromRole="News" ToRole="Library" />
+        </EntityType>
+        <Association Name="FK_News_LibrardyID_fk">
+          <End Type="Model.Library" Role="Library" Multiplicity="1" />
+          <End Type="Model.News" Role="News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Library">
+              <PropertyRef Name="LibraryID" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="library_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1107,6 +1175,16 @@
               <ScalarProperty Name="ISBN" ColumnName="ISBN" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="Model.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="library_id" ColumnName="library_id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="news_id" ColumnName="news_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

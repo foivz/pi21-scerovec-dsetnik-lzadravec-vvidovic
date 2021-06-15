@@ -39,5 +39,6 @@ namespace bitBooks_Project
         public virtual DbSet<ReviewEmployee> ReviewEmployees { get; set; }
         public virtual DbSet<ReviewLibrary> ReviewLibraries { get; set; }
         public virtual DbSet<UserType> UserTypes { get; set; }
+        public virtual DbSet<News> News { get; set; }
     }
 }
