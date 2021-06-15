@@ -131,6 +131,12 @@
     <Compile Include="Forme\PosudbaKnjiga.Designer.cs">
       <DependentUpon>PosudbaKnjiga.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\PregledKnjigaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\PregledKnjigaForm.Designer.cs">
+      <DependentUpon>PregledKnjigaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\PregledClanova_PosudbeIRezervacijeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,7 @@
     <Compile Include="Klase\RecenzijaKnjižnice.cs" />
     <Compile Include="Klase\RecenzijaZaposlenika.cs" />
     <Compile Include="Klase\Rezervacija.cs" />
+    <Compile Include="Klase\Sesija.cs" />
     <Compile Include="Klase\TipKorisnika.cs" />
     <Compile Include="Klase\Žanr.cs" />
     <Compile Include="Forme\PregledClanovaForm.cs">
@@ -200,6 +207,9 @@
       <DependentUpon>BazaPodataka.tt</DependentUpon>
     </Compile>
     <Compile Include="Loan.cs">
+      <DependentUpon>BazaPodataka.tt</DependentUpon>
+    </Compile>
+    <Compile Include="News.cs">
       <DependentUpon>BazaPodataka.tt</DependentUpon>
     </Compile>
     <Compile Include="News.cs">
@@ -251,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\PregledClanova_PosudbeIRezervacijeForm.resx">
       <DependentUpon>PregledClanova_PosudbeIRezervacijeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\PregledKnjigaForm.resx">
+      <DependentUpon>PregledKnjigaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\PregledRecenzijaForm.resx">
       <DependentUpon>PregledRecenzijaForm.cs</DependentUpon>

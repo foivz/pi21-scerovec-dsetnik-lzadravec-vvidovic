@@ -415,6 +415,14 @@
           <EntitySet Name="ReviewLibrary" EntityType="Self.ReviewLibrary" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wrote" EntityType="Self.Wrote" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [News].[news_id] AS [news_id], 
+    [News].[name] AS [name], 
+    [News].[description] AS [description], 
+    [News].[library_id] AS [library_id]
+    FROM [dbo].[News] AS [News]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="Book_GenreID_FK" Association="Self.Book_GenreID_FK">
             <End Role="Genre" EntitySet="Genre" />
             <End Role="Book" EntitySet="Book" />
