@@ -73,5 +73,28 @@ namespace bitBooks_Project.Klase
 
             return knjigeImena;
         }
+
+        public static List<Knjiga> DohvatiNedostupneKnjige()
+        {
+            List<Knjiga> knjigeImena = new List<Knjiga>();
+
+            using (var context = new Entities_db1())
+            {
+                var query = from b in context.Books
+                            join i in context.Publishings
+                            on b.ISBN equals i.ISBN
+                            where i.NumAvailable > 0
+                            select new Knjiga
+                            {
+                                ISBN = b.ISBN,
+                                Ime = b.Name,
+                                ŽanrID = b.GenreID,
+                                GodinaPisanja = b.YearWritten
+                            };
+                knjigeImena = query.Distinct().ToList();
+            }
+
+            return knjigeImena;
+        }
     }
 }

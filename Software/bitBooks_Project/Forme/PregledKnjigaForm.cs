@@ -13,6 +13,7 @@ namespace bitBooks_Project.Forme
 {
     public partial class PregledKnjigaForm : Form
     {
+        
         public PregledKnjigaForm()
         {
             InitializeComponent();
@@ -20,8 +21,19 @@ namespace bitBooks_Project.Forme
 
         private void PregledKnjigaForm_Load(object sender, EventArgs e)
         {
-            dgvKnjige.DataSource = Knjiga.DohvatiKnjige();
+            dgvKnjige.DataSource = Knjiga.DohvatiNedostupneKnjige();
 
+        }
+
+        private void btnRezerviraj_Click(object sender, EventArgs e)
+        {
+            if(dgvKnjige.CurrentRow != null)
+            {
+                Knjiga knjiga = dgvKnjige.CurrentRow.DataBoundItem as Knjiga;
+                RezervacijaForm rezervacija = new RezervacijaForm(knjiga);
+                rezervacija.ShowDialog();
+            }
+            
         }
     }
 }

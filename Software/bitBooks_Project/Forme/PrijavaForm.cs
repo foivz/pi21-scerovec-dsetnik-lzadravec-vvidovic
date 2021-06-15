@@ -26,14 +26,13 @@ namespace bitBooks_Project.Forme
                 {
                     Korisnik _korisnik = new Korisnik();
                     _korisnik = Korisnik.DohvatiKorisnikaPoKorisnickomImenu(txtUsername.Text);
-                    Sesija.TipKorisnika = _korisnik.DohvatiTipKorisnika(_korisnik);
-                    Sesija.Ime = _korisnik.Ime;
-                    Sesija.Prezime = _korisnik.Prezime;
-                    Sesija.KorisnickoIme = _korisnik.KorisnickoIme;
-                    Sesija.KnjiznicaID = _korisnik.KnjiznicaID;
-                    Sesija.Email = _korisnik.Email;
+                    Sesija.Korisnik = _korisnik;
                     bitBooksMainForm forma = new bitBooksMainForm();
                     Close();
+                }
+                else
+                {
+                    MessageBox.Show("Pogrešno unesena lozinka. Molimo Vas pokušajte ponovno.");
                 }
             } catch
             {
@@ -50,5 +49,7 @@ namespace bitBooks_Project.Forme
         {
             Close();
         }
+
+
     }
 }
