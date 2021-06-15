@@ -1,4 +1,5 @@
-﻿using bitBooks_Project.Klase;
+﻿using bitBooks_Project.Dorian_Iznimke;
+using bitBooks_Project.Klase;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -95,6 +96,7 @@ namespace bitBooks_Project.Forme
             txtKnjiznica.Enabled = false;
             txtKomentar.Enabled = false;
             cmbOcjena.Enabled = false;
+            btnSpremi.Enabled = false;
         }
 
         private void OmogućiPromjene()
@@ -106,6 +108,7 @@ namespace bitBooks_Project.Forme
         private void btnUredi_Click(object sender, EventArgs e)
         {
             OmogućiPromjene();
+            btnSpremi.Enabled = true;
         }
 
         private void btnZatvori_Click(object sender, EventArgs e)
@@ -115,18 +118,26 @@ namespace bitBooks_Project.Forme
 
         private void btnSpremi_Click(object sender, EventArgs e)
         {
-            if (recenzijaPostoji)
+            try
             {
-                novaRecenzija.AžurirajRecenziju(txtKomentar.Text, cmbOcjena.SelectedIndex + 1, _korisnik.KorisnikID, odabraniZaposlenik.KorisnikID);
+                if (recenzijaPostoji)
+                {
+                    novaRecenzija.AžurirajRecenziju(txtKomentar.Text, cmbOcjena.SelectedIndex + 1, _korisnik.KorisnikID, odabraniZaposlenik.KorisnikID);
+                }
+                else
+                {
+                    novaRecenzija = new RecenzijaZaposlenika();
+                    novaRecenzija.NovaRecenzija(txtKomentar.Text, cmbOcjena.SelectedIndex + 1, _korisnik, odabraniZaposlenik);
+                }
+                DohvatiRecenziju();
+                PopuniPodatke();
+                OnemogućiPromjene();
             }
-            else
+            catch (RecenzijaException ex)
             {
-                novaRecenzija = new RecenzijaZaposlenika();
-                novaRecenzija.NovaRecenzija(txtKomentar.Text, cmbOcjena.SelectedIndex + 1, _korisnik, odabraniZaposlenik);
+                MessageBox.Show(ex.Poruka);
             }
-            DohvatiRecenziju();
-            PopuniPodatke();
-            OnemogućiPromjene();
+            
         }
     }
 }

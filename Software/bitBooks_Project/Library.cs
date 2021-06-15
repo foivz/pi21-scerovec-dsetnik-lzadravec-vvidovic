@@ -19,6 +19,7 @@ namespace bitBooks_Project
         {
             this.Departments = new HashSet<Department>();
             this.LibraryUsers = new HashSet<LibraryUser>();
+            this.News = new HashSet<News>();
         }
     
         public int LibraryID { get; set; }
@@ -30,5 +31,7 @@ namespace bitBooks_Project
         public virtual LibraryUser LibraryUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LibraryUser> LibraryUsers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<News> News { get; set; }
     }
 }

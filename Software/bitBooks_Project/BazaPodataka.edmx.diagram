@@ -37,6 +37,8 @@
         <AssociationConnector Association="Model.FK_Reservation_Publishing" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_ReviewLibrary_ReviewLibrary" ManuallyRouted="false" />
         <AssociationConnector Association="Model.Wrote" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.News" Width="1.5" PointX="7.5" PointY="6.75" />
+        <AssociationConnector Association="Model.FK_News_LibraryID_fk" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

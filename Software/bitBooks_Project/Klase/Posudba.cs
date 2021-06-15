@@ -14,7 +14,7 @@ namespace bitBooks_Project.Klase
         public DateTime DatumPovratka { get; set; }
         public string StatusPosudbe { get; set; }
 
-        public List<Posudba> DohvatiPosudbeKorisnika(int korisnikID) 
+        public static List<Posudba> DohvatiPosudbeKorisnika(int korisnikID) 
         {
             List<Posudba> posudbeKorisnika = new List<Posudba>();
 

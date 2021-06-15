@@ -18,6 +18,7 @@ namespace bitBooks_Project
         RegistracijaForm registracija;
         PregledClanovaForm pregledClanovaForm;
         PregledRecenzijaForm pregledRecenzijaForm;
+        NovostiForm novostiForm;
         Korisnik _korisnik;
         ObavijestiForm obavijesti;
         LiveChatForm liveChatForm;
@@ -94,5 +95,6 @@ namespace bitBooks_Project
             liveChatForm = new LiveChatForm();
             liveChatForm.ShowDialog();
         }
+
     }
 }
