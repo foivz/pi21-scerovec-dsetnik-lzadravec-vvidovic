@@ -54,6 +54,7 @@ namespace bitBooks_Project.Forme
             this.btnRezerviraj.TabIndex = 1;
             this.btnRezerviraj.Text = "Rezerviraj knjigu";
             this.btnRezerviraj.UseVisualStyleBackColor = true;
+            this.btnRezerviraj.Click += new System.EventHandler(this.btnRezerviraj_Click);
             // 
             // btnPosudi
             // 

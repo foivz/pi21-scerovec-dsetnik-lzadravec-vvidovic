@@ -36,6 +36,8 @@ namespace bitBooks_Project.Forme
             this.label2 = new System.Windows.Forms.Label();
             this.btnOdustani = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -94,11 +96,21 @@ namespace bitBooks_Project.Forme
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(171, 166);
+            this.label3.Location = new System.Drawing.Point(171, 45);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 20);
+            this.label3.Size = new System.Drawing.Size(71, 20);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Prijava";
+            this.label3.Text = "bitBooks";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::bitBooks_Project.Properties.Resources.knjiga;
+            this.pictureBox1.Location = new System.Drawing.Point(153, 68);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(106, 95);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // PrijavaForm
             // 
@@ -106,6 +118,7 @@ namespace bitBooks_Project.Forme
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.ClientSize = new System.Drawing.Size(407, 419);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnOdustani);
             this.Controls.Add(this.label2);
@@ -116,6 +129,7 @@ namespace bitBooks_Project.Forme
             this.Name = "PrijavaForm";
             this.Text = "Prijava";
             this.Load += new System.EventHandler(this.PrijavaForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,5 +144,6 @@ namespace bitBooks_Project.Forme
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnOdustani;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

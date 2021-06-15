@@ -73,6 +73,16 @@ namespace bitBooks_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap knjiga {
+            get {
+                object obj = ResourceManager.GetObject("knjiga", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap korisnici_slika {
             get {
                 object obj = ResourceManager.GetObject("korisnici_slika", resourceCulture);
