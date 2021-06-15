@@ -54,24 +54,5 @@ namespace bitBooks_Project.Klase
 
             return knjigeImena;
         }
-        public static List<Knjiga> DohvatiKnjige()
-        {
-            List<Knjiga> knjigeImena = new List<Knjiga>();
-
-            using (var context = new Entities_db())
-            {
-                var query = from b in context.Books
-                            select new Knjiga
-                            {
-                                ISBN = b.ISBN,
-                                Ime = b.Name,
-                                ŽanrID = b.GenreID,
-                                GodinaPisanja = b.YearWritten
-                            };
-                knjigeImena = query.ToList();
-            }
-
-            return knjigeImena;
-        }
     }
 }

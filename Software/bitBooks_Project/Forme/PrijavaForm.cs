@@ -20,35 +20,13 @@ namespace bitBooks_Project.Forme
 
         private void btnPrijava_Click(object sender, EventArgs e)
         {
-            try
+            if(Korisnik.ProvjeriLozinku(txtUsername.Text, txtPassword.Text))
             {
-                if (Korisnik.ProvjeriLozinku(txtUsername.Text, txtPassword.Text))
-                {
-                    Korisnik _korisnik = new Korisnik();
-                    _korisnik = Korisnik.DohvatiKorisnikaPoKorisnickomImenu(txtUsername.Text);
-                    Sesija.TipKorisnika = _korisnik.DohvatiTipKorisnika(_korisnik);
-                    Sesija.Ime = _korisnik.Ime;
-                    Sesija.Prezime = _korisnik.Prezime;
-                    Sesija.KorisnickoIme = _korisnik.KorisnickoIme;
-                    Sesija.KnjiznicaID = _korisnik.KnjiznicaID;
-                    Sesija.Email = _korisnik.Email;
-                    bitBooksMainForm forma = new bitBooksMainForm();
-                    Close();
-                }
-            } catch
-            {
-                MessageBox.Show("Pogrešno uneseni podaci. Molimo Vas pokušajte ponovno.");
-            }
+                Korisnik _korisnik = new Korisnik();
+                _korisnik = Korisnik.DohvatiKorisnikaPoKorisnickomImenu(txtUsername.Text);
+                txtUsername.Text = "tocno";
+            };
         }
 
-        private void PrijavaForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnOdustani_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
     }
 }
