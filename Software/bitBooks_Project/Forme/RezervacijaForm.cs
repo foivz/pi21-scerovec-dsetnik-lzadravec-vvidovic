@@ -72,9 +72,9 @@ namespace bitBooks_Project.Forme
                 poruka.To.Add(new MailAddress(Sesija.Korisnik.Email));
                 poruka.Subject = "bitBooks rezervacija knjige";
                 poruka.From = new MailAddress("PIbitBooks@gmail.com");
-                poruka.Body = "Poštovani," + Environment.NewLine +
-                               "Uspješno ste rezervirali knjigu " + _unesenaKnjiga.Ime + "." + Environment.NewLine +
-                               "Poslati ćemo Vam e-mail na ovu adresu kada izdanje postane dostupno. " + Environment.NewLine +
+                poruka.Body = "Poštovani," + "<br>" +
+                               "Uspješno ste rezervirali knjigu " + _unesenaKnjiga.Ime + "." + "<br>" +
+                               "Poslati ćemo Vam e-mail na ovu adresu kada izdanje postane dostupno. " + "<br>" +
                                "bitBooks" ;
 
 

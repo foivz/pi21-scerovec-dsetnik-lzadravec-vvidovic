@@ -22,6 +22,13 @@ namespace bitBooks_Project.Forme
         {
             try
             {
+                Korisnik.DohvatiKorisnikaPoKorisnickomImenu(txtUsername.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Pogrešno uneseni podaci. Molimo Vas pokušajte ponovno.");
+            }
+            
                 if (Korisnik.ProvjeriLozinku(txtUsername.Text, txtPassword.Text))
                 {
                    
@@ -35,11 +42,8 @@ namespace bitBooks_Project.Forme
                 else
                 {
                     MessageBox.Show("Pogrešno unesena lozinka. Molimo Vas pokušajte ponovno.");
-                }
-            } catch
-            {
-                MessageBox.Show("Pogrešno uneseni podaci. Molimo Vas pokušajte ponovno.");
-            }
+                }           
+            
         }
 
         private void PrijavaForm_Load(object sender, EventArgs e)

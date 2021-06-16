@@ -35,14 +35,15 @@ namespace bitBooks_Project
             this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnPosudbe = new System.Windows.Forms.Button();
             this.obavijesti_button = new System.Windows.Forms.Button();
             this.btnRezervacije = new System.Windows.Forms.Button();
             this.btnLiveChat = new System.Windows.Forms.Button();
             this.grpAdmin = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.btnPosudbe = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnPregledKnjiga = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.grpAdmin.SuspendLayout();
@@ -74,9 +75,9 @@ namespace bitBooks_Project
             // 
             this.button3.Location = new System.Drawing.Point(198, 19);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(107, 23);
+            this.button3.Size = new System.Drawing.Size(161, 23);
             this.button3.TabIndex = 2;
-            this.button3.Text = "Pregled knjiga";
+            this.button3.Text = "Rezervacija i Posuđivanje";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -113,6 +114,16 @@ namespace bitBooks_Project
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Korisničke aktivnosti";
             // 
+            // btnPosudbe
+            // 
+            this.btnPosudbe.Location = new System.Drawing.Point(115, 29);
+            this.btnPosudbe.Name = "btnPosudbe";
+            this.btnPosudbe.Size = new System.Drawing.Size(101, 23);
+            this.btnPosudbe.TabIndex = 8;
+            this.btnPosudbe.Text = "Moje posudbe";
+            this.btnPosudbe.UseVisualStyleBackColor = true;
+            this.btnPosudbe.Click += new System.EventHandler(this.btnPosudbe_Click);
+            // 
             // obavijesti_button
             // 
             this.obavijesti_button.Location = new System.Drawing.Point(310, 29);
@@ -145,6 +156,7 @@ namespace bitBooks_Project
             // 
             // grpAdmin
             // 
+            this.grpAdmin.Controls.Add(this.btnPregledKnjiga);
             this.grpAdmin.Controls.Add(this.button1);
             this.grpAdmin.Controls.Add(this.button5);
             this.grpAdmin.Location = new System.Drawing.Point(36, 312);
@@ -156,7 +168,7 @@ namespace bitBooks_Project
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(96, 29);
+            this.button1.Location = new System.Drawing.Point(24, 29);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 23);
             this.button1.TabIndex = 1;
@@ -166,22 +178,12 @@ namespace bitBooks_Project
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(203, 29);
+            this.button5.Location = new System.Drawing.Point(142, 29);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(102, 23);
             this.button5.TabIndex = 0;
             this.button5.Text = "Unos novosti";
             this.button5.UseVisualStyleBackColor = true;
-            // 
-            // btnPosudbe
-            // 
-            this.btnPosudbe.Location = new System.Drawing.Point(115, 29);
-            this.btnPosudbe.Name = "btnPosudbe";
-            this.btnPosudbe.Size = new System.Drawing.Size(101, 23);
-            this.btnPosudbe.TabIndex = 8;
-            this.btnPosudbe.Text = "Moje posudbe";
-            this.btnPosudbe.UseVisualStyleBackColor = true;
-            this.btnPosudbe.Click += new System.EventHandler(this.btnPosudbe_Click);
             // 
             // pictureBox1
             // 
@@ -192,6 +194,16 @@ namespace bitBooks_Project
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
+            // 
+            // btnPregledKnjiga
+            // 
+            this.btnPregledKnjiga.Location = new System.Drawing.Point(266, 29);
+            this.btnPregledKnjiga.Name = "btnPregledKnjiga";
+            this.btnPregledKnjiga.Size = new System.Drawing.Size(111, 23);
+            this.btnPregledKnjiga.TabIndex = 2;
+            this.btnPregledKnjiga.Text = "Pregled svih knjiga";
+            this.btnPregledKnjiga.UseVisualStyleBackColor = true;
+            this.btnPregledKnjiga.Click += new System.EventHandler(this.btnPregledKnjiga_Click);
             // 
             // bitBooksMainForm
             // 
@@ -231,6 +243,7 @@ namespace bitBooks_Project
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnPosudbe;
+        private System.Windows.Forms.Button btnPregledKnjiga;
     }
 }
 

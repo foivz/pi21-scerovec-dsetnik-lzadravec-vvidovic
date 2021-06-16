@@ -156,6 +156,12 @@
     <Compile Include="Forme\PregledClanova_PosudbeIRezervacijeForm.Designer.cs">
       <DependentUpon>PregledClanova_PosudbeIRezervacijeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\PregledKnjigaZaposlenikForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\PregledKnjigaZaposlenikForm.Designer.cs">
+      <DependentUpon>PregledKnjigaZaposlenikForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\PrijavaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -289,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\PregledKnjigaForm.resx">
       <DependentUpon>PregledKnjigaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\PregledKnjigaZaposlenikForm.resx">
+      <DependentUpon>PregledKnjigaZaposlenikForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\PregledRecenzijaForm.resx">
       <DependentUpon>PregledRecenzijaForm.cs</DependentUpon>

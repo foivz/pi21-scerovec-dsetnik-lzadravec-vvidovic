@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtIPJa = new System.Windows.Forms.TextBox();
             this.txtPortJa = new System.Windows.Forms.TextBox();
+            this.txtIPJa = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtPortPrijatelj = new System.Windows.Forms.TextBox();
             this.txtIPPrijatelj = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnSpoji = new System.Windows.Forms.Button();
             this.txtPoruka = new System.Windows.Forms.TextBox();
             this.listPoruka = new System.Windows.Forms.ListBox();
@@ -59,6 +59,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ja";
             // 
+            // txtPortJa
+            // 
+            this.txtPortJa.Location = new System.Drawing.Point(78, 59);
+            this.txtPortJa.Name = "txtPortJa";
+            this.txtPortJa.Size = new System.Drawing.Size(100, 20);
+            this.txtPortJa.TabIndex = 3;
+            // 
+            // txtIPJa
+            // 
+            this.txtIPJa.Location = new System.Drawing.Point(78, 32);
+            this.txtIPJa.Name = "txtIPJa";
+            this.txtIPJa.Size = new System.Drawing.Size(100, 20);
+            this.txtIPJa.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Port";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(17, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "IP";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtPortPrijatelj);
@@ -70,39 +102,7 @@
             this.groupBox2.Size = new System.Drawing.Size(200, 100);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Prijatelj";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(17, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "IP";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 58);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Port";
-            // 
-            // txtIPJa
-            // 
-            this.txtIPJa.Location = new System.Drawing.Point(78, 32);
-            this.txtIPJa.Name = "txtIPJa";
-            this.txtIPJa.Size = new System.Drawing.Size(100, 20);
-            this.txtIPJa.TabIndex = 2;
-            // 
-            // txtPortJa
-            // 
-            this.txtPortJa.Location = new System.Drawing.Point(78, 59);
-            this.txtPortJa.Name = "txtPortJa";
-            this.txtPortJa.Size = new System.Drawing.Size(100, 20);
-            this.txtPortJa.TabIndex = 3;
+            this.groupBox2.Text = "Drugi Korisnik";
             // 
             // txtPortPrijatelj
             // 
@@ -118,15 +118,6 @@
             this.txtIPPrijatelj.Size = new System.Drawing.Size(100, 20);
             this.txtIPPrijatelj.TabIndex = 6;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Port";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -135,6 +126,15 @@
             this.label4.Size = new System.Drawing.Size(17, 13);
             this.label4.TabIndex = 4;
             this.label4.Text = "IP";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Port";
             // 
             // btnSpoji
             // 
@@ -175,6 +175,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnPošalji);
             this.Controls.Add(this.listPoruka);

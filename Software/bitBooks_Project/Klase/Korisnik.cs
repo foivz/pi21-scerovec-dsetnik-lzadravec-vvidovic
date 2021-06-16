@@ -301,7 +301,7 @@ namespace bitBooks_Project.Klase
                                 AktivacijskiKod = l.ActivationCode,
                                 DatumRegistracije = l.DateTimeRegistration
                             };
-                if (query.ToList()[0] != null)
+                if (query.SingleOrDefault() != null)
                 {
                     if (query.ToList()[0].Lozinka == lozinka)
                     {
