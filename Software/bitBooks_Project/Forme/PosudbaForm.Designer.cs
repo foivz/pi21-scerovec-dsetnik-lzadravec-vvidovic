@@ -94,7 +94,7 @@ namespace bitBooks_Project.Forme
             // 
             // btnPosudi
             // 
-            this.btnPosudi.Location = new System.Drawing.Point(54, 143);
+            this.btnPosudi.Location = new System.Drawing.Point(106, 142);
             this.btnPosudi.Name = "btnPosudi";
             this.btnPosudi.Size = new System.Drawing.Size(75, 23);
             this.btnPosudi.TabIndex = 6;
@@ -107,7 +107,7 @@ namespace bitBooks_Project.Forme
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.ClientSize = new System.Drawing.Size(188, 189);
+            this.ClientSize = new System.Drawing.Size(281, 189);
             this.Controls.Add(this.btnPosudi);
             this.Controls.Add(this.txtNapisana);
             this.Controls.Add(this.txtISBN);

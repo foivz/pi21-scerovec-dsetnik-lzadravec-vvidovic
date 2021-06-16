@@ -50,12 +50,12 @@ namespace bitBooks_Project.Forme
             this.dgvKnjige.Location = new System.Drawing.Point(18, 19);
             this.dgvKnjige.Name = "dgvKnjige";
             this.dgvKnjige.ReadOnly = true;
-            this.dgvKnjige.Size = new System.Drawing.Size(337, 265);
+            this.dgvKnjige.Size = new System.Drawing.Size(428, 265);
             this.dgvKnjige.TabIndex = 0;
             // 
             // btnRezerviraj
             // 
-            this.btnRezerviraj.Location = new System.Drawing.Point(114, 290);
+            this.btnRezerviraj.Location = new System.Drawing.Point(155, 290);
             this.btnRezerviraj.Name = "btnRezerviraj";
             this.btnRezerviraj.Size = new System.Drawing.Size(150, 33);
             this.btnRezerviraj.TabIndex = 1;
@@ -65,7 +65,7 @@ namespace bitBooks_Project.Forme
             // 
             // btnPosudi
             // 
-            this.btnPosudi.Location = new System.Drawing.Point(110, 290);
+            this.btnPosudi.Location = new System.Drawing.Point(150, 290);
             this.btnPosudi.Name = "btnPosudi";
             this.btnPosudi.Size = new System.Drawing.Size(150, 33);
             this.btnPosudi.TabIndex = 2;
@@ -77,7 +77,7 @@ namespace bitBooks_Project.Forme
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(359, 34);
+            this.label1.Location = new System.Drawing.Point(479, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 20);
             this.label1.TabIndex = 3;
@@ -89,7 +89,7 @@ namespace bitBooks_Project.Forme
             this.groupBox1.Controls.Add(this.btnRezerviraj);
             this.groupBox1.Location = new System.Drawing.Point(21, 96);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(376, 348);
+            this.groupBox1.Size = new System.Drawing.Size(478, 348);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Knjige dostupne za rezervaciju";
@@ -99,9 +99,9 @@ namespace bitBooks_Project.Forme
             this.groupBox2.Controls.Add(this.chkboxDostava);
             this.groupBox2.Controls.Add(this.dgvKnjigPosudbe);
             this.groupBox2.Controls.Add(this.btnPosudi);
-            this.groupBox2.Location = new System.Drawing.Point(414, 96);
+            this.groupBox2.Location = new System.Drawing.Point(574, 96);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(375, 348);
+            this.groupBox2.Size = new System.Drawing.Size(444, 348);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dostupno za posudbu";
@@ -109,7 +109,7 @@ namespace bitBooks_Project.Forme
             // chkboxDostava
             // 
             this.chkboxDostava.AutoSize = true;
-            this.chkboxDostava.Location = new System.Drawing.Point(266, 299);
+            this.chkboxDostava.Location = new System.Drawing.Point(306, 299);
             this.chkboxDostava.Name = "chkboxDostava";
             this.chkboxDostava.Size = new System.Drawing.Size(66, 17);
             this.chkboxDostava.TabIndex = 4;
@@ -122,7 +122,7 @@ namespace bitBooks_Project.Forme
             this.dgvKnjigPosudbe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKnjigPosudbe.Location = new System.Drawing.Point(15, 19);
             this.dgvKnjigPosudbe.Name = "dgvKnjigPosudbe";
-            this.dgvKnjigPosudbe.Size = new System.Drawing.Size(343, 265);
+            this.dgvKnjigPosudbe.Size = new System.Drawing.Size(423, 265);
             this.dgvKnjigPosudbe.TabIndex = 3;
             // 
             // PregledKnjigaForm
@@ -130,7 +130,7 @@ namespace bitBooks_Project.Forme
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.ClientSize = new System.Drawing.Size(800, 485);
+            this.ClientSize = new System.Drawing.Size(1065, 485);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);

@@ -94,7 +94,7 @@ namespace bitBooks_Project.Forme
             // 
             // btnRezerviraj
             // 
-            this.btnRezerviraj.Location = new System.Drawing.Point(53, 133);
+            this.btnRezerviraj.Location = new System.Drawing.Point(96, 132);
             this.btnRezerviraj.Name = "btnRezerviraj";
             this.btnRezerviraj.Size = new System.Drawing.Size(75, 23);
             this.btnRezerviraj.TabIndex = 7;
@@ -107,7 +107,7 @@ namespace bitBooks_Project.Forme
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.ClientSize = new System.Drawing.Size(173, 186);
+            this.ClientSize = new System.Drawing.Size(251, 186);
             this.Controls.Add(this.btnRezerviraj);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);

@@ -105,42 +105,42 @@
             // 
             this.txtIme.Location = new System.Drawing.Point(157, 53);
             this.txtIme.Name = "txtIme";
-            this.txtIme.Size = new System.Drawing.Size(100, 20);
+            this.txtIme.Size = new System.Drawing.Size(208, 20);
             this.txtIme.TabIndex = 6;
             // 
             // txtPrezime
             // 
             this.txtPrezime.Location = new System.Drawing.Point(157, 88);
             this.txtPrezime.Name = "txtPrezime";
-            this.txtPrezime.Size = new System.Drawing.Size(100, 20);
+            this.txtPrezime.Size = new System.Drawing.Size(208, 20);
             this.txtPrezime.TabIndex = 7;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(157, 160);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtEmail.Size = new System.Drawing.Size(208, 20);
             this.txtEmail.TabIndex = 8;
             // 
             // txtAdresa
             // 
             this.txtAdresa.Location = new System.Drawing.Point(157, 189);
             this.txtAdresa.Name = "txtAdresa";
-            this.txtAdresa.Size = new System.Drawing.Size(100, 20);
+            this.txtAdresa.Size = new System.Drawing.Size(208, 20);
             this.txtAdresa.TabIndex = 9;
             // 
             // txtLozinka
             // 
             this.txtLozinka.Location = new System.Drawing.Point(157, 223);
             this.txtLozinka.Name = "txtLozinka";
-            this.txtLozinka.Size = new System.Drawing.Size(100, 20);
+            this.txtLozinka.Size = new System.Drawing.Size(208, 20);
             this.txtLozinka.TabIndex = 10;
             // 
             // txtPotvrdaLozinke
             // 
             this.txtPotvrdaLozinke.Location = new System.Drawing.Point(157, 256);
             this.txtPotvrdaLozinke.Name = "txtPotvrdaLozinke";
-            this.txtPotvrdaLozinke.Size = new System.Drawing.Size(100, 20);
+            this.txtPotvrdaLozinke.Size = new System.Drawing.Size(208, 20);
             this.txtPotvrdaLozinke.TabIndex = 11;
             // 
             // btnRegistracija
@@ -184,7 +184,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.ClientSize = new System.Drawing.Size(394, 402);
+            this.ClientSize = new System.Drawing.Size(394, 380);
             this.Controls.Add(this.lblGreška);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cmbKnjižnice);
