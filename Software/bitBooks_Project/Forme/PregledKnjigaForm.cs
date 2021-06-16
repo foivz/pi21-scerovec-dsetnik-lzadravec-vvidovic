@@ -22,6 +22,7 @@ namespace bitBooks_Project.Forme
         private void PregledKnjigaForm_Load(object sender, EventArgs e)
         {
             dgvKnjige.DataSource = Knjiga.DohvatiNedostupneKnjige();
+            dgvKnjigPosudbe.DataSource = Knjiga.DohvatiKnjige();
 
         }
 
@@ -34,6 +35,16 @@ namespace bitBooks_Project.Forme
                 rezervacija.ShowDialog();
             }
             
+        }
+
+        private void btnPosudi_Click(object sender, EventArgs e)
+        {
+            if (dgvKnjigPosudbe.CurrentRow != null)
+            {
+                Knjiga knjiga = dgvKnjigPosudbe.CurrentRow.DataBoundItem as Knjiga;
+                PosudbaForm pos = new PosudbaForm(knjiga);
+                pos.ShowDialog();
+            }
         }
     }
 }

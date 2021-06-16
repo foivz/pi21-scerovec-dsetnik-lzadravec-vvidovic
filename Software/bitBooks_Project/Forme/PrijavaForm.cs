@@ -24,11 +24,13 @@ namespace bitBooks_Project.Forme
             {
                 if (Korisnik.ProvjeriLozinku(txtUsername.Text, txtPassword.Text))
                 {
+                   
                     Korisnik _korisnik = new Korisnik();
                     _korisnik = Korisnik.DohvatiKorisnikaPoKorisnickomImenu(txtUsername.Text);
                     Sesija.Korisnik = _korisnik;
                     bitBooksMainForm forma = new bitBooksMainForm();
-                    Close();
+                    this.Close();
+                    forma.ShowDialog();
                 }
                 else
                 {
@@ -50,6 +52,16 @@ namespace bitBooks_Project.Forme
             Close();
         }
 
+        private void PrijavaForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RegistracijaForm registracija = new RegistracijaForm();
+            registracija.ShowDialog();
+        }
     }
 }

@@ -83,7 +83,30 @@ namespace bitBooks_Project.Klase
                 var query = from b in context.Books
                             join i in context.Publishings
                             on b.ISBN equals i.ISBN
-                            where i.NumAvailable > 0
+                            where i.NumLoaned > 0
+                            select new Knjiga
+                            {
+                                ISBN = b.ISBN,
+                                Ime = b.Name,
+                                ŽanrID = b.GenreID,
+                                GodinaPisanja = b.YearWritten
+                            };
+                knjigeImena = query.Distinct().ToList();
+            }
+
+            return knjigeImena;
+        }
+
+        public static List<Knjiga> DohvatiDostupneKnjige()
+        {
+            List<Knjiga> knjigeImena = new List<Knjiga>();
+
+            using (var context = new Entities_db1())
+            {
+                var query = from b in context.Books
+                            join i in context.Publishings
+                            on b.ISBN equals i.ISBN
+                            where i.NumLoaned == 0
                             select new Knjiga
                             {
                                 ISBN = b.ISBN,

@@ -57,5 +57,20 @@ namespace bitBooks_Project.Klase
 
             return rezervacijeIzdanja;
         }
+
+        public static void ObrisiRezervaciju(Rezervacija rezervacija)
+        {
+            
+            using (var context = new Entities_db1())
+            {
+                var query = (from r in context.Reservations
+                             where r.ReservationID == rezervacija.RezervacijaID
+                             select r).FirstOrDefault();
+                context.Reservations.Remove(query);
+                context.SaveChanges();
+            }
+
+
+        }
     }
 }

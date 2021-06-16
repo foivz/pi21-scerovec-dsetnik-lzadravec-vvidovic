@@ -108,6 +108,12 @@
     <Compile Include="Forme\LiveChatForm.Designer.cs">
       <DependentUpon>LiveChatForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\MojePosudbeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\MojePosudbeForm.Designer.cs">
+      <DependentUpon>MojePosudbeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\NovostiForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,11 +132,17 @@
     <Compile Include="Forme\ObavijestiForm.Designer.cs">
       <DependentUpon>ObavijestiForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\PosudbaKnjiga.cs">
+    <Compile Include="Forme\MojeRezervacijeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forme\PosudbaKnjiga.Designer.cs">
-      <DependentUpon>PosudbaKnjiga.cs</DependentUpon>
+    <Compile Include="Forme\MojeRezervacijeForm.Designer.cs">
+      <DependentUpon>MojeRezervacijeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\PosudbaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\PosudbaForm.Designer.cs">
+      <DependentUpon>PosudbaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forme\PregledKnjigaForm.cs">
       <SubType>Form</SubType>
@@ -251,6 +263,9 @@
     <EmbeddedResource Include="Forme\LiveChatForm.resx">
       <DependentUpon>LiveChatForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forme\MojePosudbeForm.resx">
+      <DependentUpon>MojePosudbeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\NovostiForm.resx">
       <DependentUpon>NovostiForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,8 +275,11 @@
     <EmbeddedResource Include="Forme\ObavijestiForm.resx">
       <DependentUpon>ObavijestiForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forme\PosudbaKnjiga.resx">
-      <DependentUpon>PosudbaKnjiga.cs</DependentUpon>
+    <EmbeddedResource Include="Forme\MojeRezervacijeForm.resx">
+      <DependentUpon>MojeRezervacijeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\PosudbaForm.resx">
+      <DependentUpon>PosudbaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\PregledClanovaForm.resx">
       <DependentUpon>PregledClanovaForm.cs</DependentUpon>

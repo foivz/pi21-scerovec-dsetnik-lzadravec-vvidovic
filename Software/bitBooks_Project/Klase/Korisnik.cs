@@ -16,7 +16,7 @@ namespace bitBooks_Project.Klase
         public int? KnjiznicaID { get; set; }
         public string ImeKnjiznice { get; set; }
         public string Email { get; set; }
-        public string  Adresa { get; set; }
+        public string Adresa { get; set; }
         public string KorisnickoIme { get; set; }
         public string Lozinka { get; set; }
         public string Ime { get; set; }
@@ -24,7 +24,7 @@ namespace bitBooks_Project.Klase
         public string AktivacijskiKod { get; set; }
         public DateTime DatumRegistracije { get; set; }
 
-        public  static List<Korisnik> DohvatiSveKorisnike()
+        public static List<Korisnik> DohvatiSveKorisnike()
         {
             List<Korisnik> sviKorisnici = new List<Korisnik>();
 
@@ -35,7 +35,7 @@ namespace bitBooks_Project.Klase
                             {
                                 KorisnikID = l.UserID,
                                 TipID = l.TypeID,
-                                ImeTipa =l.UserType.Name,
+                                ImeTipa = l.UserType.Name,
                                 KnjiznicaID = l.LibraryID,
                                 ImeKnjiznice = l.Library.Name,
                                 Email = l.Email,
@@ -54,19 +54,19 @@ namespace bitBooks_Project.Klase
             return sviKorisnici;
         }
 
-        public static List<Korisnik> DohvatiKorisnikeKnjižnice(int? knjiznicaID) 
+        public static List<Korisnik> DohvatiKorisnikeKnjižnice(int? knjiznicaID)
         {
             List<Korisnik> korisniciKnjiznice = new List<Korisnik>();
 
-            using (var context = new Entities_db1()) 
+            using (var context = new Entities_db1())
             {
                 var query = from l in context.LibraryUsers
                             where l.LibraryID == knjiznicaID
-                            select new Korisnik 
+                            select new Korisnik
                             {
                                 KorisnikID = l.UserID,
                                 TipID = l.TypeID,
-                                ImeTipa =l.UserType.Name,
+                                ImeTipa = l.UserType.Name,
                                 KnjiznicaID = l.LibraryID,
                                 ImeKnjiznice = l.Library.Name,
                                 Email = l.Email,
@@ -84,19 +84,19 @@ namespace bitBooks_Project.Klase
             return korisniciKnjiznice;
         }
 
-        public static List<Korisnik> DohvatiZaposlenikeKnjižnice(int? knjiznicaID) 
+        public static List<Korisnik> DohvatiZaposlenikeKnjižnice(int? knjiznicaID)
         {
             List<Korisnik> zaposleniciKnjiznice = new List<Korisnik>();
 
-            using (var context = new Entities_db1()) 
+            using (var context = new Entities_db1())
             {
                 var query = from l in context.LibraryUsers
                             where l.LibraryID == knjiznicaID && l.UserType.Name == "Zaposlenik"
-                            select new Korisnik 
+                            select new Korisnik
                             {
                                 KorisnikID = l.UserID,
                                 TipID = l.TypeID,
-                                ImeTipa =l.UserType.Name,
+                                ImeTipa = l.UserType.Name,
                                 KnjiznicaID = l.LibraryID,
                                 ImeKnjiznice = l.Library.Name,
                                 Email = l.Email,
@@ -159,7 +159,7 @@ namespace bitBooks_Project.Klase
             return tipKorisnika;
         }
 
-        public static List<Korisnik> DohvatiKorisnikaPoImenu(string ime, int? knjiznicaID) 
+        public static List<Korisnik> DohvatiKorisnikaPoImenu(string ime, int? knjiznicaID)
         {
             List<Korisnik> korisniciImena = new List<Korisnik>();
             using (var context = new Entities_db1())
@@ -344,7 +344,7 @@ namespace bitBooks_Project.Klase
                 {
                     korisnik = null;
                 }
-                
+
             }
 
             return korisnik;
@@ -356,11 +356,11 @@ namespace bitBooks_Project.Klase
             using (var context = new Entities_db1())
             {
                 var query = (from l in context.LibraryUsers
-                            where l.UserID == korisnik.KorisnikID
-                            select l).FirstOrDefault();
+                             where l.UserID == korisnik.KorisnikID
+                             select l).FirstOrDefault();
                 context.LibraryUsers.Remove(query);
                 context.SaveChanges();
-                
+
             }
 
 
@@ -368,10 +368,63 @@ namespace bitBooks_Project.Klase
 
         private static void ValidacijaBrisanja(Korisnik korisnik)
         {
-            if(korisnik.TipID == 1 || korisnik.TipID == 2)
+            if (korisnik.TipID == 1 || korisnik.TipID == 2)
             {
                 throw new AdminException("Ne možete brisati admina iz baze!");
             }
         }
+
+        public static int DohvatiBrojPosudbi(int korisnikID)
+        {          
+            List<Posudba> pos = new List<Posudba>();
+            
+            using (var context = new Entities_db1())
+            {
+                var query = from l in context.Loans
+                            join u in context.LibraryUsers
+                            on l.UserID equals u.UserID
+                            where l.LoanStatus == "Posudena"
+                            select new Posudba
+                            {
+                                PosudbaID = l.LoanID,
+                                KorisnikID = l.UserID,
+                                IzdanjeID = l.PublishingID,
+                                DatumPovratka = l.DueDate,
+                                StatusPosudbe = l.LoanStatus
+                            };
+
+                pos = query.ToList();
+            }
+            int i = 0;
+            foreach(Posudba item in pos)
+            {
+                if (korisnikID == item.KorisnikID) i++;              
+            }
+            using (var context = new Entities_db1())
+            {
+                var query = from l in context.Loans
+                            join u in context.LibraryUsers
+                            on l.UserID equals u.UserID
+                            where l.LoanStatus == "Zakasnjela"
+                            select new Posudba
+                            {
+                                PosudbaID = l.LoanID,
+                                KorisnikID = l.UserID,
+                                IzdanjeID = l.PublishingID,
+                                DatumPovratka = l.DueDate,
+                                StatusPosudbe = l.LoanStatus
+                            };
+
+                pos = query.ToList();
+            }           
+            foreach (Posudba item in pos)
+            {
+                if (korisnikID == item.KorisnikID) i++;
+            }
+
+            return i;
+
+        }
     }
 }
+
