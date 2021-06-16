@@ -1,4 +1,5 @@
-﻿using System;
+﻿using bitBooks_Project.Dorian_Iznimke;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,7 @@ namespace bitBooks_Project.Klase
         {
             RecenzijaKnjižnice korisnikovaRecenzija;
 
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 var query = from r in context.ReviewLibraries
                             where r.UserID == korisnikID
@@ -54,7 +55,7 @@ namespace bitBooks_Project.Klase
         {
             List<RecenzijaKnjižnice> sveRecenzije = new List<RecenzijaKnjižnice>();
 
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 var query = from r in context.ReviewLibraries
                             where r.LibraryUser.LibraryID == knjiznicaID
@@ -77,8 +78,8 @@ namespace bitBooks_Project.Klase
 
         public void NovaRecenzija(string komentar, int ocjena, Korisnik korisnik) 
         {
-
-                using (var context = new Entities_db())
+            ValidirajRecenziju(komentar);   
+            using (var context = new Entities_db1())
                 {
 
                     ReviewLibrary recenzija = new ReviewLibrary();
@@ -94,13 +95,21 @@ namespace bitBooks_Project.Klase
 
         public void AžurirajRecenziju(string komentar, int ocjena, int korisnikID)
         {
-            using (var context = new Entities_db())
+            ValidirajRecenziju(komentar);
+            using (var context = new Entities_db1())
             {
                 var recenzija = context.ReviewLibraries.First(r => r.LibraryUser.UserID == korisnikID);
                 recenzija.ReviewText = komentar;
                 recenzija.Stars = ocjena;
                 recenzija.EntryDate = DateTime.Now;
                 context.SaveChanges();
+            }
+        }
+        private void ValidirajRecenziju(string komentar)
+        {
+            if (komentar.Length > 199 || komentar.Length < 1)
+            {
+                throw new RecenzijaException("Komentar mora imati između 200 i nula znakova!");
             }
         }
     }

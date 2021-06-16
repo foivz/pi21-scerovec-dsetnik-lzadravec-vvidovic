@@ -40,12 +40,15 @@ namespace bitBooks_Project
             this.cmbZaposlenik = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnOdredeniZaposlenik = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecenzije)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvRecenzije
             // 
+            this.dgvRecenzije.BackgroundColor = System.Drawing.Color.Honeydew;
             this.dgvRecenzije.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecenzije.Location = new System.Drawing.Point(12, 68);
             this.dgvRecenzije.Name = "dgvRecenzije";
@@ -95,6 +98,7 @@ namespace bitBooks_Project
             // 
             this.groupBox1.Controls.Add(this.btnUnosRecenzijeZaZaposlenika);
             this.groupBox1.Controls.Add(this.btnUnosRecenzijeZaKnjiznicu);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox1.Location = new System.Drawing.Point(15, 364);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(290, 92);
@@ -149,25 +153,39 @@ namespace bitBooks_Project
             this.btnOdredeniZaposlenik.UseVisualStyleBackColor = true;
             this.btnOdredeniZaposlenik.Click += new System.EventHandler(this.btnOdredeniZaposlenik_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::bitBooks_Project.Properties.Resources._5stars_slika;
+            this.pictureBox1.Location = new System.Drawing.Point(274, 312);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(450, 212);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
             // PregledRecenzijaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.ClientSize = new System.Drawing.Size(774, 468);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnZatvori);
+            this.Controls.Add(this.dgvRecenzije);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnOdredeniZaposlenik);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbZaposlenik);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnRecenzijeZaposlenika);
             this.Controls.Add(this.btnRecenzijeKnjiznice);
-            this.Controls.Add(this.btnZatvori);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgvRecenzije);
             this.Name = "PregledRecenzijaForm";
             this.Text = "PregledRecenzijaForm";
             this.Load += new System.EventHandler(this.PregledRecenzijaForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecenzije)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,5 +204,6 @@ namespace bitBooks_Project
         private System.Windows.Forms.ComboBox cmbZaposlenik;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnOdredeniZaposlenik;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -58,6 +58,7 @@ namespace bitBooks_Project.Forme
 
                     aktivacijskiKodFrm = new AktivacijskiKodForm(noviKorisnik);
                     aktivacijskiKodFrm.ShowDialog();
+                    Close();
 
                 }
                 else
@@ -73,7 +74,7 @@ namespace bitBooks_Project.Forme
 
         private void GeneriranjeLibraryUsera()
         {
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
                 noviKorisnik = new LibraryUser
                 {
                     TypeID = 4,
@@ -115,9 +116,10 @@ namespace bitBooks_Project.Forme
 
                 poruka.From = new MailAddress("PIbitBooks@gmail.com");
 
-                poruka.Body = "Poštovani," + Environment.NewLine + 
-                               "Vaše bitBooks korisničko ime je: " + korisničkoIme + Environment.NewLine + 
-                               "Vaš aktivacijski kod je: " + aktivacijskiKod;
+                poruka.Body = "Poštovani," + "<br>" + 
+                               "Vaše bitBooks korisničko ime je: " + korisničkoIme + "<br>" + 
+                               "Vaš aktivacijski kod je: " + aktivacijskiKod + "<br>" +
+                               "bitBooks";
                 
 
                 smtp = new SmtpClient();
@@ -215,5 +217,12 @@ namespace bitBooks_Project.Forme
                 return false;
             }
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

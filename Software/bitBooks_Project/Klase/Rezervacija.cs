@@ -14,11 +14,11 @@ namespace bitBooks_Project.Klase
         public DateTime DatumRezervacije { get; set; }
         public DateTime DatumDostupnosti { get; set; }
 
-        public List<Rezervacija> DohvatiRezervacijeKorisnika(int korisnikID)
+        public static List<Rezervacija> DohvatiRezervacijeKorisnika(int korisnikID)
         {
             List<Rezervacija> rezervacijeKorisnika = new List<Rezervacija>();
 
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 var query = from r in context.Reservations
                             where r.UserID == korisnikID
@@ -40,7 +40,7 @@ namespace bitBooks_Project.Klase
         {
             List<Rezervacija> rezervacijeIzdanja = new List<Rezervacija>();
 
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 var query = from r in context.Reservations
                             where r.PublishingID == izdanjeID
@@ -56,6 +56,21 @@ namespace bitBooks_Project.Klase
             }
 
             return rezervacijeIzdanja;
+        }
+
+        public static void ObrisiRezervaciju(Rezervacija rezervacija)
+        {
+            
+            using (var context = new Entities_db1())
+            {
+                var query = (from r in context.Reservations
+                             where r.ReservationID == rezervacija.RezervacijaID
+                             select r).FirstOrDefault();
+                context.Reservations.Remove(query);
+                context.SaveChanges();
+            }
+
+
         }
     }
 }

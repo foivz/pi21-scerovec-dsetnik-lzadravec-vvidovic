@@ -14,11 +14,13 @@ namespace bitBooks_Project.Klase
         public DateTime DatumPovratka { get; set; }
         public string StatusPosudbe { get; set; }
 
-        public List<Posudba> DohvatiPosudbeKorisnika(int korisnikID) 
+
+        
+        public static List<Posudba> DohvatiPosudbeKorisnika(int korisnikID) 
         {
             List<Posudba> posudbeKorisnika = new List<Posudba>();
 
-            using (var context = new Entities_db()) 
+            using (var context = new Entities_db1()) 
             {
                 var query = from l in context.Loans
                             where l.UserID == korisnikID
@@ -40,7 +42,7 @@ namespace bitBooks_Project.Klase
         {
             List<Posudba> posudbeIzdanja = new List<Posudba>();
 
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 var query = from l in context.Loans
                             where l.PublishingID == izdanjeID

@@ -82,6 +82,15 @@
           <Property Name="DueDate" Type="date" Nullable="false" />
           <Property Name="LoanStatus" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="news_id" />
+          </Key>
+          <Property Name="news_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="library_id" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Publisher">
           <Key>
             <PropertyRef Name="PublisherID" />
@@ -149,6 +158,14 @@
           <Property Name="AuthorID" Type="int" Nullable="false" />
           <Property Name="ISBN" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="WroteBook">
+          <Key>
+            <PropertyRef Name="AuthorID" />
+            <PropertyRef Name="ISBN" />
+          </Key>
+          <Property Name="AuthorID" Type="int" Nullable="false" />
+          <Property Name="ISBN" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <Association Name="Book_GenreID_FK">
           <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
@@ -182,6 +199,18 @@
             </Principal>
             <Dependent Role="Department">
               <PropertyRef Name="LibraryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_News_LibraryID_fk">
+          <End Role="Library" Type="Self.Library" Multiplicity="1" />
+          <End Role="News" Type="Self.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Library">
+              <PropertyRef Name="LibraryID" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="library_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -254,6 +283,30 @@
             </Principal>
             <Dependent Role="ReviewLibrary1">
               <PropertyRef Name="ReviewLibraryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WroteBook_Author">
+          <End Role="Author" Type="Self.Author" Multiplicity="1" />
+          <End Role="WroteBook" Type="Self.WroteBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="AuthorID" />
+            </Principal>
+            <Dependent Role="WroteBook">
+              <PropertyRef Name="AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WroteBook_ISBN_FK">
+          <End Role="Book" Type="Self.Book" Multiplicity="1" />
+          <End Role="WroteBook" Type="Self.WroteBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Book">
+              <PropertyRef Name="ISBN" />
+            </Principal>
+            <Dependent Role="WroteBook">
+              <PropertyRef Name="ISBN" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -365,18 +418,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Wrote_ISBN_FK">
-          <End Role="Book" Type="Self.Book" Multiplicity="1" />
-          <End Role="Wrote" Type="Self.Wrote" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Book">
-              <PropertyRef Name="ISBN" />
-            </Principal>
-            <Dependent Role="Wrote">
-              <PropertyRef Name="ISBN" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
@@ -386,6 +427,7 @@
           <EntitySet Name="Library" EntityType="Self.Library" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LibraryUser" EntityType="Self.LibraryUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Loan" EntityType="Self.Loan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Publisher" EntityType="Self.Publisher" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Publishing" EntityType="Self.Publishing" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
@@ -393,6 +435,7 @@
           <EntitySet Name="ReviewLibrary" EntityType="Self.ReviewLibrary" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wrote" EntityType="Self.Wrote" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WroteBook" EntityType="Self.WroteBook" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="Book_GenreID_FK" Association="Self.Book_GenreID_FK">
             <End Role="Genre" EntitySet="Genre" />
             <End Role="Book" EntitySet="Book" />
@@ -404,6 +447,10 @@
           <AssociationSet Name="FK_Department_Library" Association="Self.FK_Department_Library">
             <End Role="Library" EntitySet="Library" />
             <End Role="Department" EntitySet="Department" />
+          </AssociationSet>
+          <AssociationSet Name="FK_News_LibraryID_fk" Association="Self.FK_News_LibraryID_fk">
+            <End Role="Library" EntitySet="Library" />
+            <End Role="News" EntitySet="News" />
           </AssociationSet>
           <AssociationSet Name="FK_Publishing_Book" Association="Self.FK_Publishing_Book">
             <End Role="Book" EntitySet="Book" />
@@ -428,6 +475,14 @@
           <AssociationSet Name="FK_ReviewLibrary_ReviewLibrary" Association="Self.FK_ReviewLibrary_ReviewLibrary">
             <End Role="ReviewLibrary" EntitySet="ReviewLibrary" />
             <End Role="ReviewLibrary1" EntitySet="ReviewLibrary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WroteBook_Author" Association="Self.FK_WroteBook_Author">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="WroteBook" EntitySet="WroteBook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WroteBook_ISBN_FK" Association="Self.FK_WroteBook_ISBN_FK">
+            <End Role="Book" EntitySet="Book" />
+            <End Role="WroteBook" EntitySet="WroteBook" />
           </AssociationSet>
           <AssociationSet Name="Library_Administrator_FK" Association="Self.Library_Administrator_FK">
             <End Role="LibraryUser" EntitySet="LibraryUser" />
@@ -465,10 +520,6 @@
             <End Role="Author" EntitySet="Author" />
             <End Role="Wrote" EntitySet="Wrote" />
           </AssociationSet>
-          <AssociationSet Name="Wrote_ISBN_FK" Association="Self.Wrote_ISBN_FK">
-            <End Role="Book" EntitySet="Book" />
-            <End Role="Wrote" EntitySet="Wrote" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -483,7 +534,8 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Books" Relationship="Self.Wrote" FromRole="Author" ToRole="Book" />
+          <NavigationProperty Name="Wrotes" Relationship="Self.Wrote_AuthorID_FK" FromRole="Author" ToRole="Wrote" />
+          <NavigationProperty Name="Books" Relationship="Self.WroteBook" FromRole="Author" ToRole="Book" />
         </EntityType>
         <EntityType Name="Book">
           <Key>
@@ -495,7 +547,7 @@
           <Property Name="YearWritten" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Genre" Relationship="Self.Book_GenreID_FK" FromRole="Book" ToRole="Genre" />
           <NavigationProperty Name="Publishings" Relationship="Self.FK_Publishing_Book" FromRole="Book" ToRole="Publishing" />
-          <NavigationProperty Name="Authors" Relationship="Self.Wrote" FromRole="Book" ToRole="Author" />
+          <NavigationProperty Name="Authors" Relationship="Self.WroteBook" FromRole="Book" ToRole="Author" />
         </EntityType>
         <EntityType Name="City">
           <Key>
@@ -535,6 +587,7 @@
           <Property Name="Administrator" Type="Int32" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Departments" Relationship="Self.FK_Department_Library" FromRole="Library" ToRole="Department" />
+          <NavigationProperty Name="News" Relationship="Self.FK_News_LibraryID_fk" FromRole="Library" ToRole="News" />
           <NavigationProperty Name="LibraryUser" Relationship="Self.Library_Administrator_FK" FromRole="Library" ToRole="LibraryUser" />
           <NavigationProperty Name="LibraryUsers" Relationship="Self.LibraryUser_LibraryID_FK" FromRole="Library" ToRole="LibraryUser" />
         </EntityType>
@@ -573,6 +626,16 @@
           <Property Name="LoanStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="LibraryUser" Relationship="Self.Loan_UserID_FK" FromRole="Loan" ToRole="LibraryUser" />
           <NavigationProperty Name="Publishing" Relationship="Self.Loan_PublishingID_FK" FromRole="Loan" ToRole="Publishing" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="news_id" />
+          </Key>
+          <Property Name="news_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="library_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Library" Relationship="Self.FK_News_LibraryID_fk" FromRole="News" ToRole="Library" />
         </EntityType>
         <EntityType Name="Publisher">
           <Key>
@@ -647,6 +710,27 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="LibraryUsers" Relationship="Self.LibraryUser_TypeID_FK" FromRole="UserType" ToRole="LibraryUser" />
         </EntityType>
+        <EntityType Name="Wrote">
+          <Key>
+            <PropertyRef Name="AuthorID" />
+            <PropertyRef Name="ISBN" />
+          </Key>
+          <Property Name="AuthorID" Type="Int32" Nullable="false" />
+          <Property Name="ISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Author" Relationship="Self.Wrote_AuthorID_FK" FromRole="Wrote" ToRole="Author" />
+        </EntityType>
+        <Association Name="Wrote_AuthorID_FK">
+          <End Role="Author" Type="Self.Author" Multiplicity="1" />
+          <End Role="Wrote" Type="Self.Wrote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="AuthorID" />
+            </Principal>
+            <Dependent Role="Wrote">
+              <PropertyRef Name="AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Book_GenreID_FK">
           <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
@@ -704,6 +788,18 @@
             </Principal>
             <Dependent Role="Publishing">
               <PropertyRef Name="DepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_News_LibraryID_fk">
+          <End Role="Library" Type="Self.Library" Multiplicity="1" />
+          <End Role="News" Type="Self.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Library">
+              <PropertyRef Name="LibraryID" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="library_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -851,11 +947,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Wrote">
+        <Association Name="WroteBook">
           <End Role="Author" Type="Self.Author" Multiplicity="*" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="Entities_db" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities_db1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Authors" EntityType="Self.Author" />
           <EntitySet Name="Books" EntityType="Self.Book" />
           <EntitySet Name="Cities" EntityType="Self.City" />
@@ -864,12 +960,18 @@
           <EntitySet Name="Libraries" EntityType="Self.Library" />
           <EntitySet Name="LibraryUsers" EntityType="Self.LibraryUser" />
           <EntitySet Name="Loans" EntityType="Self.Loan" />
+          <EntitySet Name="News" EntityType="Self.News" />
           <EntitySet Name="Publishers" EntityType="Self.Publisher" />
           <EntitySet Name="Publishings" EntityType="Self.Publishing" />
           <EntitySet Name="Reservations" EntityType="Self.Reservation" />
           <EntitySet Name="ReviewEmployees" EntityType="Self.ReviewEmployee" />
           <EntitySet Name="ReviewLibraries" EntityType="Self.ReviewLibrary" />
           <EntitySet Name="UserTypes" EntityType="Self.UserType" />
+          <EntitySet Name="Wrotes" EntityType="Self.Wrote" />
+          <AssociationSet Name="Wrote_AuthorID_FK" Association="Self.Wrote_AuthorID_FK">
+            <End Role="Author" EntitySet="Authors" />
+            <End Role="Wrote" EntitySet="Wrotes" />
+          </AssociationSet>
           <AssociationSet Name="Book_GenreID_FK" Association="Self.Book_GenreID_FK">
             <End Role="Genre" EntitySet="Genres" />
             <End Role="Book" EntitySet="Books" />
@@ -889,6 +991,10 @@
           <AssociationSet Name="FK_Publishing_Department" Association="Self.FK_Publishing_Department">
             <End Role="Department" EntitySet="Departments" />
             <End Role="Publishing" EntitySet="Publishings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_News_LibraryID_fk" Association="Self.FK_News_LibraryID_fk">
+            <End Role="Library" EntitySet="Libraries" />
+            <End Role="News" EntitySet="News" />
           </AssociationSet>
           <AssociationSet Name="Library_Administrator_FK" Association="Self.Library_Administrator_FK">
             <End Role="LibraryUser" EntitySet="LibraryUsers" />
@@ -938,7 +1044,7 @@
             <End Role="ReviewLibrary" EntitySet="ReviewLibraries" />
             <End Role="ReviewLibrary1" EntitySet="ReviewLibraries" />
           </AssociationSet>
-          <AssociationSet Name="Wrote" Association="Self.Wrote">
+          <AssociationSet Name="WroteBook" Association="Self.WroteBook">
             <End Role="Author" EntitySet="Authors" />
             <End Role="Book" EntitySet="Books" />
           </AssociationSet>
@@ -948,7 +1054,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities_db">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities_db1">
           <EntitySetMapping Name="Authors">
             <EntityTypeMapping TypeName="Model.Author">
               <MappingFragment StoreEntitySet="Author">
@@ -1034,6 +1140,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="Model.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="news_id" ColumnName="news_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="library_id" ColumnName="library_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Publishers">
             <EntityTypeMapping TypeName="Model.Publisher">
               <MappingFragment StoreEntitySet="Publisher">
@@ -1099,7 +1215,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Wrote" TypeName="Model.Wrote" StoreEntitySet="Wrote">
+          <EntitySetMapping Name="Wrotes">
+            <EntityTypeMapping TypeName="Model.Wrote">
+              <MappingFragment StoreEntitySet="Wrote">
+                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="WroteBook" TypeName="Model.WroteBook" StoreEntitySet="WroteBook">
             <EndProperty Name="Author">
               <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
             </EndProperty>

@@ -20,7 +20,7 @@ namespace bitBooks_Project.Klase
         {
             List<Izdanje> izdanjaKnjige = new List<Izdanje>();
 
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 var query = from p in context.Publishings
                             where p.ISBN == isbn
@@ -58,7 +58,7 @@ namespace bitBooks_Project.Klase
         {
             List<Izdanje> izdanjaIzdavaca = new List<Izdanje>();
 
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 var query = from p in context.Publishings
                             where p.PublisherID == izdavacID

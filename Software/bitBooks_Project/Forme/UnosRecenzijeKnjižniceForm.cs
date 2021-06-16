@@ -1,4 +1,5 @@
-﻿using bitBooks_Project.Klase;
+﻿using bitBooks_Project.Dorian_Iznimke;
+using bitBooks_Project.Klase;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,13 +14,11 @@ namespace bitBooks_Project.Forme
 {
     public partial class UnosRecenzijeKnjižniceForm : Form
     {
-        Korisnik _korisnik;
         RecenzijaKnjižnice novaRecenzija;
         bool recenzijaPostoji;
-        public UnosRecenzijeKnjižniceForm(Korisnik korisnik)
+        public UnosRecenzijeKnjižniceForm()
         {
             InitializeComponent();
-            _korisnik = korisnik;
         }
 
         private void UnosRecenzijeKnjižniceForm_Load(object sender, EventArgs e)
@@ -43,6 +42,7 @@ namespace bitBooks_Project.Forme
         private void btnUredi_Click(object sender, EventArgs e)
         {
             OmogućiPromjene();
+            btnSpremi.Enabled = true;
         }
 
         private void PostaviComboBoxSource()
@@ -52,7 +52,7 @@ namespace bitBooks_Project.Forme
 
         private void DohvatiRecenziju()
         {
-            novaRecenzija = RecenzijaKnjižnice.DohvatiKorisnikoveRecenzijeKnjiznice(_korisnik.KorisnikID);          
+            novaRecenzija = RecenzijaKnjižnice.DohvatiKorisnikoveRecenzijeKnjiznice(Sesija.Korisnik.KorisnikID);          
         }
 
         private void OnemogućiPromjene() 
@@ -61,6 +61,7 @@ namespace bitBooks_Project.Forme
             txtDatum.Enabled = false;
             txtKomentar.Enabled = false;
             cmbOcjena.Enabled = false;
+            btnSpremi.Enabled = false;
         }
 
         private void OmogućiPromjene()
@@ -81,23 +82,31 @@ namespace bitBooks_Project.Forme
 
         private void PopuniPoljaAkoRecenzijaNEPostoji() 
         {
-                txtKnjiznica.Text = _korisnik.ImeKnjiznice;
+                txtKnjiznica.Text = Sesija.Korisnik.ImeKnjiznice;
         }
 
         private void btnSpremi_Click(object sender, EventArgs e)
         {
-            if (recenzijaPostoji)
+            try
             {
-                novaRecenzija.AžurirajRecenziju(txtKomentar.Text, cmbOcjena.SelectedIndex + 1, _korisnik.KorisnikID);
+                if (recenzijaPostoji)
+                {
+                    novaRecenzija.AžurirajRecenziju(txtKomentar.Text, cmbOcjena.SelectedIndex + 1, Sesija.Korisnik.KorisnikID);
+                }
+                else
+                {
+                    novaRecenzija = new RecenzijaKnjižnice();
+                    novaRecenzija.NovaRecenzija(txtKomentar.Text, cmbOcjena.SelectedIndex + 1, Sesija.Korisnik);
+                }
+                DohvatiRecenziju();
+                PopuniPoljaAkoRecenzijaPostoji();
+                OnemogućiPromjene();
             }
-            else 
+            catch (RecenzijaException ex)
             {
-                novaRecenzija = new RecenzijaKnjižnice();
-                novaRecenzija.NovaRecenzija(txtKomentar.Text, cmbOcjena.SelectedIndex+1, _korisnik);
+                MessageBox.Show(ex.Poruka);
             }
-            DohvatiRecenziju();
-            PopuniPoljaAkoRecenzijaPostoji();
-            OnemogućiPromjene();
+            
         }
 
         private void btnZatvori_Click(object sender, EventArgs e)

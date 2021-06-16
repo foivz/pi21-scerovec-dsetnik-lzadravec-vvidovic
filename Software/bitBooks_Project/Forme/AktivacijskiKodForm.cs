@@ -41,7 +41,7 @@ namespace bitBooks_Project.Forme
 
         private void RegistrirajKorisnikaUBazu()
         {
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 context.LibraryUsers.Add(_noviKorisnik);
                 context.SaveChanges();

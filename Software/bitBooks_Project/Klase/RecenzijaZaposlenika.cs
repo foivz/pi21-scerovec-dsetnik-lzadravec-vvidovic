@@ -1,4 +1,5 @@
-﻿using System;
+﻿using bitBooks_Project.Dorian_Iznimke;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,7 @@ namespace bitBooks_Project.Klase
         {
             List<RecenzijaZaposlenika> korisnikoveRecenzije = new List<RecenzijaZaposlenika>();
 
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 var query = from r in context.ReviewEmployees
                             where r.UserID == korisnikID
@@ -49,7 +50,7 @@ namespace bitBooks_Project.Klase
         {
             List<RecenzijaZaposlenika> sveRecenzije = new List<RecenzijaZaposlenika>();
 
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 var query = from r in context.ReviewEmployees
                             where r.LibraryUser1.LibraryID == knjiznicaID
@@ -75,7 +76,7 @@ namespace bitBooks_Project.Klase
         {
             List<RecenzijaZaposlenika> recenzijeZaposlenika = new List<RecenzijaZaposlenika>();
 
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 var query = from r in context.ReviewEmployees
                             where r.LibraryUser1.LibraryID == knjiznicaID && r.EmployeeID == zapolsenikID
@@ -101,7 +102,7 @@ namespace bitBooks_Project.Klase
         {
             RecenzijaZaposlenika recenzijaZaposlenika;
 
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 var query = from r in context.ReviewEmployees
                             where r.UserID == korisnikID && r.EmployeeID == zapolsenikID
@@ -121,10 +122,11 @@ namespace bitBooks_Project.Klase
             }
             return recenzijaZaposlenika;
         }
+        
         public void NovaRecenzija(string komentar, int ocjena, Korisnik korisnik, Korisnik zaposlenik)
         {
-
-            using (var context = new Entities_db())
+            ValidirajRecenziju(komentar);
+            using (var context = new Entities_db1())
             {
 
                 ReviewEmployee recenzija = new ReviewEmployee();
@@ -141,13 +143,22 @@ namespace bitBooks_Project.Klase
 
         public void AžurirajRecenziju(string komentar, int ocjena, int korisnikID, int zaposlenikID)
         {
-            using (var context = new Entities_db())
+            ValidirajRecenziju(komentar);
+            using (var context = new Entities_db1())
             {
                 var recenzija = context.ReviewEmployees.First(r => r.LibraryUser1.UserID == korisnikID && r.LibraryUser.UserID == zaposlenikID);
                 recenzija.ReviewText = komentar;
                 recenzija.Stars = ocjena;
                 recenzija.EntryDate = DateTime.Now;
                 context.SaveChanges();
+            }
+        }
+
+        private void ValidirajRecenziju(string komentar)
+        {
+            if (komentar.Length > 199 || komentar.Length < 1)
+            {
+                throw new RecenzijaException("Komentar mora imati između 200 i nula znakova!"); 
             }
         }
     }

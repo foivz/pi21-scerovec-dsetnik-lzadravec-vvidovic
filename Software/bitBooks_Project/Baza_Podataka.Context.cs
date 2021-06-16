@@ -13,10 +13,10 @@ namespace bitBooks_Project
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities_db : DbContext
+    public partial class Entities_db1 : DbContext
     {
-        public Entities_db()
-            : base("name=Entities_db")
+        public Entities_db1()
+            : base("name=Entities_db1")
         {
         }
     
@@ -33,11 +33,13 @@ namespace bitBooks_Project
         public virtual DbSet<Library> Libraries { get; set; }
         public virtual DbSet<LibraryUser> LibraryUsers { get; set; }
         public virtual DbSet<Loan> Loans { get; set; }
+        public virtual DbSet<News> News { get; set; }
         public virtual DbSet<Publisher> Publishers { get; set; }
         public virtual DbSet<Publishing> Publishings { get; set; }
         public virtual DbSet<Reservation> Reservations { get; set; }
         public virtual DbSet<ReviewEmployee> ReviewEmployees { get; set; }
         public virtual DbSet<ReviewLibrary> ReviewLibraries { get; set; }
         public virtual DbSet<UserType> UserTypes { get; set; }
+        public virtual DbSet<Wrote> Wrotes { get; set; }
     }
 }

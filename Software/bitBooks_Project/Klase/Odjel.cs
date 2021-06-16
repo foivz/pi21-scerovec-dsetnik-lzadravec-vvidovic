@@ -19,7 +19,7 @@ namespace bitBooks_Project.Klase
         {
             List<Odjel> sviOdjeli = new List<Odjel>();
 
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 var query = from d in context.Departments
                             select new Odjel
@@ -41,7 +41,7 @@ namespace bitBooks_Project.Klase
         {
             Odjel odjel;
 
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 var query = from d in context.Departments
                             where d.DepartmentID == odjelID
@@ -64,7 +64,7 @@ namespace bitBooks_Project.Klase
         {
             List<Odjel> odjeliKnjiznice = new List<Odjel>();
 
-            using (var context = new Entities_db())
+            using (var context = new Entities_db1())
             {
                 var query = from d in context.Departments
                             where d.LibraryID == knjiznicaID

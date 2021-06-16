@@ -35,25 +35,29 @@ namespace bitBooks_Project.Forme
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnOdustani = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(175, 89);
+            this.txtUsername.Location = new System.Drawing.Point(175, 213);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(167, 20);
             this.txtUsername.TabIndex = 0;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(175, 137);
+            this.txtPassword.Location = new System.Drawing.Point(175, 257);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(167, 20);
             this.txtPassword.TabIndex = 1;
             // 
             // btnPrijava
             // 
-            this.btnPrijava.Location = new System.Drawing.Point(189, 180);
+            this.btnPrijava.Location = new System.Drawing.Point(206, 331);
             this.btnPrijava.Name = "btnPrijava";
             this.btnPrijava.Size = new System.Drawing.Size(75, 23);
             this.btnPrijava.TabIndex = 2;
@@ -64,7 +68,7 @@ namespace bitBooks_Project.Forme
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(122, 140);
+            this.label1.Location = new System.Drawing.Point(110, 264);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 3;
@@ -73,7 +77,7 @@ namespace bitBooks_Project.Forme
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(91, 92);
+            this.label2.Location = new System.Drawing.Point(91, 213);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 13);
             this.label2.TabIndex = 4;
@@ -81,18 +85,53 @@ namespace bitBooks_Project.Forme
             // 
             // btnOdustani
             // 
-            this.btnOdustani.Location = new System.Drawing.Point(94, 180);
+            this.btnOdustani.Location = new System.Drawing.Point(113, 331);
             this.btnOdustani.Name = "btnOdustani";
             this.btnOdustani.Size = new System.Drawing.Size(75, 23);
             this.btnOdustani.TabIndex = 5;
             this.btnOdustani.Text = "Odustani";
             this.btnOdustani.UseVisualStyleBackColor = true;
+            this.btnOdustani.Click += new System.EventHandler(this.btnOdustani_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label3.Location = new System.Drawing.Point(171, 45);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 20);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "bitBooks";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::bitBooks_Project.Properties.Resources.knjiga;
+            this.pictureBox1.Location = new System.Drawing.Point(153, 68);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(106, 95);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(153, 371);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(89, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Registriraj se";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // PrijavaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 228);
+            this.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.ClientSize = new System.Drawing.Size(407, 419);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnOdustani);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -101,6 +140,9 @@ namespace bitBooks_Project.Forme
             this.Controls.Add(this.txtUsername);
             this.Name = "PrijavaForm";
             this.Text = "Prijava";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PrijavaForm_FormClosing);
+            this.Load += new System.EventHandler(this.PrijavaForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,5 +156,8 @@ namespace bitBooks_Project.Forme
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnOdustani;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
