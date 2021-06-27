@@ -76,6 +76,30 @@ namespace bitBooks_Project.Klase
             return recenzijeSorted;
         }
 
+        public static List<RecenzijaKnjižnice> DohvatiSveRecenzije()
+        {
+            List<RecenzijaKnjižnice> sveRecenzije = new List<RecenzijaKnjižnice>();
+
+            using (var context = new Entities_db1())
+            {
+                var query = from r in context.ReviewLibraries
+                            select new RecenzijaKnjižnice
+                            {
+                                RecenzijaID = r.ReviewLibraryID,
+                                KorisnikID = r.UserID,
+                                TekstRecenzije = r.ReviewText,
+                                Ocjena = r.Stars,
+                                KnjižnicaID = r.LibraryUser.LibraryID,
+                                ImeKnjižnice = r.LibraryUser.Library.Name,
+                                KorisnickoIme = r.LibraryUser.Username,
+                                DatumUnosa = r.EntryDate
+                            };
+                sveRecenzije = query.ToList();
+            }
+            List<RecenzijaKnjižnice> recenzijeSorted = sveRecenzije.OrderByDescending(k => k.DatumUnosa).ToList();
+            return recenzijeSorted;
+        }
+
         public void NovaRecenzija(string komentar, int ocjena, Korisnik korisnik) 
         {
             ValidirajRecenziju(komentar);   

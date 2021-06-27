@@ -26,11 +26,23 @@ namespace bitBooks_Project
         {
             PrikaziRecenzijeKnjiznice();
             PopuniComboBox();
+            if(Sesija.Korisnik.TipID == 1)
+            {
+                grpBoxRecenzije.Visible = false;
+            }
         }
 
         private void PopuniComboBox()
         {
-            cmbZaposlenik.DataSource = Korisnik.DohvatiZaposlenikeKnjižnice(Sesija.Korisnik.KnjiznicaID);
+            if (Sesija.Korisnik.TipID == 1)
+            {
+                cmbZaposlenik.DataSource = Korisnik.DohvatiSveZaposlenike();
+            }
+            else
+            {
+                cmbZaposlenik.DataSource = Korisnik.DohvatiZaposlenikeKnjižnice(Sesija.Korisnik.KnjiznicaID);
+            }
+           
         }
 
         private void btnRecenzijeKnjiznice_Click(object sender, EventArgs e)
@@ -49,7 +61,20 @@ namespace bitBooks_Project
         }
         private void PrikaziRecenzijeKnjiznice()
         {
-            dgvRecenzije.DataSource = RecenzijaKnjižnice.DohvatiSveRecenzijeKnjiznice(Sesija.Korisnik.KnjiznicaID);
+            if (Sesija.Korisnik.TipID == 1)
+            {
+                dgvRecenzije.DataSource = RecenzijaKnjižnice.DohvatiSveRecenzije();
+            }
+            else
+            {
+                dgvRecenzije.DataSource = RecenzijaKnjižnice.DohvatiSveRecenzijeKnjiznice(Sesija.Korisnik.KnjiznicaID);
+            }
+            
+            FilitrirajDGV();
+        }
+
+        private void FilitrirajDGV()
+        {
             dgvRecenzije.Columns["ImeKnjižnice"].HeaderText = "Ime knjižnice";
             dgvRecenzije.Columns["KorisnickoIme"].HeaderText = "Korisničko ime";
             dgvRecenzije.Columns["TekstRecenzije"].HeaderText = "Tekst recenzije";
@@ -61,7 +86,15 @@ namespace bitBooks_Project
 
         private void PrikaziRecenzijeSvihZaposlenika()
         {
-            dgvRecenzije.DataSource = RecenzijaZaposlenika.DohvatiSveRecenzijeZaposlenikaKnjiznice(Sesija.Korisnik.KnjiznicaID);
+            if (Sesija.Korisnik.TipID == 1)
+            {
+                dgvRecenzije.DataSource = RecenzijaZaposlenika.DohvatiSveRecenzije();
+            }
+            else
+            {
+                dgvRecenzije.DataSource = RecenzijaZaposlenika.DohvatiSveRecenzijeZaposlenikaKnjiznice(Sesija.Korisnik.KnjiznicaID);
+            }
+            
             ZaposleniciDGV();
         }
 
@@ -109,5 +142,6 @@ namespace bitBooks_Project
             dgvRecenzije.DataSource = RecenzijaZaposlenika.DohvatiRecenzijeOdredenogZaposlenika(odabraniZaposlenik.KnjiznicaID, odabraniZaposlenik.KorisnikID);
             ZaposleniciDGV();
         }
+
     }
 }

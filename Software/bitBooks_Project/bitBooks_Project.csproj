@@ -87,6 +87,8 @@
       <DependentUpon>Baza_Podataka.tt</DependentUpon>
     </Compile>
     <Compile Include="Dorian_Iznimke\AdminException.cs" />
+    <Compile Include="Dorian_Iznimke\KnjiznicaException.cs" />
+    <Compile Include="Dorian_Iznimke\KorisnikException.cs" />
     <Compile Include="Dorian_Iznimke\LibraryException.cs" />
     <Compile Include="Dorian_Iznimke\RecenzijaException.cs" />
     <Compile Include="Dorian_Iznimke\UnosNovostiException.cs" />
@@ -179,6 +181,24 @@
     </Compile>
     <Compile Include="Forme\RezervacijaForm.Designer.cs">
       <DependentUpon>RezervacijaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\SuperAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\SuperAdminForm.Designer.cs">
+      <DependentUpon>SuperAdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\SuperAdminUnosFOrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\SuperAdminUnosFOrm.Designer.cs">
+      <DependentUpon>SuperAdminUnosFOrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\SuperAdminUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\SuperAdminUpdateForm.Designer.cs">
+      <DependentUpon>SuperAdminUpdateForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forme\UnosRecenzijeKnjižniceForm.cs">
       <SubType>Form</SubType>
@@ -310,6 +330,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\RezervacijaForm.resx">
       <DependentUpon>RezervacijaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\SuperAdminForm.resx">
+      <DependentUpon>SuperAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\SuperAdminUnosFOrm.resx">
+      <DependentUpon>SuperAdminUnosFOrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\SuperAdminUpdateForm.resx">
+      <DependentUpon>SuperAdminUpdateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\UnosRecenzijeKnjižniceForm.resx">
       <DependentUpon>UnosRecenzijeKnjižniceForm.cs</DependentUpon>

@@ -78,5 +78,17 @@ namespace bitBooks_Project.Klase
                 StatusPosudbe = enumStatusPosudbe.Zakasnjela.ToString();
             }
         }
+        public void ObrisiPosudbu()
+        {
+            using (var context = new Entities_db1())
+            {
+                var query = (from l in context.Loans
+                             where l.UserID == KorisnikID
+                             select l).FirstOrDefault();
+                context.Loans.Remove(query);
+                context.SaveChanges();
+
+            }
+        }
     }
 }

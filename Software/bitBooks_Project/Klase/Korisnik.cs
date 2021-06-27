@@ -24,13 +24,45 @@ namespace bitBooks_Project.Klase
         public string AktivacijskiKod { get; set; }
         public DateTime DatumRegistracije { get; set; }
 
-        public static List<Korisnik> DohvatiSveKorisnike()
+        public static List<Korisnik> DohvatiSveKorisnike(int superadminID)
         {
             List<Korisnik> sviKorisnici = new List<Korisnik>();
 
             using (var context = new Entities_db1())
             {
                 var query = from l in context.LibraryUsers
+                            where l.UserID != superadminID
+                            select new Korisnik
+                            {
+                                KorisnikID = l.UserID,
+                                TipID = l.TypeID,
+                                ImeTipa = l.UserType.Name,
+                                KnjiznicaID = l.LibraryID,
+                                ImeKnjiznice = l.Library.Name,
+                                Email = l.Email,
+                                Adresa = l.Adress,
+                                KorisnickoIme = l.Username,
+                                Lozinka = l.Password,
+                                Ime = l.Name,
+                                Prezime = l.Surname,
+                                AktivacijskiKod = l.ActivationCode,
+                                DatumRegistracije = l.DateTimeRegistration
+                            };
+
+                sviKorisnici = query.ToList();
+            }
+
+            return sviKorisnici;
+        }
+
+        public static List<Korisnik> DohvatiSveZaposlenike()
+        {
+            List<Korisnik> sviKorisnici = new List<Korisnik>();
+
+            using (var context = new Entities_db1())
+            {
+                var query = from l in context.LibraryUsers
+                            where l.TypeID == 3
                             select new Korisnik
                             {
                                 KorisnikID = l.UserID,
@@ -245,6 +277,93 @@ namespace bitBooks_Project.Klase
 
             return korisniciImePrezime;
         }
+
+        public static List<Korisnik> DohvatiKorisnikaPoImenuSA(string ime)
+        {
+            List<Korisnik> korisniciImena = new List<Korisnik>();
+            using (var context = new Entities_db1())
+            {
+                var query = from l in context.LibraryUsers
+                            where l.Name.Contains(ime)
+                            select new Korisnik
+                            {
+                                KorisnikID = l.UserID,
+                                TipID = l.TypeID,
+                                ImeTipa = l.UserType.Name,
+                                KnjiznicaID = l.LibraryID,
+                                ImeKnjiznice = l.Library.Name,
+                                Email = l.Email,
+                                Adresa = l.Adress,
+                                KorisnickoIme = l.Username,
+                                Lozinka = l.Password,
+                                Ime = l.Name,
+                                Prezime = l.Surname,
+                                AktivacijskiKod = l.ActivationCode,
+                                DatumRegistracije = l.DateTimeRegistration
+                            };
+                korisniciImena = query.ToList();
+            }
+
+            return korisniciImena;
+        }
+
+        public static List<Korisnik> DohvatiKorisnikaPoPrezimenuSA(string prezime)
+        {
+            List<Korisnik> korisniciPrezimena = new List<Korisnik>();
+            using (var context = new Entities_db1())
+            {
+                var query = from l in context.LibraryUsers
+                            where l.Surname.Contains(prezime)
+                            select new Korisnik
+                            {
+                                KorisnikID = l.UserID,
+                                TipID = l.TypeID,
+                                ImeTipa = l.UserType.Name,
+                                KnjiznicaID = l.LibraryID,
+                                ImeKnjiznice = l.Library.Name,
+                                Email = l.Email,
+                                Adresa = l.Adress,
+                                KorisnickoIme = l.Username,
+                                Lozinka = l.Password,
+                                Ime = l.Name,
+                                Prezime = l.Surname,
+                                AktivacijskiKod = l.ActivationCode,
+                                DatumRegistracije = l.DateTimeRegistration
+                            };
+                korisniciPrezimena = query.ToList();
+            }
+
+            return korisniciPrezimena;
+        }
+
+        public static List<Korisnik> DohvatiPoImenuIPrezimenuSA(string ime, string prezime)
+        {
+            List<Korisnik> korisniciImePrezime = new List<Korisnik>();
+            using (var context = new Entities_db1())
+            {
+                var query = from l in context.LibraryUsers
+                            where l.Name.Contains(ime) && l.Surname.Contains(prezime)
+                            select new Korisnik
+                            {
+                                KorisnikID = l.UserID,
+                                TipID = l.TypeID,
+                                ImeTipa = l.UserType.Name,
+                                KnjiznicaID = l.LibraryID,
+                                ImeKnjiznice = l.Library.Name,
+                                Email = l.Email,
+                                Adresa = l.Adress,
+                                KorisnickoIme = l.Username,
+                                Lozinka = l.Password,
+                                Ime = l.Name,
+                                Prezime = l.Surname,
+                                AktivacijskiKod = l.ActivationCode,
+                                DatumRegistracije = l.DateTimeRegistration
+                            };
+                korisniciImePrezime = query.ToList();
+            }
+
+            return korisniciImePrezime;
+        }
         public override string ToString()
         {
             return Ime + " " + Prezime;
@@ -350,25 +469,26 @@ namespace bitBooks_Project.Klase
             return korisnik;
         }
 
-        public static void ObrisiKorisnika(Korisnik korisnik)
+        public void ObrisiKorisnika()
         {
-            ValidacijaBrisanja(korisnik);
+            if(Sesija.Korisnik.TipID == 3)
+            {
+                ValidacijaBrisanja();
+            }
             using (var context = new Entities_db1())
             {
                 var query = (from l in context.LibraryUsers
-                             where l.UserID == korisnik.KorisnikID
+                             where l.UserID == KorisnikID
                              select l).FirstOrDefault();
                 context.LibraryUsers.Remove(query);
                 context.SaveChanges();
 
             }
-
-
         }
 
-        private static void ValidacijaBrisanja(Korisnik korisnik)
+        private  void ValidacijaBrisanja()
         {
-            if (korisnik.TipID == 1 || korisnik.TipID == 2)
+            if (TipID == 1 || TipID == 2)
             {
                 throw new AdminException("Ne možete brisati admina iz baze!");
             }
@@ -424,6 +544,57 @@ namespace bitBooks_Project.Klase
 
             return i;
 
+        }
+        public static LibraryUser NoviAdmin(string email, string adress,string username, string password, string name, string surname)
+        {
+            ValidirajAdminUnos(email, adress, username, password, name, surname);
+            using (var context = new Entities_db1())
+            {
+
+                LibraryUser admin = new LibraryUser();
+
+                admin.TypeID = 2;
+                admin.Email = email;
+                admin.Adress = adress;
+                admin.Username = username;
+                admin.Password = password;
+                admin.Name = name;
+                admin.Surname = surname;
+                admin.ActivationCode = GenerirajRandomActivationCode();
+                admin.DateTimeRegistration = DateTime.Now;
+                context.LibraryUsers.Add(admin);
+                context.SaveChanges();
+                return admin;
+            }
+        }
+
+        public void AžurirajAdmina(int knjiznicaID)
+        {
+            using (var context = new Entities_db1())
+            {
+                var admin = context.LibraryUsers.First(l => l.UserID == KorisnikID);
+                admin.LibraryID = knjiznicaID;
+                context.SaveChanges();
+            }
+        }
+
+        private static string GenerirajRandomActivationCode()
+        {
+            string kod="";
+            Random random = new Random();
+            for (int i = 0; i < 5; i++)
+            {
+                kod += random.Next(0,9);
+            }
+            return kod;
+        }
+
+        private static void  ValidirajAdminUnos(string email, string adresa, string user, string pw, string ime, string prezime)
+        {
+            if (email.Length > 50 || email.Length < 1 || adresa.Length > 50 || adresa.Length < 1 || ime.Length > 50 || ime.Length < 1 || prezime.Length > 50 || prezime.Length < 1 || user.Length > 20 || user.Length < 1 || pw.Length > 20 || pw.Length < 1)
+            {
+                throw new KorisnikException("Korisničko ime i lozinka smiju ima 20 znakova, a ostala polja do maksimalno 50!");
+            }
         }
     }
 }

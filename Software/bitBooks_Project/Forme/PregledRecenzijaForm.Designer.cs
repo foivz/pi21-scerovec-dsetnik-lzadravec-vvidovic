@@ -34,7 +34,7 @@ namespace bitBooks_Project
             this.btnZatvori = new System.Windows.Forms.Button();
             this.btnRecenzijeKnjiznice = new System.Windows.Forms.Button();
             this.btnRecenzijeZaposlenika = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpBoxRecenzije = new System.Windows.Forms.GroupBox();
             this.btnUnosRecenzijeZaZaposlenika = new System.Windows.Forms.Button();
             this.btnUnosRecenzijeZaKnjiznicu = new System.Windows.Forms.Button();
             this.cmbZaposlenik = new System.Windows.Forms.ComboBox();
@@ -42,7 +42,7 @@ namespace bitBooks_Project
             this.btnOdredeniZaposlenik = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecenzije)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.grpBoxRecenzije.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,17 +94,17 @@ namespace bitBooks_Project
             this.btnRecenzijeZaposlenika.UseVisualStyleBackColor = true;
             this.btnRecenzijeZaposlenika.Click += new System.EventHandler(this.btnRecenzijeZaposlenika_Click);
             // 
-            // groupBox1
+            // grpBoxRecenzije
             // 
-            this.groupBox1.Controls.Add(this.btnUnosRecenzijeZaZaposlenika);
-            this.groupBox1.Controls.Add(this.btnUnosRecenzijeZaKnjiznicu);
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox1.Location = new System.Drawing.Point(15, 364);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(290, 92);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Moje recenzije";
+            this.grpBoxRecenzije.Controls.Add(this.btnUnosRecenzijeZaZaposlenika);
+            this.grpBoxRecenzije.Controls.Add(this.btnUnosRecenzijeZaKnjiznicu);
+            this.grpBoxRecenzije.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.grpBoxRecenzije.Location = new System.Drawing.Point(15, 364);
+            this.grpBoxRecenzije.Name = "grpBoxRecenzije";
+            this.grpBoxRecenzije.Size = new System.Drawing.Size(290, 92);
+            this.grpBoxRecenzije.TabIndex = 6;
+            this.grpBoxRecenzije.TabStop = false;
+            this.grpBoxRecenzije.Text = "Moje recenzije";
             // 
             // btnUnosRecenzijeZaZaposlenika
             // 
@@ -170,7 +170,7 @@ namespace bitBooks_Project
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.ClientSize = new System.Drawing.Size(774, 468);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpBoxRecenzije);
             this.Controls.Add(this.btnZatvori);
             this.Controls.Add(this.dgvRecenzije);
             this.Controls.Add(this.pictureBox1);
@@ -184,7 +184,7 @@ namespace bitBooks_Project
             this.Text = "PregledRecenzijaForm";
             this.Load += new System.EventHandler(this.PregledRecenzijaForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecenzije)).EndInit();
-            this.groupBox1.ResumeLayout(false);
+            this.grpBoxRecenzije.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -198,7 +198,7 @@ namespace bitBooks_Project
         private System.Windows.Forms.Button btnZatvori;
         private System.Windows.Forms.Button btnRecenzijeKnjiznice;
         private System.Windows.Forms.Button btnRecenzijeZaposlenika;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpBoxRecenzije;
         private System.Windows.Forms.Button btnUnosRecenzijeZaZaposlenika;
         private System.Windows.Forms.Button btnUnosRecenzijeZaKnjiznicu;
         private System.Windows.Forms.ComboBox cmbZaposlenik;

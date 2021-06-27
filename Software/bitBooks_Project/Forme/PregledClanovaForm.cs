@@ -44,33 +44,69 @@ namespace bitBooks_Project
 
         private void FilitrirajKorisnike()
         {
-            if (txtIme.Text == "" && txtPrezime.Text == "")
+            if (Sesija.Korisnik.TipID == 1)
             {
-                PrikaziSveKorisnikeKnjiznice();
-            }
+                if (txtIme.Text == "" && txtPrezime.Text == "")
+                {
+                    PrikaziSveKorisnikeKnjiznice();
+                }
 
-            else if (txtIme.Text == "" && txtPrezime.Text != "")
-            {
-                dgvKorisnici.DataSource = Korisnik.DohvatiKorisnikaPoPrezimenu(txtPrezime.Text, Sesija.Korisnik.KnjiznicaID);
-                FiltrirajDGV();
-            }
+                else if (txtIme.Text == "" && txtPrezime.Text != "")
+                {
+                    dgvKorisnici.DataSource = Korisnik.DohvatiKorisnikaPoPrezimenuSA(txtPrezime.Text);
+                    FiltrirajDGV();
+                }
 
-            else if (txtIme.Text != "" && txtPrezime.Text == "")
-            {
-                dgvKorisnici.DataSource = Korisnik.DohvatiKorisnikaPoImenu(txtIme.Text, Sesija.Korisnik.KnjiznicaID);
-                FiltrirajDGV();
-            }
+                else if (txtIme.Text != "" && txtPrezime.Text == "")
+                {
+                    dgvKorisnici.DataSource = Korisnik.DohvatiKorisnikaPoImenuSA(txtIme.Text);
+                    FiltrirajDGV();
+                }
 
+                else
+                {
+                    dgvKorisnici.DataSource = Korisnik.DohvatiPoImenuIPrezimenuSA(txtIme.Text, txtPrezime.Text);
+                    FiltrirajDGV();
+                }
+            }
             else
             {
-                dgvKorisnici.DataSource = Korisnik.DohvatiPoImenuIPrezimenu(txtIme.Text, txtPrezime.Text, Sesija.Korisnik.KnjiznicaID);
-                FiltrirajDGV();
+                if (txtIme.Text == "" && txtPrezime.Text == "")
+                {
+                    PrikaziSveKorisnikeKnjiznice();
+                }
+
+                else if (txtIme.Text == "" && txtPrezime.Text != "")
+                {
+                    dgvKorisnici.DataSource = Korisnik.DohvatiKorisnikaPoPrezimenu(txtPrezime.Text, Sesija.Korisnik.KnjiznicaID);
+                    FiltrirajDGV();
+                }
+
+                else if (txtIme.Text != "" && txtPrezime.Text == "")
+                {
+                    dgvKorisnici.DataSource = Korisnik.DohvatiKorisnikaPoImenu(txtIme.Text, Sesija.Korisnik.KnjiznicaID);
+                    FiltrirajDGV();
+                }
+
+                else
+                {
+                    dgvKorisnici.DataSource = Korisnik.DohvatiPoImenuIPrezimenu(txtIme.Text, txtPrezime.Text, Sesija.Korisnik.KnjiznicaID);
+                    FiltrirajDGV();
+                }
             }
+            
         }
 
         private void PrikaziSveKorisnikeKnjiznice()
         {
-            dgvKorisnici.DataSource = Korisnik.DohvatiKorisnikeKnjižnice(Sesija.Korisnik.KnjiznicaID);
+            if (Sesija.Korisnik.TipID == 1)
+            {
+                dgvKorisnici.DataSource = Korisnik.DohvatiSveKorisnike(Sesija.Korisnik.KorisnikID);
+            }
+            else
+            {
+                dgvKorisnici.DataSource = Korisnik.DohvatiKorisnikeKnjižnice(Sesija.Korisnik.KnjiznicaID);
+            }    
             FiltrirajDGV();
         }
 
@@ -116,7 +152,7 @@ namespace bitBooks_Project
             DohvatiKorisnika();
             try
             {
-                Korisnik.ObrisiKorisnika(_odabraniKorisnik);
+                _odabraniKorisnik.ObrisiKorisnika();
             }
             catch (AdminException ex)
             {

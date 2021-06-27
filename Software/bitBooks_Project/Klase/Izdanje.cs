@@ -77,6 +77,43 @@ namespace bitBooks_Project.Klase
 
             return izdanjaIzdavaca;
         }
+
+        public static List<Izdanje> DohvatiIzdanjaOdjela(int odjelID)
+        {
+            List<Izdanje> izdanjaOdjela = new List<Izdanje>();
+
+            using (var context = new Entities_db1())
+            {
+                var query = from p in context.Publishings
+                            where p.DepartmentID == odjelID
+                            select new Izdanje
+                            {
+                                IzdanjeID = p.PublishingID,
+                                OdjelID = p.DepartmentID,
+                                ISBN = p.ISBN,
+                                IzdavacID = p.PublisherID,
+                                BrojPosudenih = p.NumLoaned,
+                                BrojDostupnih = p.NumAvailable,
+                                GodinaIzdavanja = p.ReleaseYear
+                            };
+                izdanjaOdjela = query.ToList();
+            }
+
+            return izdanjaOdjela;
+        }
+
+        public void ObrisiIzdanje()
+        {
+            using (var context = new Entities_db1())
+            {
+                var query = (from p in context.Publishings
+                             where p.DepartmentID == OdjelID
+                             select p).FirstOrDefault();
+                context.Publishings.Remove(query);
+                context.SaveChanges();
+
+            }
+        }
     }
 
     

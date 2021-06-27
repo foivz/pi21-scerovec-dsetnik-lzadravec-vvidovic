@@ -60,7 +60,7 @@ namespace bitBooks_Project.Klase
             return odjel;
         }
 
-        public List<Odjel> DohvatiOdjeleKnjiznice(int knjiznicaID)
+        public static List<Odjel> DohvatiOdjeleKnjiznice(int knjiznicaID)
         {
             List<Odjel> odjeliKnjiznice = new List<Odjel>();
 
@@ -81,6 +81,19 @@ namespace bitBooks_Project.Klase
             }
 
             return odjeliKnjiznice;
+        }
+
+        public void ObrisiOdjel()
+        {
+            using (var context = new Entities_db1())
+            {
+                var query = (from d in context.Departments
+                             where d.LibraryID == KnjižnicaID
+                             select d).FirstOrDefault();
+                context.Departments.Remove(query);
+                context.SaveChanges();
+
+            }
         }
     }
 }

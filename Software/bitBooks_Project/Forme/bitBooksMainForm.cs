@@ -95,5 +95,11 @@ namespace bitBooks_Project
             pregledKnjigaZaposlenikForm = new PregledKnjigaZaposlenikForm();
             pregledKnjigaZaposlenikForm.ShowDialog();
         }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            SuperAdminForm superAdminForm = new SuperAdminForm();
+            superAdminForm.ShowDialog();
+        }
     }
 }
