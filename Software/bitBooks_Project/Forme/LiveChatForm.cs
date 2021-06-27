@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
+using bitBooks_Project.Klase;
 
 namespace bitBooks_Project.Forme
 {
@@ -18,25 +19,34 @@ namespace bitBooks_Project.Forme
         EndPoint epLocal, epRemote;
         byte[] buffer;
 
+        Zahtjev _zahtjev;
 
-        public LiveChatForm()
+        public LiveChatForm(Zahtjev zahtjev)
         {
+            _zahtjev = zahtjev;
+
             InitializeComponent();
         }
 
         private void LiveChatForm_Load(object sender, EventArgs e)
         {
+
+
             sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
 
             sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
 
-            txtIPJa.Text = GetLocalIP();
+            Spoji();
 
-            txtIPPrijatelj.Text = GetLocalIP();
+            //txtIPJa.Text = GetLocalIP();
+
+            //txtIPPrijatelj.Text = GetLocalIP();
 
            
         }
+        
 
+        /*
         private void btnSpoji_Click(object sender, EventArgs e)
         {
             epLocal = new IPEndPoint(IPAddress.Parse(txtIPJa.Text), Convert.ToInt32(txtPortJa.Text));
@@ -48,6 +58,7 @@ namespace bitBooks_Project.Forme
             buffer = new byte[1500];
             sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
         }
+        */
 
         private void MessageCallBack(IAsyncResult aResult)
         {
@@ -59,7 +70,19 @@ namespace bitBooks_Project.Forme
                 ASCIIEncoding aEncoding = new ASCIIEncoding();
                 string receivedMessage = aEncoding.GetString(receivedData);
 
-                listPoruka.Items.Add("Friend: " + receivedMessage);
+                //listPoruka.Items.Add("Friend: " + receivedMessage);
+                string titula;
+                if (Sesija.Korisnik.TipID < 4)
+                {                  
+                    titula = "Zaposlenik: ";
+                }
+                else
+                {
+                    titula = Sesija.Korisnik.Ime + " " + Sesija.Korisnik.Prezime + ": ";
+                }
+
+
+                listPoruka.Invoke(new Action(() => listPoruka.Items.Add(titula + receivedMessage)));
 
                 buffer = new byte[1500];
                 sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
@@ -78,9 +101,12 @@ namespace bitBooks_Project.Forme
 
             sck.Send(sendingMessage);
 
-            listPoruka.Items.Add("Me: " + txtPoruka.Text);
+
+            listPoruka.Items.Add("Ja: " + txtPoruka.Text);
             txtPoruka.Text = "";
         }
+
+
 
         private string GetLocalIP()
         {
@@ -95,6 +121,30 @@ namespace bitBooks_Project.Forme
 
 
             return "127.0.0.1";
+        }
+
+        private void Spoji()
+        {
+            if(Sesija.Korisnik.TipID < 4)
+            {
+                epLocal = new IPEndPoint(IPAddress.Parse(_zahtjev.AdresaIPZaposlenik), Convert.ToInt32("80"));
+                sck.Bind(epLocal);
+
+                epRemote = new IPEndPoint(IPAddress.Parse(_zahtjev.AdresaIPKorisnik), Convert.ToInt32("81"));
+                sck.Connect(epRemote);
+            }
+            else
+            {
+                epLocal = new IPEndPoint(IPAddress.Parse(_zahtjev.AdresaIPKorisnik), Convert.ToInt32("81"));
+                sck.Bind(epLocal);
+
+                epRemote = new IPEndPoint(IPAddress.Parse(_zahtjev.AdresaIPZaposlenik), Convert.ToInt32("80"));
+                sck.Connect(epRemote);
+            }
+            
+
+            buffer = new byte[1500];
+            sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
         }
 
     }

@@ -92,7 +92,6 @@
             this.Controls.Add(this.label1);
             this.Name = "AktivacijskiKodForm";
             this.Text = "AktivacijskiKodForm";
-            this.Load += new System.EventHandler(this.AktivacijskiKodForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

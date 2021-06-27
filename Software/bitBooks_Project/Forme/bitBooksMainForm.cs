@@ -13,14 +13,20 @@ using System.Windows.Forms;
 namespace bitBooks_Project
 {
     public partial class bitBooksMainForm : Form
-    {      
+    {
+        
         PregledClanovaForm pregledClanovaForm;
         PregledRecenzijaForm pregledRecenzijaForm;      
         ObavijestiForm obavijesti;
-        LiveChatForm liveChatForm;
+        
         PregledKnjigaForm pregledKnjigaForm;
         NovostiForm novostiForm;
         PregledKnjigaZaposlenikForm pregledKnjigaZaposlenikForm;
+        LiveChatČekanjeForm liveChatČekanjeForm;
+        LiveChatForm liveChatForm;
+
+        Timer timer3Sec;
+        Zahtjev zahtjev;
 
         public bitBooksMainForm()
         {    
@@ -31,12 +37,16 @@ namespace bitBooks_Project
         {          
             groupBox3.Visible = false;
             grpAdmin.Visible = false;
+            btnLiveChat.Visible = false;
+            btnPrihvatiLivechat.Visible = false;
             if (Sesija.Korisnik.DohvatiTipKorisnika(Sesija.Korisnik)=="Korisnik")
             {
                 groupBox3.Visible = true;
+                btnLiveChat.Visible = true;
             }
             else
             {
+                ZapocniTimer();
                 grpAdmin.Visible = true;
                 groupBox3.Visible = true;
             }
@@ -56,8 +66,10 @@ namespace bitBooks_Project
 
         private void btnLiveChat_Click(object sender, EventArgs e)
         {
-            liveChatForm = new LiveChatForm();
-            liveChatForm.ShowDialog();
+            zahtjev = Zahtjev.NoviZahtjev();
+
+            liveChatČekanjeForm = new LiveChatČekanjeForm(zahtjev);
+            liveChatČekanjeForm.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -94,6 +106,38 @@ namespace bitBooks_Project
         {
             pregledKnjigaZaposlenikForm = new PregledKnjigaZaposlenikForm();
             pregledKnjigaZaposlenikForm.ShowDialog();
+        }
+
+        public void ZapocniTimer()
+        {
+            timer3Sec = new Timer();
+            timer3Sec.Tick += new EventHandler(timer3Sec_Tick);
+            timer3Sec.Interval = 3000;
+            timer3Sec.Start();
+        }
+
+        private void timer3Sec_Tick(object sender, EventArgs e)
+        {
+            zahtjev = Zahtjev.DohvatiNoviZahtjev();
+
+            if(zahtjev == null)
+            {
+                btnPrihvatiLivechat.Visible = false;
+            }
+            else
+            {
+                btnPrihvatiLivechat.Visible = true;
+            }
+
+            
+        }
+
+        private void btnPrihvatiLivechat_Click(object sender, EventArgs e)
+        {
+            
+            Zahtjev azuriraniZahtjev = Zahtjev.AžurirajZahtjev(zahtjev.ZahtjevID, Sesija.Korisnik.KorisnikID);
+            liveChatForm = new LiveChatForm(azuriraniZahtjev);
+            liveChatForm.ShowDialog();
         }
     }
 }
