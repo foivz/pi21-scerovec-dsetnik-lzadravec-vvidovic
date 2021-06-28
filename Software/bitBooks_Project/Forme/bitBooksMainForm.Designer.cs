@@ -40,6 +40,7 @@ namespace bitBooks_Project
             this.btnRezervacije = new System.Windows.Forms.Button();
             this.btnLiveChat = new System.Windows.Forms.Button();
             this.grpAdmin = new System.Windows.Forms.GroupBox();
+            this.btnPregledOdjela = new System.Windows.Forms.Button();
             this.btnPregledKnjiga = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -156,6 +157,7 @@ namespace bitBooks_Project
             // 
             // grpAdmin
             // 
+            this.grpAdmin.Controls.Add(this.btnPregledOdjela);
             this.grpAdmin.Controls.Add(this.btnPregledKnjiga);
             this.grpAdmin.Controls.Add(this.button1);
             this.grpAdmin.Location = new System.Drawing.Point(36, 312);
@@ -165,9 +167,19 @@ namespace bitBooks_Project
             this.grpAdmin.TabStop = false;
             this.grpAdmin.Text = "Admin aktivnosti";
             // 
+            // btnPregledOdjela
+            // 
+            this.btnPregledOdjela.Location = new System.Drawing.Point(153, 29);
+            this.btnPregledOdjela.Name = "btnPregledOdjela";
+            this.btnPregledOdjela.Size = new System.Drawing.Size(97, 23);
+            this.btnPregledOdjela.TabIndex = 3;
+            this.btnPregledOdjela.Text = "Pregled odjela";
+            this.btnPregledOdjela.UseVisualStyleBackColor = true;
+            this.btnPregledOdjela.Click += new System.EventHandler(this.btnPregledOdjela_Click);
+            // 
             // btnPregledKnjiga
             // 
-            this.btnPregledKnjiga.Location = new System.Drawing.Point(222, 29);
+            this.btnPregledKnjiga.Location = new System.Drawing.Point(278, 29);
             this.btnPregledKnjiga.Name = "btnPregledKnjiga";
             this.btnPregledKnjiga.Size = new System.Drawing.Size(111, 23);
             this.btnPregledKnjiga.TabIndex = 2;
@@ -177,7 +189,7 @@ namespace bitBooks_Project
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(96, 29);
+            this.button1.Location = new System.Drawing.Point(24, 29);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 23);
             this.button1.TabIndex = 1;
@@ -245,6 +257,7 @@ namespace bitBooks_Project
         private System.Windows.Forms.Button btnPosudbe;
         private System.Windows.Forms.Button btnPregledKnjiga;
         private System.Windows.Forms.Button btnPrihvatiLivechat;
+        private System.Windows.Forms.Button btnPregledOdjela;
     }
 }
 

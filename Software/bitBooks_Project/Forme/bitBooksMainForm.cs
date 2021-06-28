@@ -24,6 +24,7 @@ namespace bitBooks_Project
         PregledKnjigaZaposlenikForm pregledKnjigaZaposlenikForm;
         LiveChatČekanjeForm liveChatČekanjeForm;
         LiveChatForm liveChatForm;
+        PregledOdjelaForm pregledOdjelaForm;
 
         Timer timer3Sec;
         Zahtjev zahtjev;
@@ -138,6 +139,12 @@ namespace bitBooks_Project
             Zahtjev azuriraniZahtjev = Zahtjev.AžurirajZahtjev(zahtjev.ZahtjevID, Sesija.Korisnik.KorisnikID);
             liveChatForm = new LiveChatForm(azuriraniZahtjev);
             liveChatForm.ShowDialog();
+        }
+
+        private void btnPregledOdjela_Click(object sender, EventArgs e)
+        {
+            pregledOdjelaForm = new PregledOdjelaForm();
+            pregledOdjelaForm.ShowDialog();
         }
     }
 }

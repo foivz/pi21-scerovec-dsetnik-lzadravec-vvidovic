@@ -425,6 +425,47 @@ namespace bitBooks_Project.Klase
             return i;
 
         }
+
+        public static void NoviKorisnik(Korisnik korisnik)
+        {
+            using (var context = new Entities_db1())
+            {
+                LibraryUser libraryUser = new LibraryUser
+                {
+                    TypeID = korisnik.TipID,
+                    LibraryID = korisnik.KnjiznicaID,
+                    Email = korisnik.Email,
+                    Adress = korisnik.Adresa,
+                    Username = korisnik.KorisnickoIme,
+                    Password = korisnik.Lozinka,
+                    Name = korisnik.Ime,
+                    Surname = korisnik.Prezime,
+                    ActivationCode = korisnik.AktivacijskiKod,
+                    DateTimeRegistration = korisnik.DatumRegistracije
+                };
+
+                context.LibraryUsers.Add(libraryUser);
+                context.SaveChanges();
+            }
+        }
+
+        public static void AžurirajKorisnika(Korisnik proslijeđenKorisnik)
+        {
+            using (var context = new Entities_db1())
+            {
+                LibraryUser libraryUser = context.LibraryUsers.First(x => x.UserID == proslijeđenKorisnik.KorisnikID);
+                libraryUser.TypeID = proslijeđenKorisnik.TipID;
+                libraryUser.LibraryID = proslijeđenKorisnik.KnjiznicaID;
+                libraryUser.Email = proslijeđenKorisnik.Email;
+                libraryUser.Adress = proslijeđenKorisnik.Adresa;
+                libraryUser.Username = proslijeđenKorisnik.KorisnickoIme;
+                libraryUser.Password = proslijeđenKorisnik.Lozinka;
+                libraryUser.Name = proslijeđenKorisnik.Ime;
+                libraryUser.Surname = proslijeđenKorisnik.Prezime;
+
+                context.SaveChanges();
+            }
+        }
     }
 }
 

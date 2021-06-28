@@ -96,6 +96,18 @@
     <Compile Include="Forme\AktivacijskiKodForm.Designer.cs">
       <DependentUpon>AktivacijskiKodForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\AžuriranjeKorisnikaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\AžuriranjeKorisnikaForm.Designer.cs">
+      <DependentUpon>AžuriranjeKorisnikaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\AžuriranjeOdjelaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\AžuriranjeOdjelaForm.Designer.cs">
+      <DependentUpon>AžuriranjeOdjelaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\bitBooksMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +180,12 @@
     <Compile Include="Forme\PregledKnjigaZaposlenikForm.Designer.cs">
       <DependentUpon>PregledKnjigaZaposlenikForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\PregledOdjelaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\PregledOdjelaForm.Designer.cs">
+      <DependentUpon>PregledOdjelaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\PrijavaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +203,18 @@
     </Compile>
     <Compile Include="Forme\RezervacijaForm.Designer.cs">
       <DependentUpon>RezervacijaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\UnosKorisnikaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\UnosKorisnikaForm.Designer.cs">
+      <DependentUpon>UnosKorisnikaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\UnosOdjelaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\UnosOdjelaForm.Designer.cs">
+      <DependentUpon>UnosOdjelaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forme\UnosRecenzijeKnjižniceForm.cs">
       <SubType>Form</SubType>
@@ -276,6 +306,12 @@
     <EmbeddedResource Include="Forme\AktivacijskiKodForm.resx">
       <DependentUpon>AktivacijskiKodForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forme\AžuriranjeKorisnikaForm.resx">
+      <DependentUpon>AžuriranjeKorisnikaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\AžuriranjeOdjelaForm.resx">
+      <DependentUpon>AžuriranjeOdjelaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\bitBooksMainForm.resx">
       <DependentUpon>bitBooksMainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -315,6 +351,9 @@
     <EmbeddedResource Include="Forme\PregledKnjigaZaposlenikForm.resx">
       <DependentUpon>PregledKnjigaZaposlenikForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forme\PregledOdjelaForm.resx">
+      <DependentUpon>PregledOdjelaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\PregledRecenzijaForm.resx">
       <DependentUpon>PregledRecenzijaForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -326,6 +365,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\RezervacijaForm.resx">
       <DependentUpon>RezervacijaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\UnosKorisnikaForm.resx">
+      <DependentUpon>UnosKorisnikaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\UnosOdjelaForm.resx">
+      <DependentUpon>UnosOdjelaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\UnosRecenzijeKnjižniceForm.resx">
       <DependentUpon>UnosRecenzijeKnjižniceForm.cs</DependentUpon>

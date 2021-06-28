@@ -17,6 +17,8 @@ namespace bitBooks_Project
     {
         Korisnik _odabraniKorisnik;
         PregledClanova_PosudbeIRezervacijeForm pregledClanova_PosudbeIRezervacije;
+        UnosKorisnikaForm unosKorisnikaForm;
+        AžuriranjeKorisnikaForm ažuriranjeKorisnikaForm;
 
         public PregledClanovaForm()
         {
@@ -124,6 +126,30 @@ namespace bitBooks_Project
             }
             
             PrikaziSveKorisnikeKnjiznice();
+        }
+
+        private void btnUnos_Click(object sender, EventArgs e)
+        {
+            unosKorisnikaForm = new UnosKorisnikaForm();
+            unosKorisnikaForm.ShowDialog();
+            PrikaziSveKorisnikeKnjiznice();
+
+        }
+
+        private void btnAžuriraj_Click(object sender, EventArgs e)
+        {
+            DohvatiKorisnika();
+            if(_odabraniKorisnik != null)
+            {
+                ažuriranjeKorisnikaForm = new AžuriranjeKorisnikaForm(_odabraniKorisnik);
+                ažuriranjeKorisnikaForm.ShowDialog();
+                PrikaziSveKorisnikeKnjiznice();
+            }
+            else
+            {
+                MessageBox.Show("Molimo odaberite korisnika.");
+            }
+           
         }
     }
 }
