@@ -65,9 +65,17 @@ namespace bitBooks_Project.Forme
         private void btnAžuriraj_Click(object sender, EventArgs e)
         {
             DohvatiOdjel();
+
+            if(označeniOdjel!= null)
+            {
+                ažuriranjeOdjelaForm = new AžuriranjeOdjelaForm(označeniOdjel);
+                ažuriranjeOdjelaForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Niste označili odjel");
+            }
             
-            ažuriranjeOdjelaForm = new AžuriranjeOdjelaForm(označeniOdjel);
-            ažuriranjeOdjelaForm.ShowDialog();
 
             UčitajOdjeleDGV();
         }
