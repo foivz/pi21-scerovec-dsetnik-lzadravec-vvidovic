@@ -28,6 +28,36 @@ namespace bitBooks_Project.Klase
         public string AktivacijskiKod { get; set; }
         public DateTime DatumRegistracije { get; set; }
 
+        public static List<Korisnik> DohvatiSveKorisnike()
+        {
+            List<Korisnik> sviKorisnici = new List<Korisnik>();
+
+            using (var context = new Entities_db1())
+            {
+                var query = from l in context.LibraryUsers
+                            select new Korisnik
+                            {
+                                KorisnikID = l.UserID,
+                                TipID = l.TypeID,
+                                ImeTipa = l.UserType.Name,
+                                KnjiznicaID = l.LibraryID,
+                                ImeKnjiznice = l.Library.Name,
+                                Email = l.Email,
+                                Adresa = l.Adress,
+                                KorisnickoIme = l.Username,
+                                Lozinka = l.Password,
+                                Ime = l.Name,
+                                Prezime = l.Surname,
+                                AktivacijskiKod = l.ActivationCode,
+                                DatumRegistracije = l.DateTimeRegistration
+                            };
+
+                sviKorisnici = query.ToList();
+            }
+
+            return sviKorisnici;
+        }
+
         public static List<Korisnik> DohvatiSveKorisnike(int superadminID)
         {
             List<Korisnik> sviKorisnici = new List<Korisnik>();
