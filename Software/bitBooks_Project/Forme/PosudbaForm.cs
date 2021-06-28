@@ -25,6 +25,10 @@ namespace bitBooks_Project.Forme
             txtNaziv.Text = _unesenaKnjiga.Ime;
             txtISBN.Text = _unesenaKnjiga.ISBN;
             txtNapisana.Text = _unesenaKnjiga.GodinaPisanja.ToString();
+            string fileName = _unesenaKnjiga.ISBN;
+            var slika = Properties.Resources.ResourceManager.GetObject(fileName, Properties.Resources.Culture) as Image;
+            pictureBox1.Image = slika;
+            pictureBox1.Refresh();
         }
 
         private void btnPosudi_Click(object sender, EventArgs e)

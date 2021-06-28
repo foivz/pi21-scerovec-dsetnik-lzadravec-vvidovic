@@ -36,12 +36,16 @@ namespace bitBooks_Project.Forme
             this.txtISBN = new System.Windows.Forms.Label();
             this.txtNapisana = new System.Windows.Forms.Label();
             this.btnPosudi = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 26);
+            this.label1.Location = new System.Drawing.Point(70, 253);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 13);
             this.label1.TabIndex = 0;
@@ -50,7 +54,7 @@ namespace bitBooks_Project.Forme
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(53, 58);
+            this.label2.Location = new System.Drawing.Point(72, 282);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 1;
@@ -59,7 +63,7 @@ namespace bitBooks_Project.Forme
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 95);
+            this.label3.Location = new System.Drawing.Point(52, 311);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 2;
@@ -68,7 +72,7 @@ namespace bitBooks_Project.Forme
             // txtNaziv
             // 
             this.txtNaziv.AutoSize = true;
-            this.txtNaziv.Location = new System.Drawing.Point(103, 26);
+            this.txtNaziv.Location = new System.Drawing.Point(124, 253);
             this.txtNaziv.Name = "txtNaziv";
             this.txtNaziv.Size = new System.Drawing.Size(35, 13);
             this.txtNaziv.TabIndex = 3;
@@ -77,7 +81,7 @@ namespace bitBooks_Project.Forme
             // txtISBN
             // 
             this.txtISBN.AutoSize = true;
-            this.txtISBN.Location = new System.Drawing.Point(103, 58);
+            this.txtISBN.Location = new System.Drawing.Point(124, 282);
             this.txtISBN.Name = "txtISBN";
             this.txtISBN.Size = new System.Drawing.Size(35, 13);
             this.txtISBN.TabIndex = 4;
@@ -86,7 +90,7 @@ namespace bitBooks_Project.Forme
             // txtNapisana
             // 
             this.txtNapisana.AutoSize = true;
-            this.txtNapisana.Location = new System.Drawing.Point(103, 95);
+            this.txtNapisana.Location = new System.Drawing.Point(124, 311);
             this.txtNapisana.Name = "txtNapisana";
             this.txtNapisana.Size = new System.Drawing.Size(35, 13);
             this.txtNapisana.TabIndex = 5;
@@ -94,7 +98,7 @@ namespace bitBooks_Project.Forme
             // 
             // btnPosudi
             // 
-            this.btnPosudi.Location = new System.Drawing.Point(106, 142);
+            this.btnPosudi.Location = new System.Drawing.Point(96, 356);
             this.btnPosudi.Name = "btnPosudi";
             this.btnPosudi.Size = new System.Drawing.Size(75, 23);
             this.btnPosudi.TabIndex = 6;
@@ -102,24 +106,47 @@ namespace bitBooks_Project.Forme
             this.btnPosudi.UseVisualStyleBackColor = true;
             this.btnPosudi.Click += new System.EventHandler(this.btnPosudi_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(32, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(175, 220);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Honeydew;
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.txtNapisana);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtISBN);
+            this.groupBox1.Controls.Add(this.txtNaziv);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Location = new System.Drawing.Point(21, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(233, 338);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Informacije o knjizi";
+            // 
             // PosudbaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.ClientSize = new System.Drawing.Size(281, 189);
+            this.ClientSize = new System.Drawing.Size(281, 391);
             this.Controls.Add(this.btnPosudi);
-            this.Controls.Add(this.txtNapisana);
-            this.Controls.Add(this.txtISBN);
-            this.Controls.Add(this.txtNaziv);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.groupBox1);
             this.Name = "PosudbaForm";
             this.Text = "PosudbaForm";
             this.Load += new System.EventHandler(this.PosudbaForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -132,5 +159,7 @@ namespace bitBooks_Project.Forme
         private System.Windows.Forms.Label txtISBN;
         private System.Windows.Forms.Label txtNapisana;
         private System.Windows.Forms.Button btnPosudi;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

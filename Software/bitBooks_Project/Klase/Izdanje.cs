@@ -16,7 +16,7 @@ namespace bitBooks_Project.Klase
         public int BrojDostupnih { get; set; }
         public int? GodinaIzdavanja { get; set; }
 
-        public List<Izdanje> DohvatiIzdanjaKnjige(string isbn) 
+        public static List<Izdanje> DohvatiIzdanjaKnjige(string isbn) 
         {
             List<Izdanje> izdanjaKnjige = new List<Izdanje>();
 
