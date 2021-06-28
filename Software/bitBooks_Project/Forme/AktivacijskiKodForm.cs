@@ -19,10 +19,7 @@ namespace bitBooks_Project.Forme
             InitializeComponent();
         }
 
-        private void AktivacijskiKodForm_Load(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnZavršiRegistraciju_Click(object sender, EventArgs e)
         {

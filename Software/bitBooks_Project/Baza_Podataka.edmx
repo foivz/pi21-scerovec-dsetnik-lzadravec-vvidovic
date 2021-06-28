@@ -1120,11 +1120,11 @@
             <End Role="Book" EntitySet="Books" />
           </AssociationSet>
           <EntitySet Name="Notifications" EntityType="Model.Notification" />
-          <EntitySet Name="Requests" EntityType="Model.Request" />
           <AssociationSet Name="Notifications_UserID_FK" Association="Model.Notifications_UserID_FK">
             <End Role="LibraryUser" EntitySet="LibraryUsers" />
             <End Role="Notification" EntitySet="Notifications" />
           </AssociationSet>
+          <EntitySet Name="Requests" EntityType="Model.Request" />
           <AssociationSet Name="Request_EmployeeID_FK" Association="Model.Request_EmployeeID_FK">
             <End Role="LibraryUser" EntitySet="LibraryUsers" />
             <End Role="Request" EntitySet="Requests" />
@@ -1144,18 +1144,6 @@
           <Property Name="Message" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="LibraryUser" Relationship="Model.Notifications_UserID_FK" FromRole="Notification" ToRole="LibraryUser" />
         </EntityType>
-        <EntityType Name="Request">
-          <Key>
-            <PropertyRef Name="RequestID" />
-          </Key>
-          <Property Name="RequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserID" Type="Int32" Nullable="false" />
-          <Property Name="EmployeeID" Type="Int32" />
-          <Property Name="AddressIPUser" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="AddressIPEmployee" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="LibraryUser" Relationship="Model.Request_EmployeeID_FK" FromRole="Request" ToRole="LibraryUser" />
-          <NavigationProperty Name="LibraryUser1" Relationship="Model.Request_UserID_FK" FromRole="Request" ToRole="LibraryUser" />
-        </EntityType>
         <Association Name="Notifications_UserID_FK">
           <End Type="Model.LibraryUser" Role="LibraryUser" Multiplicity="1" />
           <End Type="Model.Notification" Role="Notification" Multiplicity="*" />
@@ -1168,6 +1156,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="RequestID" />
+          </Key>
+          <Property Name="RequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="AddressIPUser" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AddressIPEmployee" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LibraryUser" Relationship="Model.Request_EmployeeID_FK" FromRole="Request" ToRole="LibraryUser" />
+          <NavigationProperty Name="LibraryUser1" Relationship="Model.Request_UserID_FK" FromRole="Request" ToRole="LibraryUser" />
+        </EntityType>
         <Association Name="Request_EmployeeID_FK">
           <End Type="Model.LibraryUser" Role="LibraryUser" Multiplicity="0..1" />
           <End Type="Model.Request" Role="Request" Multiplicity="*" />

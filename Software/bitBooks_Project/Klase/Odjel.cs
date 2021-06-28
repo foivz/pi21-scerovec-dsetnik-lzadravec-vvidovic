@@ -60,6 +60,29 @@ namespace bitBooks_Project.Klase
             return odjel;
         }
 
+        public static List<Odjel> DohvatiOdjeleKnjiznice(int? knjiznicaID)
+        {
+            List<Odjel> odjeliKnjiznice = new List<Odjel>();
+
+            using (var context = new Entities_db1())
+            {
+                var query = from d in context.Departments
+                            where d.LibraryID == knjiznicaID
+                            select new Odjel
+                            {
+                                OdjelID = d.DepartmentID,
+                                KnjižnicaID = d.LibraryID,
+                                PoštanskiBroj = d.PostalCode,
+                                Ime = d.Name,
+                                Adresa = d.Adress,
+                                BrojOdjela = d.DepartmentNum
+                            };
+                odjeliKnjiznice = query.ToList();
+            }
+
+            return odjeliKnjiznice;
+        }
+
         public static List<Odjel> DohvatiOdjeleKnjiznice(int knjiznicaID)
         {
             List<Odjel> odjeliKnjiznice = new List<Odjel>();
@@ -81,6 +104,40 @@ namespace bitBooks_Project.Klase
             }
 
             return odjeliKnjiznice;
+        }
+
+        public static void NoviOdjel(Odjel odjel)
+        {
+            using (var context = new Entities_db1())
+            {
+                Department department= new Department
+                {
+                    LibraryID = odjel.KnjižnicaID,
+                    PostalCode = odjel.PoštanskiBroj,
+                    Adress = odjel.Adresa,
+                    Name = odjel.Ime,
+                    DepartmentNum = odjel.BrojOdjela
+
+                };
+
+                context.Departments.Add(department);
+                context.SaveChanges();
+            }
+        }
+
+        public static void AžurirajOdjel(Odjel proslijeđenOdjel)
+        {
+            using (var context = new Entities_db1())
+            {
+                Department department = context.Departments.First(x => x.DepartmentID == proslijeđenOdjel.OdjelID);
+                department.PostalCode = proslijeđenOdjel.PoštanskiBroj;
+                department.Name = proslijeđenOdjel.Ime;
+                department.Adress = proslijeđenOdjel.Adresa;
+                department.DepartmentNum = proslijeđenOdjel.BrojOdjela;
+
+
+                context.SaveChanges();
+            }
         }
 
         public void ObrisiOdjel()

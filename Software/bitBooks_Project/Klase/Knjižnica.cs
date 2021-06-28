@@ -32,6 +32,26 @@ namespace bitBooks_Project.Klase
             return sveKnjiznice;
         }
 
+        public static Knjižnica DohvatiKnjiznicuTrenutnogKorisnika()
+        {
+            Knjižnica knjižnica = new Knjižnica();
+
+            using (var context = new Entities_db1())
+            {
+                var query = from l in context.Libraries
+                            where l.LibraryID == Sesija.Korisnik.KnjiznicaID
+                            select new Knjižnica
+                            {
+                                KnjižnicaID = l.LibraryID,
+                                Admin = l.Administrator,
+                                Ime = l.Name
+                            };
+                knjižnica = query.SingleOrDefault();
+            }
+
+            return knjižnica;
+        }
+
         public override string ToString()
         {
             return Ime;

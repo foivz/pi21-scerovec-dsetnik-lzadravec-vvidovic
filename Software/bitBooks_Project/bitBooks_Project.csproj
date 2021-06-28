@@ -116,6 +116,18 @@
     <Compile Include="Forme\AktivacijskiKodForm.Designer.cs">
       <DependentUpon>AktivacijskiKodForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\AžuriranjeKorisnikaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\AžuriranjeKorisnikaForm.Designer.cs">
+      <DependentUpon>AžuriranjeKorisnikaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\AžuriranjeOdjelaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\AžuriranjeOdjelaForm.Designer.cs">
+      <DependentUpon>AžuriranjeOdjelaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\bitBooksMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +139,12 @@
     </Compile>
     <Compile Include="Forme\LiveChatForm.Designer.cs">
       <DependentUpon>LiveChatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\LiveChatČekanjeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\LiveChatČekanjeForm.Designer.cs">
+      <DependentUpon>LiveChatČekanjeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forme\MojePosudbeForm.cs">
       <SubType>Form</SubType>
@@ -182,6 +200,12 @@
     <Compile Include="Forme\PregledKnjigaZaposlenikForm.Designer.cs">
       <DependentUpon>PregledKnjigaZaposlenikForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\PregledOdjelaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\PregledOdjelaForm.Designer.cs">
+      <DependentUpon>PregledOdjelaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\PrijavaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +223,18 @@
     </Compile>
     <Compile Include="Forme\RezervacijaForm.Designer.cs">
       <DependentUpon>RezervacijaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\UnosKorisnikaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\UnosKorisnikaForm.Designer.cs">
+      <DependentUpon>UnosKorisnikaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\UnosOdjelaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\UnosOdjelaForm.Designer.cs">
+      <DependentUpon>UnosOdjelaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forme\SuperAdminForm.cs">
       <SubType>Form</SubType>
@@ -251,6 +287,7 @@
     <Compile Include="Klase\Rezervacija.cs" />
     <Compile Include="Klase\Sesija.cs" />
     <Compile Include="Klase\TipKorisnika.cs" />
+    <Compile Include="Klase\Zahtjev.cs" />
     <Compile Include="Klase\Žanr.cs" />
     <Compile Include="Forme\PregledClanovaForm.cs">
       <SubType>Form</SubType>
@@ -308,11 +345,20 @@
     <EmbeddedResource Include="Forme\AktivacijskiKodForm.resx">
       <DependentUpon>AktivacijskiKodForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forme\AžuriranjeKorisnikaForm.resx">
+      <DependentUpon>AžuriranjeKorisnikaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\AžuriranjeOdjelaForm.resx">
+      <DependentUpon>AžuriranjeOdjelaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\bitBooksMainForm.resx">
       <DependentUpon>bitBooksMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\LiveChatForm.resx">
       <DependentUpon>LiveChatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\LiveChatČekanjeForm.resx">
+      <DependentUpon>LiveChatČekanjeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\MojePosudbeForm.resx">
       <DependentUpon>MojePosudbeForm.cs</DependentUpon>
@@ -344,6 +390,9 @@
     <EmbeddedResource Include="Forme\PregledKnjigaZaposlenikForm.resx">
       <DependentUpon>PregledKnjigaZaposlenikForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forme\PregledOdjelaForm.resx">
+      <DependentUpon>PregledOdjelaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\PregledRecenzijaForm.resx">
       <DependentUpon>PregledRecenzijaForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -355,6 +404,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\RezervacijaForm.resx">
       <DependentUpon>RezervacijaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\UnosKorisnikaForm.resx">
+      <DependentUpon>UnosKorisnikaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\UnosOdjelaForm.resx">
+      <DependentUpon>UnosOdjelaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\SuperAdminForm.resx">
       <DependentUpon>SuperAdminForm.cs</DependentUpon>
@@ -431,6 +486,9 @@
     <None Include="Slike\SlikeKnjiga\4520190049185.jpg" />
     <None Include="Slike\SlikeKnjiga\0399501487345.jpg" />
     <None Include="Slike\knjiga.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Korisnička_Dokumentacija\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

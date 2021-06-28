@@ -38,6 +38,7 @@ namespace bitBooks_Project.Forme
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,6 +124,11 @@ namespace bitBooks_Project.Forme
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\Lino\\Desktop\\PI Projekt\\ProjektniFolder\\Software\\bitBooks_Project\\Korisn" +
+    "ička_Dokumentacija\\KorisničkaDokumentacija.chm";
+            // 
             // PrijavaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,6 +145,7 @@ namespace bitBooks_Project.Forme
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Name = "PrijavaForm";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Prijava";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PrijavaForm_FormClosing);
             this.Load += new System.EventHandler(this.PrijavaForm_Load);
@@ -159,5 +166,6 @@ namespace bitBooks_Project.Forme
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

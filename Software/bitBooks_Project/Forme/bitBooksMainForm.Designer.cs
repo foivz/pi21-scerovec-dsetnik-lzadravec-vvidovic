@@ -40,9 +40,12 @@ namespace bitBooks_Project
             this.btnRezervacije = new System.Windows.Forms.Button();
             this.btnLiveChat = new System.Windows.Forms.Button();
             this.grpAdmin = new System.Windows.Forms.GroupBox();
+            this.btnPregledOdjela = new System.Windows.Forms.Button();
             this.btnPregledKnjiga = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnPrihvatiLivechat = new System.Windows.Forms.Button();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.btnKnjižnice = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -156,6 +159,7 @@ namespace bitBooks_Project
             // 
             // grpAdmin
             // 
+            this.grpAdmin.Controls.Add(this.btnPregledOdjela);
             this.grpAdmin.Controls.Add(this.btnPregledKnjiga);
             this.grpAdmin.Controls.Add(this.button1);
             this.grpAdmin.Location = new System.Drawing.Point(36, 312);
@@ -165,9 +169,19 @@ namespace bitBooks_Project
             this.grpAdmin.TabStop = false;
             this.grpAdmin.Text = "Admin aktivnosti";
             // 
+            // btnPregledOdjela
+            // 
+            this.btnPregledOdjela.Location = new System.Drawing.Point(153, 29);
+            this.btnPregledOdjela.Name = "btnPregledOdjela";
+            this.btnPregledOdjela.Size = new System.Drawing.Size(97, 23);
+            this.btnPregledOdjela.TabIndex = 3;
+            this.btnPregledOdjela.Text = "Pregled odjela";
+            this.btnPregledOdjela.UseVisualStyleBackColor = true;
+            this.btnPregledOdjela.Click += new System.EventHandler(this.btnPregledOdjela_Click);
+            // 
             // btnPregledKnjiga
             // 
-            this.btnPregledKnjiga.Location = new System.Drawing.Point(222, 29);
+            this.btnPregledKnjiga.Location = new System.Drawing.Point(278, 29);
             this.btnPregledKnjiga.Name = "btnPregledKnjiga";
             this.btnPregledKnjiga.Size = new System.Drawing.Size(111, 23);
             this.btnPregledKnjiga.TabIndex = 2;
@@ -177,7 +191,7 @@ namespace bitBooks_Project
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(96, 29);
+            this.button1.Location = new System.Drawing.Point(24, 29);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 23);
             this.button1.TabIndex = 1;
@@ -194,6 +208,21 @@ namespace bitBooks_Project
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
+            // 
+            // btnPrihvatiLivechat
+            // 
+            this.btnPrihvatiLivechat.Location = new System.Drawing.Point(314, 417);
+            this.btnPrihvatiLivechat.Name = "btnPrihvatiLivechat";
+            this.btnPrihvatiLivechat.Size = new System.Drawing.Size(107, 23);
+            this.btnPrihvatiLivechat.TabIndex = 12;
+            this.btnPrihvatiLivechat.Text = "Prihvati Livechat";
+            this.btnPrihvatiLivechat.UseVisualStyleBackColor = true;
+            this.btnPrihvatiLivechat.Click += new System.EventHandler(this.btnPrihvatiLivechat_Click);
+            // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\Lino\\Desktop\\PI Projekt\\ProjektniFolder\\Software\\bitBooks_Project\\Korisn" +
+    "ička_Dokumentacija\\KorisničkaDokumentacija.chm";
             // 
             // btnKnjižnice
             // 
@@ -212,6 +241,7 @@ namespace bitBooks_Project
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.ClientSize = new System.Drawing.Size(455, 470);
             this.Controls.Add(this.btnKnjižnice);
+            this.Controls.Add(this.btnPrihvatiLivechat);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.grpAdmin);
             this.Controls.Add(this.btnLiveChat);
@@ -219,6 +249,7 @@ namespace bitBooks_Project
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
             this.Name = "bitBooksMainForm";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Load += new System.EventHandler(this.bitBooksMainForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -245,6 +276,9 @@ namespace bitBooks_Project
         private System.Windows.Forms.Button btnPosudbe;
         private System.Windows.Forms.Button btnPregledKnjiga;
         private System.Windows.Forms.Button btnKnjižnice;
+        private System.Windows.Forms.Button btnPrihvatiLivechat;
+        private System.Windows.Forms.Button btnPregledOdjela;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }
 

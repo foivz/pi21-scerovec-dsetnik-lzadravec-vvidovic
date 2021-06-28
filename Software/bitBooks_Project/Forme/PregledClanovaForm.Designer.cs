@@ -40,6 +40,8 @@ namespace bitBooks_Project
             this.btnPregledaj = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnObrisi = new System.Windows.Forms.Button();
+            this.btnUnos = new System.Windows.Forms.Button();
+            this.btnAžuriraj = new System.Windows.Forms.Button();
             this.btnIskaznica = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -138,13 +140,34 @@ namespace bitBooks_Project
             // 
             // btnObrisi
             // 
-            this.btnObrisi.Location = new System.Drawing.Point(684, 24);
+            this.btnObrisi.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnObrisi.Location = new System.Drawing.Point(12, 497);
             this.btnObrisi.Name = "btnObrisi";
-            this.btnObrisi.Size = new System.Drawing.Size(75, 78);
+            this.btnObrisi.Size = new System.Drawing.Size(105, 29);
             this.btnObrisi.TabIndex = 11;
             this.btnObrisi.Text = "Obriši člana";
             this.btnObrisi.UseVisualStyleBackColor = true;
             this.btnObrisi.Click += new System.EventHandler(this.BtnObrisi_Click);
+            // 
+            // btnUnos
+            // 
+            this.btnUnos.Location = new System.Drawing.Point(684, 27);
+            this.btnUnos.Name = "btnUnos";
+            this.btnUnos.Size = new System.Drawing.Size(105, 25);
+            this.btnUnos.TabIndex = 12;
+            this.btnUnos.Text = "Unesi korisnika";
+            this.btnUnos.UseVisualStyleBackColor = true;
+            this.btnUnos.Click += new System.EventHandler(this.btnUnos_Click);
+            // 
+            // btnAžuriraj
+            // 
+            this.btnAžuriraj.Location = new System.Drawing.Point(684, 79);
+            this.btnAžuriraj.Name = "btnAžuriraj";
+            this.btnAžuriraj.Size = new System.Drawing.Size(98, 23);
+            this.btnAžuriraj.TabIndex = 13;
+            this.btnAžuriraj.Text = "Ažuriraj korisnika";
+            this.btnAžuriraj.UseVisualStyleBackColor = true;
+            this.btnAžuriraj.Click += new System.EventHandler(this.btnAžuriraj_Click);
             // 
             // btnIskaznica
             // 
@@ -163,6 +186,8 @@ namespace bitBooks_Project
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.ClientSize = new System.Drawing.Size(801, 538);
             this.Controls.Add(this.btnIskaznica);
+            this.Controls.Add(this.btnAžuriraj);
+            this.Controls.Add(this.btnUnos);
             this.Controls.Add(this.btnObrisi);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnPregledaj);
@@ -198,5 +223,7 @@ namespace bitBooks_Project
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnObrisi;
         private System.Windows.Forms.Button btnIskaznica;
+        private System.Windows.Forms.Button btnUnos;
+        private System.Windows.Forms.Button btnAžuriraj;
     }
 }
