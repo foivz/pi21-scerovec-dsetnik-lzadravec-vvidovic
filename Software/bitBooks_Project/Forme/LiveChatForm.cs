@@ -18,6 +18,7 @@ namespace bitBooks_Project.Forme
         Socket sck;
         EndPoint epLocal, epRemote;
         byte[] buffer;
+        Korisnik korisnik;
 
         Zahtjev _zahtjev;
 
@@ -30,11 +31,12 @@ namespace bitBooks_Project.Forme
 
         private void LiveChatForm_Load(object sender, EventArgs e)
         {
-
+            korisnik=Korisnik.DohvatiKorisnikaPoID(_zahtjev.KorisnikID);
 
             sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
 
             sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+
 
             Spoji();
 
@@ -73,16 +75,21 @@ namespace bitBooks_Project.Forme
                 //listPoruka.Items.Add("Friend: " + receivedMessage);
                 string titula;
                 if (Sesija.Korisnik.TipID < 4)
-                {                  
-                    titula = "Zaposlenik: ";
+                {
+                    titula = korisnik.Ime + " " + korisnik.Prezime +  ": ";
                 }
                 else
                 {
-                    titula = Sesija.Korisnik.Ime + " " + Sesija.Korisnik.Prezime + ": ";
+                    titula = "Zaposlenik: ";
+                    
                 }
 
+                if (IsHandleCreated)
+                {
+                    listPoruka.Invoke(new Action(() => listPoruka.Items.Add(titula + receivedMessage)));
+                }
 
-                listPoruka.Invoke(new Action(() => listPoruka.Items.Add(titula + receivedMessage)));
+                
 
                 buffer = new byte[1500];
                 sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);

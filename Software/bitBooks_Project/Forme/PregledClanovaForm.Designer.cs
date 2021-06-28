@@ -177,7 +177,7 @@ namespace bitBooks_Project
             this.btnIskaznica.TabIndex = 12;
             this.btnIskaznica.Text = "Napravi iskaznicu";
             this.btnIskaznica.UseVisualStyleBackColor = true;
-            this.btnIskaznica.Click += new System.EventHandler(this.BtnIskaznica_Click);
+            this.btnIskaznica.Click += new System.EventHandler(this.btnIskaznica_Click);
             // 
             // PregledClanovaForm
             // 

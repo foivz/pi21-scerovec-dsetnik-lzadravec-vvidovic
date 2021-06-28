@@ -187,5 +187,12 @@ namespace bitBooks_Project
             }
            
         }
+
+        private void btnIskaznica_Click(object sender, EventArgs e)
+        {
+            DohvatiKorisnika();
+            _odabraniKorisnik.GenerirajPDF();
+            MessageBox.Show("Iskaznica kreirana u folderu PDF_Iskaznice .");
+        }
     }
 }

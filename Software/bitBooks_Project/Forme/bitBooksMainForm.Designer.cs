@@ -226,13 +226,12 @@ namespace bitBooks_Project
             // 
             // btnKnjižnice
             // 
-            this.btnKnjižnice.Location = new System.Drawing.Point(313, 408);
+            this.btnKnjižnice.Location = new System.Drawing.Point(184, 408);
             this.btnKnjižnice.Name = "btnKnjižnice";
             this.btnKnjižnice.Size = new System.Drawing.Size(102, 40);
             this.btnKnjižnice.TabIndex = 12;
             this.btnKnjižnice.Text = "Knjižnice";
             this.btnKnjižnice.UseVisualStyleBackColor = true;
-            this.btnKnjižnice.Click += new System.EventHandler(this.Button4_Click);
             // 
             // bitBooksMainForm
             // 
