@@ -40,6 +40,7 @@ namespace bitBooks_Project
             this.btnPregledaj = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnObrisi = new System.Windows.Forms.Button();
+            this.btnIskaznica = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -145,12 +146,23 @@ namespace bitBooks_Project
             this.btnObrisi.UseVisualStyleBackColor = true;
             this.btnObrisi.Click += new System.EventHandler(this.BtnObrisi_Click);
             // 
+            // btnIskaznica
+            // 
+            this.btnIskaznica.Location = new System.Drawing.Point(12, 497);
+            this.btnIskaznica.Name = "btnIskaznica";
+            this.btnIskaznica.Size = new System.Drawing.Size(121, 31);
+            this.btnIskaznica.TabIndex = 12;
+            this.btnIskaznica.Text = "Napravi iskaznicu";
+            this.btnIskaznica.UseVisualStyleBackColor = true;
+            this.btnIskaznica.Click += new System.EventHandler(this.BtnIskaznica_Click);
+            // 
             // PregledClanovaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.ClientSize = new System.Drawing.Size(801, 538);
+            this.Controls.Add(this.btnIskaznica);
             this.Controls.Add(this.btnObrisi);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnPregledaj);
@@ -185,5 +197,6 @@ namespace bitBooks_Project
         private System.Windows.Forms.Button btnPregledaj;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnObrisi;
+        private System.Windows.Forms.Button btnIskaznica;
     }
 }

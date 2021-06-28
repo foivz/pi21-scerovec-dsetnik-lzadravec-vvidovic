@@ -41,6 +41,11 @@
         <AssociationConnector Association="Model.FK_Reservation_Publishing" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_ReviewLibrary_ReviewLibrary" ManuallyRouted="false" />
         <AssociationConnector Association="Model.WroteBook" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.Notification" Width="1.5" PointX="5.25" PointY="20.75" />
+        <EntityTypeShape EntityType="Model.Request" Width="1.5" PointX="5.25" PointY="23.375" />
+        <AssociationConnector Association="Model.Notifications_UserID_FK" />
+        <AssociationConnector Association="Model.Request_EmployeeID_FK" />
+        <AssociationConnector Association="Model.Request_UserID_FK" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

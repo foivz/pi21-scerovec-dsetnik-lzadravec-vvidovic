@@ -1,7 +1,11 @@
-﻿using bitBooks_Project.Dorian_Iznimke;
+﻿using Aspose.Pdf;
+using Aspose.Pdf.Facades;
+using Aspose.Pdf.Text;
+using bitBooks_Project.Dorian_Iznimke;
 using System;
 using System.Collections.Generic;
 using System.Data.Linq.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -596,6 +600,85 @@ namespace bitBooks_Project.Klase
                 throw new KorisnikException("Korisničko ime i lozinka smiju ima 20 znakova, a ostala polja do maksimalno 50!");
             }
         }
+        public void GenerirajPDF()
+        {
+            string projectDirectory = Directory.GetParent(System.Environment.CurrentDirectory).Parent.FullName;
+
+            Document document = new Document();
+            Page page = document.Pages.Add();
+            
+            document.PageInfo.Height = 325;
+            document.PageInfo.Width = 200;
+            
+            document.PageInfo.IsLandscape = true;
+
+            MarginInfo marginInfo = new MarginInfo();
+            marginInfo.Bottom = 0;
+            marginInfo.Top = 50;
+            marginInfo.Left = 50;
+
+            document.PageInfo.Margin = marginInfo;
+
+            TextFragment prazno = new TextFragment("");
+
+            TextFragment user = new TextFragment("Korisničko ime: " + KorisnickoIme);
+            user.VerticalAlignment = Aspose.Pdf.VerticalAlignment.Top;
+            user.TextState.FontSize = 10;
+            user.TextState.Font = FontRepository.FindFont("TimesNewRoman");
+            user.TextState.FontStyle = FontStyles.Bold;
+            page.Paragraphs.Add(user);
+            page.Paragraphs.Add(prazno);
+            TextFragment ime = new TextFragment("Ime: " + Ime);
+            ime.VerticalAlignment = Aspose.Pdf.VerticalAlignment.Top;
+            ime.TextState.FontSize = 10;
+            ime.TextState.Font = FontRepository.FindFont("TimesNewRoman");
+            ime.TextState.FontStyle = FontStyles.Bold;
+            page.Paragraphs.Add(ime);
+            page.Paragraphs.Add(prazno);
+            TextFragment prezime = new TextFragment("Prezime: " + Prezime);
+            prezime.VerticalAlignment = Aspose.Pdf.VerticalAlignment.Top;
+            prezime.TextState.FontSize = 10;
+            prezime.TextState.Font = FontRepository.FindFont("TimesNewRoman");
+            prezime.TextState.FontStyle = FontStyles.Bold;
+            page.Paragraphs.Add(prezime);
+            page.Paragraphs.Add(prazno);
+            TextFragment email = new TextFragment("Email: " + Email);
+            email.VerticalAlignment = Aspose.Pdf.VerticalAlignment.Top;
+            email.TextState.FontSize = 10;
+            email.TextState.Font = FontRepository.FindFont("TimesNewRoman");
+            email.TextState.FontStyle = FontStyles.Bold;
+            page.Paragraphs.Add(email);
+            page.Paragraphs.Add(prazno);
+            TextFragment adresa = new TextFragment("Adresa: " + Adresa);
+            adresa.VerticalAlignment = Aspose.Pdf.VerticalAlignment.Top;
+            adresa.TextState.FontSize = 10;
+            adresa.TextState.Font = FontRepository.FindFont("TimesNewRoman");
+            adresa.TextState.FontStyle = FontStyles.Bold;
+            page.Paragraphs.Add(adresa);
+            page.Paragraphs.Add(prazno);
+            TextFragment knj = new TextFragment("Knjižnica: " + ImeKnjiznice);
+            knj.VerticalAlignment = Aspose.Pdf.VerticalAlignment.Top;
+            knj.TextState.FontSize = 10;
+            knj.TextState.Font = FontRepository.FindFont("TimesNewRoman");
+            knj.TextState.FontStyle = FontStyles.Bold;
+            page.Paragraphs.Add(knj);
+            page.Paragraphs.Add(prazno);
+            TextFragment proj = new TextFragment("bitBooks");
+            proj.TextState.FontSize = 16;
+            proj.TextState.Font = FontRepository.FindFont("TimesNewRoman");
+            proj.TextState.FontStyle = FontStyles.Bold;
+            page.Paragraphs.Add(proj);
+
+
+            Rectangle rectangle = new Rectangle(200, 100, 300, 200);
+            page.AddImage(projectDirectory + "/Slike/knjigaB.png" , rectangle);
+
+            document.Background = Aspose.Pdf.Color.FromRgb(System.Drawing.Color.FromArgb(60, 179, 113));
+
+            document.Save(projectDirectory + "/PDF_Iskaznice/" + KorisnickoIme +".pdf");
+            Console.WriteLine(projectDirectory);
+        }
+
     }
 }
 

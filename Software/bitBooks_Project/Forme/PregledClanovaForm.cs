@@ -161,5 +161,11 @@ namespace bitBooks_Project
             
             PrikaziSveKorisnikeKnjiznice();
         }
+
+        private void BtnIskaznica_Click(object sender, EventArgs e)
+        {
+            DohvatiKorisnika();
+            _odabraniKorisnik.GenerirajPDF();
+        }
     }
 }
