@@ -60,6 +60,7 @@
             this.dgvIzdanja = new System.Windows.Forms.DataGridView();
             this.printNaljepnica = new System.Drawing.Printing.PrintDocument();
             this.printPreviewNaljepnica = new System.Windows.Forms.PrintPreviewDialog();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKnjige)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -316,6 +317,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.label9);
             this.groupBox6.Controls.Add(this.cmbKorisnici);
             this.groupBox6.Controls.Add(this.btnPosudi);
             this.groupBox6.Controls.Add(this.btnNaljepnica);
@@ -332,14 +334,14 @@
             this.cmbKorisnici.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbKorisnici.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbKorisnici.FormattingEnabled = true;
-            this.cmbKorisnici.Location = new System.Drawing.Point(19, 255);
+            this.cmbKorisnici.Location = new System.Drawing.Point(19, 267);
             this.cmbKorisnici.Name = "cmbKorisnici";
             this.cmbKorisnici.Size = new System.Drawing.Size(220, 21);
             this.cmbKorisnici.TabIndex = 4;
             // 
             // btnPosudi
             // 
-            this.btnPosudi.Location = new System.Drawing.Point(19, 283);
+            this.btnPosudi.Location = new System.Drawing.Point(19, 294);
             this.btnPosudi.Name = "btnPosudi";
             this.btnPosudi.Size = new System.Drawing.Size(220, 23);
             this.btnPosudi.TabIndex = 3;
@@ -380,6 +382,15 @@
             this.printPreviewNaljepnica.Name = "printPreviewNaljepnica";
             this.printPreviewNaljepnica.Visible = false;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(16, 253);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(78, 13);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Korisničko ime:";
+            // 
             // PregledKnjigaZaposlenikForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -407,6 +418,7 @@
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRezervacije)).EndInit();
             this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIzdanja)).EndInit();
             this.ResumeLayout(false);
 
@@ -445,5 +457,6 @@
         private System.Windows.Forms.ComboBox cmbKorisnici;
         private System.Windows.Forms.Button btnVrati;
         private System.Windows.Forms.Button btnOtkaziRez;
+        private System.Windows.Forms.Label label9;
     }
 }
