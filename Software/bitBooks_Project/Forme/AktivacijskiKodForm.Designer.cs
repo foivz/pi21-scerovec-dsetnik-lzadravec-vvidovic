@@ -43,6 +43,7 @@
             this.label1.Size = new System.Drawing.Size(293, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Na vaš email poslan je aktivacijski kod i vaše korisničko ime.";
+            
             // 
             // label2
             // 

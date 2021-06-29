@@ -15,6 +15,7 @@ namespace bitBooks_Project.Forme
 {
     public partial class RezervacijaForm : Form
     {
+        
         Knjiga _unesenaKnjiga = new Knjiga();
         public RezervacijaForm(Knjiga knjiga)
         {
@@ -57,10 +58,12 @@ namespace bitBooks_Project.Forme
                 context.Reservations.Add(rezervacija);
                 context.SaveChanges();
                 SendEmail();
+                Obavijest.GeneriranjeObavijestiRezervacije(Sesija.Korisnik.KorisnikID, _unesenaKnjiga.Ime);
                 MessageBox.Show("Uspješno rezervirano izdanje.");
                 Close();
 
             }
+            
         }
         protected void SendEmail() {
             try

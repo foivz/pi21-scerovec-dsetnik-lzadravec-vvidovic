@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +15,7 @@ namespace bitBooks_Project.Forme
 {
     public partial class PosudbaForm : Form
     {
+        
         Knjiga _unesenaKnjiga = new Knjiga();
         public PosudbaForm(Knjiga knjiga)
         {
@@ -61,7 +64,8 @@ namespace bitBooks_Project.Forme
                         posudba.DueDate = DateTime.Today.AddDays(30);
                         context.Loans.Add(posudba);
                         context.SaveChanges();
-
+                        SendEmail();
+                        Obavijest.GeneriranjeObavijestiPosudbe(Sesija.Korisnik.KorisnikID, _unesenaKnjiga.Ime);
                         MessageBox.Show("Uspješno posuđeno izdanje.");
                         Close();
                     }                  
@@ -71,6 +75,57 @@ namespace bitBooks_Project.Forme
             {
                 MessageBox.Show("Imate vec maksimalan broj posudbi");
                 Close();
+            }
+        }
+
+        protected void SendEmail()
+        {
+            try
+            {
+                MailMessage poruka;
+                SmtpClient smtp;
+                poruka = new MailMessage();
+                poruka.IsBodyHtml = true;
+                poruka.To.Add(new MailAddress(Sesija.Korisnik.Email));
+                poruka.Subject = "bitBooks rezervacija knjige";
+                poruka.From = new MailAddress("PIbitBooks@gmail.com");
+                poruka.Body = "Poštovani," + "<br>" +
+                               "Uspješno ste posudili knjigu " + _unesenaKnjiga.Ime + "." + "<br>";
+
+
+                smtp = new SmtpClient();
+                smtp.Port = 587;
+                smtp.EnableSsl = true;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential("PIbitBooks@gmail.com", "bitBooksPI");
+                smtp.Host = "smtp.gmail.com";
+                smtp.EnableSsl = true;
+                smtp.Send(poruka);
+                smtp.SendCompleted += new SendCompletedEventHandler(smtp_SendCompleted);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Console.WriteLine("InnerException is: {0}", ex.InnerException);
+            }
+        }
+
+
+        void smtp_SendCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            if (e.Cancelled == true)
+            {
+                MessageBox.Show("Email sending cancelled!");
+            }
+            else if (e.Error != null)
+            {
+                MessageBox.Show(e.Error.Message);
+            }
+            else
+            {
+                MessageBox.Show("Email sent sucessfully!");
             }
         }
     }
