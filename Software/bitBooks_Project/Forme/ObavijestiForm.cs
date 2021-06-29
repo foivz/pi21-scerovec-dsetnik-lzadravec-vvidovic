@@ -1,4 +1,5 @@
-﻿using System;
+﻿using bitBooks_Project.Klase;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,16 @@ namespace bitBooks_Project.Forme
         private void zatvori_button_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void ObavijestiForm_Load(object sender, EventArgs e)
+        {
+            txtIme.Text = Sesija.Korisnik.KorisnickoIme;
+
+            dgvObavijesti.DataSource = Obavijest.DohvatiObavijestiKorisnika(Sesija.Korisnik.KorisnikID);
+            dgvObavijesti.Columns["KorisnikID"].Visible = false;
+            DataGridViewColumn column = dgvObavijesti.Columns[1];
+            column.Width = 500;
         }
     }
 }

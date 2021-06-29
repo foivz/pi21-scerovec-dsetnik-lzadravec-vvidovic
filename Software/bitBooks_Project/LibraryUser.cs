@@ -23,6 +23,9 @@ namespace bitBooks_Project
             this.ReviewEmployees = new HashSet<ReviewEmployee>();
             this.ReviewEmployees1 = new HashSet<ReviewEmployee>();
             this.ReviewLibraries = new HashSet<ReviewLibrary>();
+            this.Notifications = new HashSet<Notification>();
+            this.Requests = new HashSet<Request>();
+            this.Requests1 = new HashSet<Request>();
         }
     
         public int UserID { get; set; }
@@ -51,5 +54,11 @@ namespace bitBooks_Project
         public virtual ICollection<ReviewEmployee> ReviewEmployees1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ReviewLibrary> ReviewLibraries { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Notification> Notifications { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Request> Requests { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Request> Requests1 { get; set; }
     }
 }
