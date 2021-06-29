@@ -7,6 +7,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -62,7 +64,7 @@ namespace bitBooks_Project.Forme
             dgvRezervacije.Columns["Adresa"].DisplayIndex = 3;
             dgvRezervacije.Columns["KorisnickoIme"].DisplayIndex = 4;
 
-            
+
 
             cmbPretrazivanje.Items.Add("ISBN");
             cmbPretrazivanje.Items.Add("Naziv knjige");
@@ -73,7 +75,6 @@ namespace bitBooks_Project.Forme
 
             dgvIzdanja.DataSource = Izdanje.DohvatiIzdanjaKnjige(dgvKnjige.CurrentRow.Cells[0].Value.ToString());
 
-            
             dgvIzdanja.Columns["OdjelID"].Visible = false;
             dgvIzdanja.Columns["ISBN"].Visible = false;
             dgvIzdanja.Columns["IzdavacID"].Visible = false;
@@ -84,18 +85,103 @@ namespace bitBooks_Project.Forme
 
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
 
-            foreach(FilterInfo device in filterInfoCollection)
+            foreach (FilterInfo device in filterInfoCollection)
             {
                 comboBox1.Items.Add(device.Name);
             }
             comboBox1.SelectedIndex = 0;
 
             List<Korisnik> korisniciCMB = Korisnik.DohvatiKorisnikeKnjižnice(Sesija.Korisnik.KnjiznicaID);
-            foreach(Korisnik item in korisniciCMB)
+            foreach (Korisnik item in korisniciCMB)
             {
                 cmbKorisnici.Items.Add(item.KorisnickoIme);
             }
-            
+
+            ObrisiStareRezervacije();
+
+        }
+
+        public static void ObrisiStareRezervacije()
+        {
+            List<Rezervacija> rezervacije = new List<Rezervacija>();
+            using (var context = new Entities_db1())
+            {
+                DateTime datum = DateTime.Today.AddDays(-3);
+                DateTime defaultDatum = DateTime.MinValue;
+                Console.WriteLine(defaultDatum);
+                var query = (from r in context.Reservations
+                             where r.DateAvailable < datum && r.DateAvailable != defaultDatum
+                             select new Rezervacija
+                             {
+                                 RezervacijaID = r.ReservationID,
+                                 KorisnikID = r.UserID,
+                                 IzdanjeID = r.PublishingID,
+                                 DatumRezervacije = r.DateReserved,
+                                 DatumDostupnosti = r.DateAvailable
+                             });
+                rezervacije = query.ToList();
+
+            }
+            string korEmail;
+            foreach (Rezervacija rezervacija in rezervacije)
+            {
+                using (var context = new Entities_db1())
+                {
+                    var query = (from r in context.Reservations
+                                 where r.ReservationID == rezervacija.RezervacijaID
+                                 select r).FirstOrDefault();
+                    int pomIzdanjeID = query.PublishingID;
+                    context.Reservations.Remove(query);
+                    context.SaveChanges();
+                    
+                    var izdanjeRezervirano = context.Publishings.FirstOrDefault(p => p.PublishingID == pomIzdanjeID);
+                    var rezervacijaAktivna = context.Reservations.FirstOrDefault(r => r.PublishingID == pomIzdanjeID);
+                    var korisnikRezervirao = context.LibraryUsers.FirstOrDefault(l => l.UserID == rezervacijaAktivna.UserID);
+                    var knjiga = context.Books.First(b => b.ISBN == izdanjeRezervirano.ISBN);
+                    rezervacijaAktivna.DateAvailable = DateTime.Today;
+
+                    context.SaveChanges();
+
+                    korEmail = korisnikRezervirao.Email;
+                    MailMessage poruka;
+                    SmtpClient smtp;
+                    poruka = new MailMessage();
+
+                    poruka.IsBodyHtml = true;
+
+                    poruka.To.Add(new MailAddress(korEmail));
+
+                    poruka.Subject = "bitBooks: knjiga " + knjiga.Name + " je dostupna";
+
+                    poruka.From = new MailAddress("PIbitBooks@gmail.com");
+
+                    poruka.Body = "Poštovani," + "<br>" +
+                                   "Knjiga " + knjiga.Name + " je postala dostupna." +
+                                   "Vaša rezervacija traje 3 dana, ukoliko ne posudite knjigu u ovom roku, Vaša rezervacija se briše i  omogućava" +
+                                   " se drugim korisnicima posudba." + "<br>" +
+                                   "bitBooks";
+
+
+                    smtp = new SmtpClient();
+
+                    smtp.Port = 587;
+
+                    smtp.EnableSsl = true;
+
+                    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    smtp.UseDefaultCredentials = false;
+
+                    smtp.Credentials = new NetworkCredential("PIbitBooks@gmail.com", "bitBooksPI");
+
+                    smtp.Host = "smtp.gmail.com";
+
+                    smtp.EnableSsl = true;
+
+                    smtp.Send(poruka);
+
+                    
+                }
+            }
         }
 
         private void dgvKnjige_SelectionChanged(object sender, EventArgs e)
@@ -402,29 +488,63 @@ namespace bitBooks_Project.Forme
                     MessageBox.Show("Korisnik ima 3 posudbe.");
                     return;
                 }
+
                 Izdanje izdanje = dgvIzdanja.CurrentRow.DataBoundItem as Izdanje;
+
+                bool postojiRezervacija = false;
+                Korisnik korisnikRezervirao = new Korisnik();
+                foreach(DataGridViewRow row in dgvRezervacije.Rows)
+                {
+                    postojiRezervacija = true;
+                    korisnikRezervirao = row.DataBoundItem as Korisnik;
+                    if (korisnikRezervirao.KorisnickoIme == cmbKorisnici.SelectedItem.ToString())
+                    {
+                        break;
+                    }
+                }
+
                 if (izdanje.BrojDostupnih != 0)
                 {
-                    using (var context = new Entities_db1())
+                    if (!postojiRezervacija || izdanje.BrojDostupnih > 1 || korisnikRezervirao.KorisnickoIme == cmbKorisnici.SelectedItem.ToString())
                     {
+                        using (var context = new Entities_db1())
+                        {
 
-                        Loan posudba = new Loan();
+                            Loan posudba = new Loan();
 
-                        posudba.UserID = korisnik.KorisnikID;
-                        posudba.PublishingID = izdanje.IzdanjeID;
-                        posudba.DueDate = DateTime.Today.AddDays(14);
-                        posudba.LoanStatus = "Posudena";
-                        context.Loans.Add(posudba);
-                        context.SaveChanges();
+                            posudba.UserID = korisnik.KorisnikID;
+                            posudba.PublishingID = izdanje.IzdanjeID;
+                            posudba.DueDate = DateTime.Today.AddDays(14);
+                            posudba.LoanStatus = "Posudena";
+                            context.Loans.Add(posudba);
+                            context.SaveChanges();
 
-                        var izdanje2 = context.Publishings.First(p => p.PublishingID == izdanje.IzdanjeID);
-                        izdanje2.NumLoaned++;
-                        izdanje2.NumAvailable--;
-                        context.SaveChanges();
+                            var izdanje2 = context.Publishings.First(p => p.PublishingID == izdanje.IzdanjeID);
+                            izdanje2.NumLoaned++;
+                            izdanje2.NumAvailable--;
+                            context.SaveChanges();
+                        }
+                        if(korisnikRezervirao.KorisnickoIme == cmbKorisnici.SelectedItem.ToString())
+                        {
+                            using (var context = new Entities_db1())
+                            {
+                                var query = (from r in context.Reservations
+                                             where r.UserID == korisnikRezervirao.KorisnikID && r.PublishingID == izdanje.IzdanjeID
+                                             select r).FirstOrDefault();
+                                context.Reservations.Remove(query);
+                                context.SaveChanges();
+
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Postoji rezervacija.");
                     }
                 }
                 else
                 {
+                    
                     MessageBox.Show("Nema dostupnog izdanja.");
                 }
             }
@@ -440,6 +560,7 @@ namespace bitBooks_Project.Forme
             Knjiga knjiga = dgvKnjige.CurrentRow.DataBoundItem as Knjiga;
             List<Izdanje> izdanja = Izdanje.DohvatiIzdanjaKnjige(knjiga.ISBN);
             List<Posudba> posudbe = Posudba.DohvatiPosudbeKorisnika(korisnik.KorisnikID);
+            int pomIzdanjeID = 0;
             foreach (Posudba posudba in posudbe)
             {
                 foreach (Izdanje izdanje in izdanja)
@@ -455,6 +576,7 @@ namespace bitBooks_Project.Forme
                                 var izdanje2 = context.Publishings.First(p => p.PublishingID == izdanje.IzdanjeID);
                                 izdanje2.NumLoaned--;
                                 izdanje2.NumAvailable++;
+                                pomIzdanjeID = izdanje2.PublishingID;
                                 context.SaveChanges();
                             }
                         }
@@ -465,6 +587,69 @@ namespace bitBooks_Project.Forme
                
             RefreshPosudbeRezervacije();
 
+            bool postoji = false;
+            using (var context = new Entities_db1())
+            {
+                {
+                    if(context.Reservations.Any(r => r.PublishingID == pomIzdanjeID))
+                    {
+                        postoji = true;
+                    }
+                }
+            }
+            if (postoji)
+            {
+                
+                string korEmail;
+                using (var context = new Entities_db1())
+                {
+                    var rezervacija = context.Reservations.First(r => r.PublishingID == pomIzdanjeID);
+                    var korisnikRezervirao = context.LibraryUsers.First(l => l.UserID == rezervacija.UserID);
+                    rezervacija.DateAvailable = DateTime.Today;
+                    context.SaveChanges();
+                    korEmail = korisnikRezervirao.Email;
+                    MailMessage poruka;
+                    SmtpClient smtp;
+                    poruka = new MailMessage();
+
+                    poruka.IsBodyHtml = true;
+
+                    poruka.To.Add(new MailAddress(korEmail));
+
+                    poruka.Subject = "bitBooks: knjiga " + knjiga.Ime + " je dostupna";
+
+                    poruka.From = new MailAddress("PIbitBooks@gmail.com");
+
+                    poruka.Body = "Poštovani," + "<br>" +
+                                   "Knjiga " + knjiga.Ime + " je postala dostupna." +
+                                   "Vaša rezervacija traje 3 dana, ukoliko ne posudite knjigu u ovom roku, Vaša rezervacija se briše i  omogućava" +
+                                   " se drugim korisnicima posudba." + "<br>" +
+                                   "bitBooks";
+
+
+                    smtp = new SmtpClient();
+
+                    smtp.Port = 587;
+
+                    smtp.EnableSsl = true;
+
+                    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    smtp.UseDefaultCredentials = false;
+
+                    smtp.Credentials = new NetworkCredential("PIbitBooks@gmail.com", "bitBooksPI");
+
+                    smtp.Host = "smtp.gmail.com";
+
+                    smtp.EnableSsl = true;
+
+                    smtp.Send(poruka);
+
+                    smtp.SendCompleted += new SendCompletedEventHandler(smtp_SendCompleted);
+                }
+                
+            }
+
+                
         }
 
         private void RefreshPosudbeRezervacije()
@@ -544,6 +729,36 @@ namespace bitBooks_Project.Forme
             }
 
             RefreshPosudbeRezervacije();
+        }
+
+        void smtp_SendCompleted(object sender, AsyncCompletedEventArgs e)
+
+        {
+
+            if (e.Cancelled == true)
+
+            {
+
+                MessageBox.Show("Email sending cancelled!");
+
+            }
+
+            else if (e.Error != null)
+
+            {
+
+                MessageBox.Show(e.Error.Message);
+
+            }
+
+            else
+
+            {
+
+                MessageBox.Show("Email sent sucessfully!");
+
+            }
+
         }
     }
 }
