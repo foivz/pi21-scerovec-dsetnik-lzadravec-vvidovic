@@ -71,6 +71,14 @@ namespace bitBooks_Project.Forme
             cmbPretrazivanje.SelectedIndex = 0;
             cmbPretrazivanje.DropDownStyle = ComboBoxStyle.DropDownList;
 
+            for(int i = 1; i < 7; i++) 
+            {
+                cmbBrojNaljepnica.Items.Add(i);
+            }
+            
+            cmbBrojNaljepnica.SelectedIndex = 0;
+            cmbBrojNaljepnica.DropDownStyle = ComboBoxStyle.DropDownList;
+
             dgvKnjige.Rows[0].Selected = true;
 
             dgvIzdanja.DataSource = Izdanje.DohvatiIzdanjaKnjige(dgvKnjige.CurrentRow.Cells[0].Value.ToString());
@@ -381,20 +389,35 @@ namespace bitBooks_Project.Forme
             int x = 50;
             int y = 20;
 
-            for(int i = 0; i<6; i++)
+            for(int i = 0; i<(int)cmbBrojNaljepnica.SelectedItem; i=i+2)
             {
                 e.Graphics.DrawImage(bmp, x, y);
                 e.Graphics.DrawString(knjiga[0].Ime, new Font("Arial", 12), new SolidBrush(Color.Black), x, y+110);
                 e.Graphics.DrawString(izdanje.GodinaIzdavanja.ToString(), new Font("Arial", 12), new SolidBrush(Color.Black), x, y + 130);
                 e.Graphics.DrawString(Sesija.Korisnik.ImeKnjiznice, new Font("Arial", 12), new SolidBrush(Color.Black), x, y + 160);
-                x += 350;
+                
                 e.Graphics.DrawImage(bmp, x, y);
                 e.Graphics.DrawString(knjiga[0].Ime, new Font("Arial", 12), new SolidBrush(Color.Black), x, y + 110);
                 e.Graphics.DrawString(izdanje.GodinaIzdavanja.ToString(), new Font("Arial", 12), new SolidBrush(Color.Black), x, y + 130);
                 e.Graphics.DrawString(Sesija.Korisnik.ImeKnjiznice, new Font("Arial", 12), new SolidBrush(Color.Black), x, y + 160);
 
                 y += 300;
-                x -= 350;
+            }
+            x = 400;
+            y = 20;
+            for (int i = 1; i < (int)cmbBrojNaljepnica.SelectedItem; i = i + 2)
+            {
+                e.Graphics.DrawImage(bmp, x, y);
+                e.Graphics.DrawString(knjiga[0].Ime, new Font("Arial", 12), new SolidBrush(Color.Black), x, y + 110);
+                e.Graphics.DrawString(izdanje.GodinaIzdavanja.ToString(), new Font("Arial", 12), new SolidBrush(Color.Black), x, y + 130);
+                e.Graphics.DrawString(Sesija.Korisnik.ImeKnjiznice, new Font("Arial", 12), new SolidBrush(Color.Black), x, y + 160);
+
+                e.Graphics.DrawImage(bmp, x, y);
+                e.Graphics.DrawString(knjiga[0].Ime, new Font("Arial", 12), new SolidBrush(Color.Black), x, y + 110);
+                e.Graphics.DrawString(izdanje.GodinaIzdavanja.ToString(), new Font("Arial", 12), new SolidBrush(Color.Black), x, y + 130);
+                e.Graphics.DrawString(Sesija.Korisnik.ImeKnjiznice, new Font("Arial", 12), new SolidBrush(Color.Black), x, y + 160);
+
+                y += 300;
             }
         }
 

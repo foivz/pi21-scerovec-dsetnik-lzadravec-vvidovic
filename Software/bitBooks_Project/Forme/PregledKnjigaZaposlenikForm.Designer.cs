@@ -54,13 +54,15 @@
             this.btnOtkaziRez = new System.Windows.Forms.Button();
             this.dgvRezervacije = new System.Windows.Forms.DataGridView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.cmbKorisnici = new System.Windows.Forms.ComboBox();
             this.btnPosudi = new System.Windows.Forms.Button();
             this.btnNaljepnica = new System.Windows.Forms.Button();
             this.dgvIzdanja = new System.Windows.Forms.DataGridView();
             this.printNaljepnica = new System.Drawing.Printing.PrintDocument();
             this.printPreviewNaljepnica = new System.Windows.Forms.PrintPreviewDialog();
-            this.label9 = new System.Windows.Forms.Label();
+            this.cmbBrojNaljepnica = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKnjige)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -317,6 +319,8 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.label10);
+            this.groupBox6.Controls.Add(this.cmbBrojNaljepnica);
             this.groupBox6.Controls.Add(this.label9);
             this.groupBox6.Controls.Add(this.cmbKorisnici);
             this.groupBox6.Controls.Add(this.btnPosudi);
@@ -328,6 +332,15 @@
             this.groupBox6.TabIndex = 8;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Izdanja";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(16, 253);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(78, 13);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Korisničko ime:";
             // 
             // cmbKorisnici
             // 
@@ -351,9 +364,9 @@
             // 
             // btnNaljepnica
             // 
-            this.btnNaljepnica.Location = new System.Drawing.Point(257, 253);
+            this.btnNaljepnica.Location = new System.Drawing.Point(257, 294);
             this.btnNaljepnica.Name = "btnNaljepnica";
-            this.btnNaljepnica.Size = new System.Drawing.Size(117, 53);
+            this.btnNaljepnica.Size = new System.Drawing.Size(117, 23);
             this.btnNaljepnica.TabIndex = 1;
             this.btnNaljepnica.Text = "Generiraj naljepnice";
             this.btnNaljepnica.UseVisualStyleBackColor = true;
@@ -382,14 +395,22 @@
             this.printPreviewNaljepnica.Name = "printPreviewNaljepnica";
             this.printPreviewNaljepnica.Visible = false;
             // 
-            // label9
+            // cmbBrojNaljepnica
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(16, 253);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(78, 13);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "Korisničko ime:";
+            this.cmbBrojNaljepnica.FormattingEnabled = true;
+            this.cmbBrojNaljepnica.Location = new System.Drawing.Point(257, 267);
+            this.cmbBrojNaljepnica.Name = "cmbBrojNaljepnica";
+            this.cmbBrojNaljepnica.Size = new System.Drawing.Size(117, 21);
+            this.cmbBrojNaljepnica.TabIndex = 6;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(254, 253);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(79, 13);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "Broj naljepnica:";
             // 
             // PregledKnjigaZaposlenikForm
             // 
@@ -458,5 +479,7 @@
         private System.Windows.Forms.Button btnVrati;
         private System.Windows.Forms.Button btnOtkaziRez;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cmbBrojNaljepnica;
     }
 }
