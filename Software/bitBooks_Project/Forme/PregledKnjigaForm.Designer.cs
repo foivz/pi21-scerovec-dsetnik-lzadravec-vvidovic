@@ -35,7 +35,6 @@ namespace bitBooks_Project.Forme
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.chkboxDostava = new System.Windows.Forms.CheckBox();
             this.dgvKnjigPosudbe = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKnjige)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -96,7 +95,6 @@ namespace bitBooks_Project.Forme
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.chkboxDostava);
             this.groupBox2.Controls.Add(this.dgvKnjigPosudbe);
             this.groupBox2.Controls.Add(this.btnPosudi);
             this.groupBox2.Location = new System.Drawing.Point(574, 96);
@@ -105,16 +103,6 @@ namespace bitBooks_Project.Forme
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dostupno za posudbu";
-            // 
-            // chkboxDostava
-            // 
-            this.chkboxDostava.AutoSize = true;
-            this.chkboxDostava.Location = new System.Drawing.Point(306, 299);
-            this.chkboxDostava.Name = "chkboxDostava";
-            this.chkboxDostava.Size = new System.Drawing.Size(66, 17);
-            this.chkboxDostava.TabIndex = 4;
-            this.chkboxDostava.Text = "Dostava";
-            this.chkboxDostava.UseVisualStyleBackColor = true;
             // 
             // dgvKnjigPosudbe
             // 
@@ -140,7 +128,6 @@ namespace bitBooks_Project.Forme
             ((System.ComponentModel.ISupportInitialize)(this.dgvKnjige)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKnjigPosudbe)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -156,6 +143,5 @@ namespace bitBooks_Project.Forme
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvKnjigPosudbe;
-        private System.Windows.Forms.CheckBox chkboxDostava;
     }
 }

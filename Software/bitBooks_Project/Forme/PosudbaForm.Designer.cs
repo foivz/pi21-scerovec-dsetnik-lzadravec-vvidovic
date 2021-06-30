@@ -38,6 +38,7 @@ namespace bitBooks_Project.Forme
             this.btnPosudi = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkboxDostava = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -98,7 +99,7 @@ namespace bitBooks_Project.Forme
             // 
             // btnPosudi
             // 
-            this.btnPosudi.Location = new System.Drawing.Point(96, 356);
+            this.btnPosudi.Location = new System.Drawing.Point(65, 356);
             this.btnPosudi.Name = "btnPosudi";
             this.btnPosudi.Size = new System.Drawing.Size(75, 23);
             this.btnPosudi.TabIndex = 6;
@@ -132,12 +133,23 @@ namespace bitBooks_Project.Forme
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informacije o knjizi";
             // 
+            // chkboxDostava
+            // 
+            this.chkboxDostava.AutoSize = true;
+            this.chkboxDostava.Location = new System.Drawing.Point(175, 360);
+            this.chkboxDostava.Name = "chkboxDostava";
+            this.chkboxDostava.Size = new System.Drawing.Size(66, 17);
+            this.chkboxDostava.TabIndex = 9;
+            this.chkboxDostava.Text = "Dostava";
+            this.chkboxDostava.UseVisualStyleBackColor = true;
+            // 
             // PosudbaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.ClientSize = new System.Drawing.Size(281, 391);
+            this.Controls.Add(this.chkboxDostava);
             this.Controls.Add(this.btnPosudi);
             this.Controls.Add(this.groupBox1);
             this.Name = "PosudbaForm";
@@ -147,6 +159,7 @@ namespace bitBooks_Project.Forme
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -161,5 +174,6 @@ namespace bitBooks_Project.Forme
         private System.Windows.Forms.Button btnPosudi;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox chkboxDostava;
     }
 }
