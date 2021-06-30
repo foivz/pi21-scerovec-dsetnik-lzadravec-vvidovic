@@ -19,6 +19,8 @@ namespace bitBooks_Project.Forme
         List<Korisnik> korisniciKnjiznice = new List<Korisnik>();
         List<Posudba> posudbeKorisnika = new List<Posudba>();
         List<Rezervacija> rezervacijeKorisnika = new List<Rezervacija>();
+        RecenzijaKnjižnice recKnjiznice;
+        List<RecenzijaZaposlenika> recZaposlenika = new List<RecenzijaZaposlenika>();
         public SuperAdminForm()
         {
             InitializeComponent();
@@ -84,6 +86,10 @@ namespace bitBooks_Project.Forme
                 {
                     posudbeKorisnika = Posudba.DohvatiPosudbeKorisnika(korisnik.KorisnikID);
                     rezervacijeKorisnika = Rezervacija.DohvatiRezervacijeKorisnika(korisnik.KorisnikID);
+                    recKnjiznice = RecenzijaKnjižnice.DohvatiKorisnikoveRecenzijeKnjiznice(korisnik.KorisnikID);
+                    recZaposlenika = RecenzijaZaposlenika.DohvatiKorisnikoveRecenzijeZaposlenika(korisnik.KorisnikID);
+
+                    recKnjiznice.ObrisiRecenziju();
 
                     foreach (Posudba posudba in posudbeKorisnika)
                     {
@@ -92,6 +98,10 @@ namespace bitBooks_Project.Forme
                     foreach (Rezervacija rezervacija in rezervacijeKorisnika)
                     {
                         rezervacija.ObrisiRezervaciju();
+                    }
+                    foreach (RecenzijaZaposlenika recZ in recZaposlenika)
+                    {
+                        recZ.ObrisiRecenziju();
                     }
                 }
 

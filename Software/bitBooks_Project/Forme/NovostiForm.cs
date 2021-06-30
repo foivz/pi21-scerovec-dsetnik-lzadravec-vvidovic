@@ -74,7 +74,15 @@ namespace bitBooks_Project.Forme
 
         private static List<Novost> NapraviListuNovosti()
         {
-            return Novost.DohvatiNovostiKnjiznice(Sesija.Korisnik.KnjiznicaID);
+            if (Sesija.Korisnik.DohvatiTipKorisnika(Sesija.Korisnik) == "Super admin")
+            {
+                return Novost.DohvatiNovostiSve();
+            }
+            else
+            {
+                return Novost.DohvatiNovostiKnjiznice(Sesija.Korisnik.KnjiznicaID);
+            }
+            
         }
 
         private void BtnZatvori_Click(object sender, EventArgs e)

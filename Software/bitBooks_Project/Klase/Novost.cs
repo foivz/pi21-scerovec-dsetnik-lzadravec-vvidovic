@@ -39,6 +39,27 @@ namespace bitBooks_Project.Klase
             return novostiSorted;
         }
 
+        public static List<Novost> DohvatiNovostiSve()
+        {
+            List<Novost> novostiKnjiznice = new List<Novost>();
+
+            using (var context = new Entities_db1())
+            {
+                var query = from n in context.News
+                            select new Novost
+                            {
+                                NovostId = n.news_id,
+                                Ime = n.name,
+                                Opis = n.description,
+                                KnjiznicaID = n.library_id
+                            };
+                novostiKnjiznice = query.ToList();
+            }
+            ProvjeriListu(novostiKnjiznice);
+            List<Novost> novostiSorted = novostiKnjiznice.OrderByDescending(k => k.NovostId).ToList();
+            return novostiSorted;
+        }
+
         public static void NovaNovost(string naziv, string opis,int knjiznicaID)
         {
             ValidirajUnose(naziv, opis);

@@ -1,4 +1,6 @@
-﻿using bitBooks_Project.Dorian_Iznimke;
+﻿using AForge.Video;
+using AForge.Video.DirectShow;
+using bitBooks_Project.Dorian_Iznimke;
 using bitBooks_Project.Forme;
 using bitBooks_Project.Klase;
 using System;
@@ -10,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZXing;
 
 namespace bitBooks_Project
 {
@@ -19,6 +22,13 @@ namespace bitBooks_Project
         PregledClanova_PosudbeIRezervacijeForm pregledClanova_PosudbeIRezervacije;
         UnosKorisnikaForm unosKorisnikaForm;
         AžuriranjeKorisnikaForm ažuriranjeKorisnikaForm;
+        FilterInfoCollection filterInfoCollection;
+        VideoCaptureDevice videoCaptureDevice;
+
+        List<Posudba> posudbeKorisnika = new List<Posudba>();
+        List<Rezervacija> rezervacijeKorisnika = new List<Rezervacija>();
+        RecenzijaKnjižnice recKnjiznice;
+        List<RecenzijaZaposlenika> recZaposlenika = new List<RecenzijaZaposlenika>();
 
         public PregledClanovaForm()
         {
@@ -118,7 +128,7 @@ namespace bitBooks_Project
             dgvKorisnici.Columns["KorisnickoIme"].DisplayIndex = 0;
             dgvKorisnici.Columns["ImeTipa"].HeaderText = "Tip korisnika";
             dgvKorisnici.Columns["KorisnickoIme"].DisplayIndex = 1;
-            dgvKorisnici.Columns["KorisnikID"].Visible = false;
+            dgvKorisnici.Columns["KorisnikID"].Visible = true;
             dgvKorisnici.Columns["TipID"].Visible = false;
             dgvKorisnici.Columns["KnjiznicaID"].Visible = false;
             dgvKorisnici.Columns["Lozinka"].Visible = false;
@@ -141,12 +151,41 @@ namespace bitBooks_Project
         private void PregledClanovaForm_Load(object sender, EventArgs e)
         {
             PrikaziSveKorisnikeKnjiznice();
+            FiltriranjeGUmbova();
+
+            SkenerSource();
+
+        }
+
+        private void FiltriranjeGUmbova()
+        {
             btnObrisi.Visible = false;
+            label3.Visible = false;
+            cmbSkener.Visible = false;
+
             if (Sesija.Korisnik.DohvatiTipKorisnika(Sesija.Korisnik) == "Super admin" || Sesija.Korisnik.DohvatiTipKorisnika(Sesija.Korisnik) == "Admin")
             {
                 btnObrisi.Visible = true;
             }
-            
+
+            if (Sesija.Korisnik.DohvatiTipKorisnika(Sesija.Korisnik) != "KorisniK")
+            {
+                btnSkener.Visible = true;
+                btnIskaznica.Visible = true;
+                label3.Visible = true;
+                cmbSkener.Visible = true;
+            }
+        }
+
+        private void SkenerSource()
+        {
+            filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+
+            foreach (FilterInfo device in filterInfoCollection)
+            {
+                cmbSkener.Items.Add(device.Name);
+            }
+            cmbSkener.SelectedIndex = 0;
         }
 
         private void BtnObrisi_Click(object sender, EventArgs e)
@@ -154,6 +193,34 @@ namespace bitBooks_Project
             DohvatiKorisnika();
             try
             {
+                posudbeKorisnika = Posudba.DohvatiPosudbeKorisnika(_odabraniKorisnik.KorisnikID);
+                rezervacijeKorisnika = Rezervacija.DohvatiRezervacijeKorisnika(_odabraniKorisnik.KorisnikID);
+                recKnjiznice = RecenzijaKnjižnice.DohvatiKorisnikoveRecenzijeKnjiznice(_odabraniKorisnik.KorisnikID);
+                recZaposlenika = RecenzijaZaposlenika.DohvatiKorisnikoveRecenzijeZaposlenika(_odabraniKorisnik.KorisnikID);
+
+                recKnjiznice.ObrisiRecenziju();
+
+                foreach (Posudba posudba in posudbeKorisnika)
+                {
+                    posudba.ObrisiPosudbu();
+                }
+                foreach (Rezervacija rezervacija in rezervacijeKorisnika)
+                {
+                    rezervacija.ObrisiRezervaciju();
+                }
+                foreach (RecenzijaZaposlenika recZ in recZaposlenika)
+                {
+                    if (_odabraniKorisnik.DohvatiTipKorisnika(_odabraniKorisnik) == "Zaposlenik")
+                    {
+                        recZ.ObrisiRecenziju2();
+                    }
+                    else
+                    {
+                        recZ.ObrisiRecenziju();
+                    }
+                    
+                }
+
                 _odabraniKorisnik.ObrisiKorisnika();
             }
             catch (AdminException ex)
@@ -193,6 +260,53 @@ namespace bitBooks_Project
             DohvatiKorisnika();
             _odabraniKorisnik.GenerirajPDF();
             MessageBox.Show("Iskaznica kreirana u folderu PDF_Iskaznice .");
+        }
+
+        private void BtnSkener_Click(object sender, EventArgs e)
+        {
+            videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[cmbSkener.SelectedIndex].MonikerString);
+            videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
+            videoCaptureDevice.Start();
+        }
+
+        private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
+
+            BarcodeReader reader = new BarcodeReader();
+
+            Korisnik skeniraniKorisnik;
+
+            var result = reader.Decode(bitmap);
+            Console.WriteLine(result);
+
+            if (result != null)
+            {
+                    string rezultat = result.ToString();
+                    foreach (DataGridViewRow row in dgvKorisnici.Rows)
+                    {
+                        skeniraniKorisnik = row.DataBoundItem as Korisnik;
+                        if (skeniraniKorisnik.KorisnikID.ToString() == rezultat)
+                        {
+                            row.Selected = true;
+
+                            this.Invoke(new Action(
+                            delegate ()
+                            {
+                                this.txtIme.Text = skeniraniKorisnik.Ime;
+                                this.txtPrezime.Text = skeniraniKorisnik.Prezime;
+                                FilitrirajKorisnike();
+                            }));
+
+                        
+                    }
+                        else
+                        {
+                            row.Selected = false;
+                            
+                        }
+                    }
+            }
         }
     }
 }
