@@ -35,9 +35,8 @@ namespace bitBooks_Project.Forme
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgvKnjigPosudbe = new System.Windows.Forms.DataGridView();
-            this.OpisRez = new System.Windows.Forms.Button();
             this.OpisPos = new System.Windows.Forms.Button();
+            this.dgvKnjigPosudbe = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKnjige)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -56,7 +55,7 @@ namespace bitBooks_Project.Forme
             // 
             // btnRezerviraj
             // 
-            this.btnRezerviraj.Location = new System.Drawing.Point(243, 290);
+            this.btnRezerviraj.Location = new System.Drawing.Point(159, 290);
             this.btnRezerviraj.Name = "btnRezerviraj";
             this.btnRezerviraj.Size = new System.Drawing.Size(150, 33);
             this.btnRezerviraj.TabIndex = 1;
@@ -86,7 +85,6 @@ namespace bitBooks_Project.Forme
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.OpisRez);
             this.groupBox1.Controls.Add(this.dgvKnjige);
             this.groupBox1.Controls.Add(this.btnRezerviraj);
             this.groupBox1.Location = new System.Drawing.Point(21, 96);
@@ -99,7 +97,6 @@ namespace bitBooks_Project.Forme
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.OpisPos);
-
             this.groupBox2.Controls.Add(this.dgvKnjigPosudbe);
             this.groupBox2.Controls.Add(this.btnPosudi);
             this.groupBox2.Location = new System.Drawing.Point(574, 96);
@@ -108,28 +105,6 @@ namespace bitBooks_Project.Forme
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dostupno za posudbu";
-            // 
-            // chkboxDostava
-            // 
-
-            // 
-            // dgvKnjigPosudbe
-            // 
-            this.dgvKnjigPosudbe.BackgroundColor = System.Drawing.Color.Honeydew;
-            this.dgvKnjigPosudbe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKnjigPosudbe.Location = new System.Drawing.Point(15, 19);
-            this.dgvKnjigPosudbe.Name = "dgvKnjigPosudbe";
-            this.dgvKnjigPosudbe.Size = new System.Drawing.Size(423, 265);
-            this.dgvKnjigPosudbe.TabIndex = 3;
-            // 
-            // OpisRez
-            // 
-            this.OpisRez.Location = new System.Drawing.Point(45, 290);
-            this.OpisRez.Name = "OpisRez";
-            this.OpisRez.Size = new System.Drawing.Size(150, 33);
-            this.OpisRez.TabIndex = 2;
-            this.OpisRez.Text = "Detaljno o knjizi";
-            this.OpisRez.UseVisualStyleBackColor = true;
             // 
             // OpisPos
             // 
@@ -140,6 +115,15 @@ namespace bitBooks_Project.Forme
             this.OpisPos.Text = "Detaljno o knjizi";
             this.OpisPos.UseVisualStyleBackColor = true;
             this.OpisPos.Click += new System.EventHandler(this.OpisPos_Click);
+            // 
+            // dgvKnjigPosudbe
+            // 
+            this.dgvKnjigPosudbe.BackgroundColor = System.Drawing.Color.Honeydew;
+            this.dgvKnjigPosudbe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKnjigPosudbe.Location = new System.Drawing.Point(15, 19);
+            this.dgvKnjigPosudbe.Name = "dgvKnjigPosudbe";
+            this.dgvKnjigPosudbe.Size = new System.Drawing.Size(423, 265);
+            this.dgvKnjigPosudbe.TabIndex = 3;
             // 
             // PregledKnjigaForm
             // 
@@ -172,7 +156,6 @@ namespace bitBooks_Project.Forme
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvKnjigPosudbe;
         private System.Windows.Forms.CheckBox chkboxDostava;
-        private System.Windows.Forms.Button OpisRez;
         private System.Windows.Forms.Button OpisPos;
     }
 }

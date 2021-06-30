@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,7 +49,9 @@ namespace bitBooks_Project.Forme
 
         private void PrijavaForm_Load(object sender, EventArgs e)
         {
-
+            string projectDirectory = Directory.GetParent(System.Environment.CurrentDirectory).Parent.FullName;
+            projectDirectory = projectDirectory + "/Korisnička_Dokumentacija/KorisničkaDokumentacija.chm";
+            helpProvider1.HelpNamespace = projectDirectory;
         }
 
         private void btnOdustani_Click(object sender, EventArgs e)

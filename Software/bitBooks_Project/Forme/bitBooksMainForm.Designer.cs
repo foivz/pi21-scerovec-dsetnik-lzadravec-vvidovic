@@ -47,6 +47,8 @@ namespace bitBooks_Project
             this.btnPrihvatiLivechat = new System.Windows.Forms.Button();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.btnKnjižnice = new System.Windows.Forms.Button();
+            this.labKorIme = new System.Windows.Forms.Label();
+            this.labKnjiznica = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.grpAdmin.SuspendLayout();
@@ -202,9 +204,9 @@ namespace bitBooks_Project
             // pictureBox1
             // 
             this.pictureBox1.Image = global::bitBooks_Project.Properties.Resources.knjiga;
-            this.pictureBox1.Location = new System.Drawing.Point(154, 39);
+            this.pictureBox1.Location = new System.Drawing.Point(189, 67);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(149, 94);
+            this.pictureBox1.Size = new System.Drawing.Size(83, 66);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
@@ -234,12 +236,32 @@ namespace bitBooks_Project
             this.btnKnjižnice.UseVisualStyleBackColor = true;
             this.btnKnjižnice.Click += new System.EventHandler(this.BtnKnjižnice_Click_1);
             // 
+            // labKorIme
+            // 
+            this.labKorIme.AutoSize = true;
+            this.labKorIme.Location = new System.Drawing.Point(327, 39);
+            this.labKorIme.Name = "labKorIme";
+            this.labKorIme.Size = new System.Drawing.Size(35, 13);
+            this.labKorIme.TabIndex = 13;
+            this.labKorIme.Text = "label1";
+            // 
+            // labKnjiznica
+            // 
+            this.labKnjiznica.AutoSize = true;
+            this.labKnjiznica.Location = new System.Drawing.Point(39, 39);
+            this.labKnjiznica.Name = "labKnjiznica";
+            this.labKnjiznica.Size = new System.Drawing.Size(35, 13);
+            this.labKnjiznica.TabIndex = 14;
+            this.labKnjiznica.Text = "label2";
+            // 
             // bitBooksMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.ClientSize = new System.Drawing.Size(455, 470);
+            this.Controls.Add(this.labKnjiznica);
+            this.Controls.Add(this.labKorIme);
             this.Controls.Add(this.btnKnjižnice);
             this.Controls.Add(this.btnPrihvatiLivechat);
             this.Controls.Add(this.pictureBox1);
@@ -279,6 +301,8 @@ namespace bitBooks_Project
         private System.Windows.Forms.Button btnPrihvatiLivechat;
         private System.Windows.Forms.Button btnPregledOdjela;
         private System.Windows.Forms.HelpProvider helpProvider1;
+        private System.Windows.Forms.Label labKorIme;
+        private System.Windows.Forms.Label labKnjiznica;
     }
 }
 
