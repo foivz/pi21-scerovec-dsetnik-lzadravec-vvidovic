@@ -1,14 +1,18 @@
 ﻿using Aspose.Pdf;
+using Aspose.Pdf.Drawing;
 using Aspose.Pdf.Facades;
 using Aspose.Pdf.Text;
 using bitBooks_Project.Dorian_Iznimke;
 using System;
 using System.Collections.Generic;
 using System.Data.Linq.SqlClient;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZXing;
 
 namespace bitBooks_Project.Klase
 {
@@ -658,6 +662,7 @@ namespace bitBooks_Project.Klase
             user.TextState.FontStyle = FontStyles.Bold;
             page.Paragraphs.Add(user);
             page.Paragraphs.Add(prazno);
+
             TextFragment ime = new TextFragment("Ime: " + Ime);
             ime.VerticalAlignment = Aspose.Pdf.VerticalAlignment.Top;
             ime.TextState.FontSize = 10;
@@ -665,6 +670,7 @@ namespace bitBooks_Project.Klase
             ime.TextState.FontStyle = FontStyles.Bold;
             page.Paragraphs.Add(ime);
             page.Paragraphs.Add(prazno);
+
             TextFragment prezime = new TextFragment("Prezime: " + Prezime);
             prezime.VerticalAlignment = Aspose.Pdf.VerticalAlignment.Top;
             prezime.TextState.FontSize = 10;
@@ -672,6 +678,7 @@ namespace bitBooks_Project.Klase
             prezime.TextState.FontStyle = FontStyles.Bold;
             page.Paragraphs.Add(prezime);
             page.Paragraphs.Add(prazno);
+
             TextFragment email = new TextFragment("Email: " + Email);
             email.VerticalAlignment = Aspose.Pdf.VerticalAlignment.Top;
             email.TextState.FontSize = 10;
@@ -679,6 +686,7 @@ namespace bitBooks_Project.Klase
             email.TextState.FontStyle = FontStyles.Bold;
             page.Paragraphs.Add(email);
             page.Paragraphs.Add(prazno);
+
             TextFragment adresa = new TextFragment("Adresa: " + Adresa);
             adresa.VerticalAlignment = Aspose.Pdf.VerticalAlignment.Top;
             adresa.TextState.FontSize = 10;
@@ -686,6 +694,7 @@ namespace bitBooks_Project.Klase
             adresa.TextState.FontStyle = FontStyles.Bold;
             page.Paragraphs.Add(adresa);
             page.Paragraphs.Add(prazno);
+
             TextFragment knj = new TextFragment("Knjižnica: " + ImeKnjiznice);
             knj.VerticalAlignment = Aspose.Pdf.VerticalAlignment.Top;
             knj.TextState.FontSize = 10;
@@ -693,6 +702,7 @@ namespace bitBooks_Project.Klase
             knj.TextState.FontStyle = FontStyles.Bold;
             page.Paragraphs.Add(knj);
             page.Paragraphs.Add(prazno);
+
             TextFragment proj = new TextFragment("bitBooks");
             proj.TextState.FontSize = 16;
             proj.TextState.Font = FontRepository.FindFont("TimesNewRoman");
@@ -700,15 +710,26 @@ namespace bitBooks_Project.Klase
             page.Paragraphs.Add(proj);
 
 
-            Rectangle rectangle = new Rectangle(200, 100, 300, 200);
+            Aspose.Pdf.Rectangle rectangle = new Aspose.Pdf.Rectangle(20, 20, 120, 120);
+            Aspose.Pdf.Rectangle barcode = new Aspose.Pdf.Rectangle(200, 70, 300, 170);
             page.AddImage(projectDirectory + "/Slike/knjigaB.png" , rectangle);
+
+            //generiranje barkoda
+            BarcodeWriter writer = new BarcodeWriter() { Format = BarcodeFormat.CODE_128 };
+
+            Bitmap bmp;
+
+            bmp = writer.Write(KorisnikID.ToString());
+
+            bmp.Save(projectDirectory + "/PDF_Iskaznice/barkod.png", System.Drawing.Imaging.ImageFormat.Png);
+
+            page.AddImage(projectDirectory + "/PDF_Iskaznice/barkod.png", barcode);
 
             document.Background = Aspose.Pdf.Color.FromRgb(System.Drawing.Color.FromArgb(60, 179, 113));
 
             document.Save(projectDirectory + "/PDF_Iskaznice/" + KorisnickoIme +".pdf");
             Console.WriteLine(projectDirectory);
         }
-
 
         public static void NoviKorisnik(Korisnik korisnik)
         {

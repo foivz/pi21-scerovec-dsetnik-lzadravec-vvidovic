@@ -136,5 +136,18 @@ namespace bitBooks_Project.Klase
                 throw new RecenzijaException("Komentar mora imati između 200 i nula znakova!");
             }
         }
+
+        public void ObrisiRecenziju()
+        {
+            using (var context = new Entities_db1())
+            {
+                var query = (from r in context.ReviewLibraries
+                             where r.UserID == KorisnikID
+                             select r).FirstOrDefault();
+                context.ReviewLibraries.Remove(query);
+                context.SaveChanges();
+
+            }
+        }
     }
 }

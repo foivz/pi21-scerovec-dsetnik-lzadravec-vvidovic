@@ -26,6 +26,8 @@ namespace bitBooks_Project
         LiveChatForm liveChatForm;
         PregledOdjelaForm pregledOdjelaForm;
 
+        SuperAdminForm knjizniceForm;
+
         Timer timer3Sec;
         Zahtjev zahtjev;
 
@@ -40,6 +42,7 @@ namespace bitBooks_Project
             grpAdmin.Visible = false;
             btnLiveChat.Visible = false;
             btnPrihvatiLivechat.Visible = false;
+            btnKnjižnice.Visible = false;
             if (Sesija.Korisnik.DohvatiTipKorisnika(Sesija.Korisnik)=="Korisnik")
             {
                 groupBox3.Visible = true;
@@ -50,6 +53,11 @@ namespace bitBooks_Project
                 ZapocniTimer();
                 grpAdmin.Visible = true;
                 groupBox3.Visible = true;
+            }
+
+            if (Sesija.Korisnik.DohvatiTipKorisnika(Sesija.Korisnik) == "Super admin")
+            {
+                btnKnjižnice.Visible = true;
             }
         }
 
@@ -151,6 +159,12 @@ namespace bitBooks_Project
         {
             SuperAdminForm superAdminForm = new SuperAdminForm();
             superAdminForm.ShowDialog();
+        }
+
+        private void BtnKnjižnice_Click_1(object sender, EventArgs e)
+        {
+            knjizniceForm = new SuperAdminForm();
+            knjizniceForm.ShowDialog();
         }
     }
 }

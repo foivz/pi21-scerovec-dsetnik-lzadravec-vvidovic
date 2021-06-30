@@ -43,6 +43,9 @@ namespace bitBooks_Project
             this.btnUnos = new System.Windows.Forms.Button();
             this.btnAžuriraj = new System.Windows.Forms.Button();
             this.btnIskaznica = new System.Windows.Forms.Button();
+            this.btnSkener = new System.Windows.Forms.Button();
+            this.cmbSkener = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -110,7 +113,7 @@ namespace bitBooks_Project
             // 
             // btnZatvori
             // 
-            this.btnZatvori.Location = new System.Drawing.Point(714, 497);
+            this.btnZatvori.Location = new System.Drawing.Point(714, 525);
             this.btnZatvori.Name = "btnZatvori";
             this.btnZatvori.Size = new System.Drawing.Size(75, 29);
             this.btnZatvori.TabIndex = 8;
@@ -141,9 +144,9 @@ namespace bitBooks_Project
             // btnObrisi
             // 
             this.btnObrisi.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnObrisi.Location = new System.Drawing.Point(12, 497);
+            this.btnObrisi.Location = new System.Drawing.Point(684, 83);
             this.btnObrisi.Name = "btnObrisi";
-            this.btnObrisi.Size = new System.Drawing.Size(105, 29);
+            this.btnObrisi.Size = new System.Drawing.Size(105, 25);
             this.btnObrisi.TabIndex = 11;
             this.btnObrisi.Text = "Obriši člana";
             this.btnObrisi.UseVisualStyleBackColor = true;
@@ -151,7 +154,7 @@ namespace bitBooks_Project
             // 
             // btnUnos
             // 
-            this.btnUnos.Location = new System.Drawing.Point(684, 27);
+            this.btnUnos.Location = new System.Drawing.Point(684, 12);
             this.btnUnos.Name = "btnUnos";
             this.btnUnos.Size = new System.Drawing.Size(105, 25);
             this.btnUnos.TabIndex = 12;
@@ -161,9 +164,9 @@ namespace bitBooks_Project
             // 
             // btnAžuriraj
             // 
-            this.btnAžuriraj.Location = new System.Drawing.Point(684, 79);
+            this.btnAžuriraj.Location = new System.Drawing.Point(684, 48);
             this.btnAžuriraj.Name = "btnAžuriraj";
-            this.btnAžuriraj.Size = new System.Drawing.Size(98, 23);
+            this.btnAžuriraj.Size = new System.Drawing.Size(105, 23);
             this.btnAžuriraj.TabIndex = 13;
             this.btnAžuriraj.Text = "Ažuriraj korisnika";
             this.btnAžuriraj.UseVisualStyleBackColor = true;
@@ -173,18 +176,48 @@ namespace bitBooks_Project
             // 
             this.btnIskaznica.Location = new System.Drawing.Point(12, 497);
             this.btnIskaznica.Name = "btnIskaznica";
-            this.btnIskaznica.Size = new System.Drawing.Size(121, 31);
+            this.btnIskaznica.Size = new System.Drawing.Size(105, 31);
             this.btnIskaznica.TabIndex = 12;
             this.btnIskaznica.Text = "Napravi iskaznicu";
             this.btnIskaznica.UseVisualStyleBackColor = true;
             this.btnIskaznica.Click += new System.EventHandler(this.btnIskaznica_Click);
+            // 
+            // btnSkener
+            // 
+            this.btnSkener.Location = new System.Drawing.Point(390, 497);
+            this.btnSkener.Name = "btnSkener";
+            this.btnSkener.Size = new System.Drawing.Size(105, 31);
+            this.btnSkener.TabIndex = 14;
+            this.btnSkener.Text = "Skeniraj karticu";
+            this.btnSkener.UseVisualStyleBackColor = true;
+            this.btnSkener.Click += new System.EventHandler(this.BtnSkener_Click);
+            // 
+            // cmbSkener
+            // 
+            this.cmbSkener.FormattingEnabled = true;
+            this.cmbSkener.Location = new System.Drawing.Point(254, 500);
+            this.cmbSkener.Name = "cmbSkener";
+            this.cmbSkener.Size = new System.Drawing.Size(121, 21);
+            this.cmbSkener.TabIndex = 15;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(141, 503);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(107, 13);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Uređaj za skeniranje:";
             // 
             // PregledClanovaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.ClientSize = new System.Drawing.Size(801, 538);
+            this.ClientSize = new System.Drawing.Size(801, 584);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cmbSkener);
+            this.Controls.Add(this.btnSkener);
             this.Controls.Add(this.btnIskaznica);
             this.Controls.Add(this.btnAžuriraj);
             this.Controls.Add(this.btnUnos);
@@ -225,5 +258,8 @@ namespace bitBooks_Project
         private System.Windows.Forms.Button btnIskaznica;
         private System.Windows.Forms.Button btnUnos;
         private System.Windows.Forms.Button btnAžuriraj;
+        private System.Windows.Forms.Button btnSkener;
+        private System.Windows.Forms.ComboBox cmbSkener;
+        private System.Windows.Forms.Label label3;
     }
 }

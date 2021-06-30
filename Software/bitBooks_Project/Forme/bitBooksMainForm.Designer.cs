@@ -232,6 +232,7 @@ namespace bitBooks_Project
             this.btnKnjižnice.TabIndex = 12;
             this.btnKnjižnice.Text = "Knjižnice";
             this.btnKnjižnice.UseVisualStyleBackColor = true;
+            this.btnKnjižnice.Click += new System.EventHandler(this.BtnKnjižnice_Click_1);
             // 
             // bitBooksMainForm
             // 
