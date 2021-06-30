@@ -59,7 +59,7 @@ namespace bitBooks_Project.Forme
                     aktivacijskiKodFrm = new AktivacijskiKodForm(noviKorisnik);
                     aktivacijskiKodFrm.ShowDialog();
                     Close();
-
+                    Obavijest.GeneriranjeObavijestiRegistracije(noviKorisnik.UserID);
                 }
                 else
                 {

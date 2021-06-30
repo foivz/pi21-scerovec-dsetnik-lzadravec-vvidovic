@@ -57,6 +57,13 @@
     <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PodaciOKnjiziDll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PodaciOKnjiziDll\bin\Debug\PodaciOKnjiziDll.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -204,6 +211,12 @@
     </Compile>
     <Compile Include="Forme\MojeRezervacijeForm.Designer.cs">
       <DependentUpon>MojeRezervacijeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\OpisKnjigeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\OpisKnjigeForm.Designer.cs">
+      <DependentUpon>OpisKnjigeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forme\PosudbaForm.cs">
       <SubType>Form</SubType>
@@ -404,6 +417,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\MojeRezervacijeForm.resx">
       <DependentUpon>MojeRezervacijeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\OpisKnjigeForm.resx">
+      <DependentUpon>OpisKnjigeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\PosudbaForm.resx">
       <DependentUpon>PosudbaForm.cs</DependentUpon>

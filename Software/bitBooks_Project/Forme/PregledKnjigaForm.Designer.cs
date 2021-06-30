@@ -36,6 +36,8 @@ namespace bitBooks_Project.Forme
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvKnjigPosudbe = new System.Windows.Forms.DataGridView();
+            this.OpisRez = new System.Windows.Forms.Button();
+            this.OpisPos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKnjige)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -54,7 +56,7 @@ namespace bitBooks_Project.Forme
             // 
             // btnRezerviraj
             // 
-            this.btnRezerviraj.Location = new System.Drawing.Point(155, 290);
+            this.btnRezerviraj.Location = new System.Drawing.Point(243, 290);
             this.btnRezerviraj.Name = "btnRezerviraj";
             this.btnRezerviraj.Size = new System.Drawing.Size(150, 33);
             this.btnRezerviraj.TabIndex = 1;
@@ -64,7 +66,7 @@ namespace bitBooks_Project.Forme
             // 
             // btnPosudi
             // 
-            this.btnPosudi.Location = new System.Drawing.Point(150, 290);
+            this.btnPosudi.Location = new System.Drawing.Point(205, 290);
             this.btnPosudi.Name = "btnPosudi";
             this.btnPosudi.Size = new System.Drawing.Size(150, 33);
             this.btnPosudi.TabIndex = 2;
@@ -75,15 +77,16 @@ namespace bitBooks_Project.Forme
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(479, 29);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(455, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 20);
+            this.label1.Size = new System.Drawing.Size(149, 25);
             this.label1.TabIndex = 3;
             this.label1.Text = "Pregled knjiga";
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.OpisRez);
             this.groupBox1.Controls.Add(this.dgvKnjige);
             this.groupBox1.Controls.Add(this.btnRezerviraj);
             this.groupBox1.Location = new System.Drawing.Point(21, 96);
@@ -95,6 +98,8 @@ namespace bitBooks_Project.Forme
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.OpisPos);
+            this.groupBox2.Controls.Add(this.chkboxDostava);
             this.groupBox2.Controls.Add(this.dgvKnjigPosudbe);
             this.groupBox2.Controls.Add(this.btnPosudi);
             this.groupBox2.Location = new System.Drawing.Point(574, 96);
@@ -104,6 +109,16 @@ namespace bitBooks_Project.Forme
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dostupno za posudbu";
             // 
+            // chkboxDostava
+            // 
+            this.chkboxDostava.AutoSize = true;
+            this.chkboxDostava.Location = new System.Drawing.Point(361, 299);
+            this.chkboxDostava.Name = "chkboxDostava";
+            this.chkboxDostava.Size = new System.Drawing.Size(66, 17);
+            this.chkboxDostava.TabIndex = 4;
+            this.chkboxDostava.Text = "Dostava";
+            this.chkboxDostava.UseVisualStyleBackColor = true;
+            // 
             // dgvKnjigPosudbe
             // 
             this.dgvKnjigPosudbe.BackgroundColor = System.Drawing.Color.Honeydew;
@@ -112,6 +127,25 @@ namespace bitBooks_Project.Forme
             this.dgvKnjigPosudbe.Name = "dgvKnjigPosudbe";
             this.dgvKnjigPosudbe.Size = new System.Drawing.Size(423, 265);
             this.dgvKnjigPosudbe.TabIndex = 3;
+            // 
+            // OpisRez
+            // 
+            this.OpisRez.Location = new System.Drawing.Point(45, 290);
+            this.OpisRez.Name = "OpisRez";
+            this.OpisRez.Size = new System.Drawing.Size(150, 33);
+            this.OpisRez.TabIndex = 2;
+            this.OpisRez.Text = "Detaljno o knjizi";
+            this.OpisRez.UseVisualStyleBackColor = true;
+            // 
+            // OpisPos
+            // 
+            this.OpisPos.Location = new System.Drawing.Point(30, 290);
+            this.OpisPos.Name = "OpisPos";
+            this.OpisPos.Size = new System.Drawing.Size(150, 33);
+            this.OpisPos.TabIndex = 3;
+            this.OpisPos.Text = "Detaljno o knjizi";
+            this.OpisPos.UseVisualStyleBackColor = true;
+            this.OpisPos.Click += new System.EventHandler(this.OpisPos_Click);
             // 
             // PregledKnjigaForm
             // 
@@ -143,5 +177,8 @@ namespace bitBooks_Project.Forme
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvKnjigPosudbe;
+        private System.Windows.Forms.CheckBox chkboxDostava;
+        private System.Windows.Forms.Button OpisRez;
+        private System.Windows.Forms.Button OpisPos;
     }
 }
