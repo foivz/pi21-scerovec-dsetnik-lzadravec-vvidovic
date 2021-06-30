@@ -99,7 +99,7 @@ namespace bitBooks_Project.Forme
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.OpisPos);
-            this.groupBox2.Controls.Add(this.chkboxDostava);
+
             this.groupBox2.Controls.Add(this.dgvKnjigPosudbe);
             this.groupBox2.Controls.Add(this.btnPosudi);
             this.groupBox2.Location = new System.Drawing.Point(574, 96);
@@ -111,13 +111,7 @@ namespace bitBooks_Project.Forme
             // 
             // chkboxDostava
             // 
-            this.chkboxDostava.AutoSize = true;
-            this.chkboxDostava.Location = new System.Drawing.Point(361, 299);
-            this.chkboxDostava.Name = "chkboxDostava";
-            this.chkboxDostava.Size = new System.Drawing.Size(66, 17);
-            this.chkboxDostava.TabIndex = 4;
-            this.chkboxDostava.Text = "Dostava";
-            this.chkboxDostava.UseVisualStyleBackColor = true;
+
             // 
             // dgvKnjigPosudbe
             // 
