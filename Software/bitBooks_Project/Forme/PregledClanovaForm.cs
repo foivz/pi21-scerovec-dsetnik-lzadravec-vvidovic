@@ -198,7 +198,11 @@ namespace bitBooks_Project
                 recKnjiznice = RecenzijaKnjižnice.DohvatiKorisnikoveRecenzijeKnjiznice(_odabraniKorisnik.KorisnikID);
                 recZaposlenika = RecenzijaZaposlenika.DohvatiKorisnikoveRecenzijeZaposlenika(_odabraniKorisnik.KorisnikID);
 
-                recKnjiznice.ObrisiRecenziju();
+                if (recKnjiznice != null)
+                {
+                    recKnjiznice.ObrisiRecenziju();
+                }
+                
 
                 foreach (Posudba posudba in posudbeKorisnika)
                 {

@@ -89,7 +89,11 @@ namespace bitBooks_Project.Forme
                     recKnjiznice = RecenzijaKnjižnice.DohvatiKorisnikoveRecenzijeKnjiznice(korisnik.KorisnikID);
                     recZaposlenika = RecenzijaZaposlenika.DohvatiKorisnikoveRecenzijeZaposlenika(korisnik.KorisnikID);
 
-                    recKnjiznice.ObrisiRecenziju();
+                    if (recKnjiznice != null)
+                    {
+                        recKnjiznice.ObrisiRecenziju();
+                    }
+                    
 
                     foreach (Posudba posudba in posudbeKorisnika)
                     {
