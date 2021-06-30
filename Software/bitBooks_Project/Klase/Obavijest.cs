@@ -82,6 +82,23 @@ namespace bitBooks_Project.Klase
                 context.SaveChanges();
             }
         }
+
+        public static void GeneriranjeObavijestiRegistracije(int KorisnikID)
+        {
+            using (var context = new Entities_db1())
+            {
+
+                Notification obavijest = new Notification();
+
+                obavijest.UserID = KorisnikID;
+                obavijest.Datetime = DateTime.Now;
+                obavijest.Message = "Dobrodošli u naš sustav!";
+
+                context.Notifications.Add(obavijest);
+                context.SaveChanges();
+            }
+        }
+
     }
 
 

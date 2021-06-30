@@ -90,7 +90,7 @@ namespace bitBooks_Project.Forme
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
                 smtp.Send(poruka);
-                smtp.SendCompleted += new SendCompletedEventHandler(smtp_SendCompleted);
+                smtp.SendCompleted += new SendCompletedEventHandler(Smtp_SendCompleted);
 
             }
             catch (Exception ex)
@@ -101,7 +101,7 @@ namespace bitBooks_Project.Forme
         }
 
 
-        void smtp_SendCompleted(object sender, AsyncCompletedEventArgs e)
+        void Smtp_SendCompleted(object sender, AsyncCompletedEventArgs e)
         {
             if (e.Cancelled == true)
             {

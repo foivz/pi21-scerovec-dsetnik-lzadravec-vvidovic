@@ -104,5 +104,14 @@ namespace bitBooks_Project.Forme
             }
         }
 
+        private void OpisPos_Click(object sender, EventArgs e)
+        {
+            if (dgvKnjigPosudbe.CurrentRow != null)
+            {
+                Knjiga knjiga = dgvKnjigPosudbe.CurrentRow.DataBoundItem as Knjiga;
+                OpisKnjigeForm forma = new OpisKnjigeForm(knjiga);
+                forma.ShowDialog();
+            }
+        }
     }
 }
